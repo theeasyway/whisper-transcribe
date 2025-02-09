@@ -19,7 +19,7 @@ This provides a very lightweight way to get high-quality transcription Whisper-b
 - 🔔 **Desktop Notifications**: Shows Windows toast notifications for completion/errors
 - 🔄 **Two Model Options**: 
   - OpenAI Whisper via OpenAI API (slightly higher accuracy)
-  - OpenAI Whisper Turbo via Fireworks AI API (significantly faster processing, cheaper) << RECOMMENDED & DEFAULT
+  - OpenAI Whisper Turbo via Fireworks AI API (significantly faster processing, cheaper, at time of writing they give 1$ free credit on signup) << RECOMMENDED & DEFAULT
 
 ## Prerequisites
 
