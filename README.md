@@ -1,6 +1,7 @@
-# Audio Transcription Scripts For Windows Using OpenAI Whisper
+# Audio Transcription Script For Windows Using OpenAI Whisper
 
-Automatic audio transcription scripts designed to work seamlessly with Windows Sound Recorder, providing a lightweight solution for quick voice-to-text on Windows. The scripts watch for new recordings and transcribe them using either OpenAI's Whisper or Whisper Turbo model. The transcriptions are automatically copied to your clipboard and a notification is shown when complete.
+Automatic audio transcription script designed to work seamlessly with Windows Sound Recorder, providing a lightweight solution for quick voice-to-text on Windows. The script watches for new recordings and transcribes them using either OpenAI's Whisper or Whisper Turbo model. The transcriptions are automatically copied to your clipboard and a notification is shown when complete.
+
 
 ## Quick Start with Windows Sound Recorder
 
@@ -77,7 +78,7 @@ The script will:
 
 ## Configuration
 
-By default, the scripts watch `\Users\[YourUsername]\Documents\Sound Recordings` for new `.m4a` files. This is the default save location for Windows Sound Recorder, so everything works seamlessly without any configuration. The directory is created automatically if it doesn't exist.
+By default, the script watches `\Users\[YourUsername]\Documents\Sound Recordings` for new `.m4a` files. This is the default save location for Windows Sound Recorder, so everything works seamlessly without any configuration. The directory is created automatically if it doesn't exist.
 
 ## Dependencies
 
@@ -90,7 +91,7 @@ By default, the scripts watch `\Users\[YourUsername]\Documents\Sound Recordings`
 
 ## Error Handling
 
-- The scripts will show notifications for both successful transcriptions and errors
+- The script will show notifications for both successful transcriptions and errors
 - File system errors and API errors are caught and reported
 - Transcription errors won't crash the script - it will continue watching for new files
 
