@@ -1,26 +1,21 @@
 import os
 import time
 import requests
-import tempfile
 import threading
-import wave
 from datetime import datetime
-from openai import OpenAI
 import win32clipboard
 import keyboard
 import pyautogui
 import numpy as np
 import sounddevice as sd
 import wavio
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
 from win10toast import ToastNotifier
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Function to clean environment variable values - used throughout the script
+# Function to clean environment variable values
 def clean_env_value(value, default=""):
     if value is None:
         return default
@@ -32,6 +27,19 @@ def clean_env_value(value, default=""):
     # Strip whitespace and remove quotes
     return value.strip().replace('"', '').replace("'", "")
 
+# Parse boolean environment variable
+def parse_bool_env(env_name, default="false"):
+    value = clean_env_value(os.getenv(env_name), default).lower()
+    return value == "true" or value == "yes" or value == "1"
+
+# Parse integer environment variable
+def parse_int_env(env_name, default):
+    try:
+        return int(clean_env_value(os.getenv(env_name), str(default)))
+    except ValueError:
+        print(f"Warning: Invalid {env_name} value, using default of {default}")
+        return default
+
 # Configuration
 TRANSCRIPTION_MODEL = clean_env_value(os.getenv("TRANSCRIPTION_MODEL"), "local").lower()
 FIREWORKS_API_KEY = clean_env_value(os.getenv("FIREWORKS_API_KEY"))
@@ -39,17 +47,9 @@ OPENAI_API_KEY = clean_env_value(os.getenv("OPENAI_API_KEY"))
 LOCAL_MODEL_PATH = clean_env_value(os.getenv("LOCAL_MODEL_PATH"), "models")
 HOTKEY = clean_env_value(os.getenv("RECORDING_HOTKEY"), "f9")
 SAMPLE_RATE = 44100  # Sample rate in Hz
-
-# Clean boolean values
-DELETE_RECORDINGS_VALUE = clean_env_value(os.getenv("DELETE_RECORDINGS"), "true").lower()
-DELETE_RECORDINGS = DELETE_RECORDINGS_VALUE == "true" or DELETE_RECORDINGS_VALUE == "yes" or DELETE_RECORDINGS_VALUE == "1"
-
-# Clean integer values
-try:
-    MAX_RECORDING_AGE_DAYS = int(clean_env_value(os.getenv("MAX_RECORDING_AGE_DAYS"), "7"))
-except ValueError:
-    print("Warning: Invalid MAX_RECORDING_AGE_DAYS value, using default of 7 days")
-    MAX_RECORDING_AGE_DAYS = 7
+DELETE_RECORDINGS = parse_bool_env("DELETE_RECORDINGS", "true")
+MAX_RECORDING_AGE_DAYS = parse_int_env("MAX_RECORDING_AGE_DAYS", 7)
+USE_GPU = parse_bool_env("USE_GPU", "false")
 
 # Validate configuration
 if TRANSCRIPTION_MODEL not in ["fireworks", "openai", "local"]:
@@ -65,18 +65,6 @@ elif TRANSCRIPTION_MODEL == "local":
         from faster_whisper import WhisperModel
     except ImportError:
         raise ImportError("faster-whisper is not installed. Please run 'pip install faster-whisper'")
-    
-    # Function to clean environment variable values
-    def clean_env_value(value, default=""):
-        if value is None:
-            return default
-        
-        # Remove comments
-        if "#" in value:
-            value = value.split("#")[0]
-            
-        # Strip whitespace and remove quotes
-        return value.strip().replace('"', '').replace("'", "")
     
     # Define the default model to use if no local model is found
     DEFAULT_MODEL_SIZE = clean_env_value(os.getenv("DEFAULT_MODEL_SIZE"), "small.en")
@@ -94,7 +82,7 @@ elif TRANSCRIPTION_MODEL == "local":
         "distil-large-v3", "large-v3-turbo", "turbo"
     ]
     
-    # Look for existing model files more thoroughly
+    # Look for existing model files
     found_models = []
     try:
         # Check for models in the Hugging Face cache format
@@ -141,44 +129,32 @@ elif TRANSCRIPTION_MODEL == "local":
         print(f"Will download the {DEFAULT_MODEL_SIZE} model")
 
 # Initialize OpenAI client if needed
-openai_client = OpenAI(api_key=OPENAI_API_KEY) if TRANSCRIPTION_MODEL == "openai" else None
+if TRANSCRIPTION_MODEL == "openai":
+    from openai import OpenAI
+    openai_client = OpenAI(api_key=OPENAI_API_KEY)
+else:
+    openai_client = None
 
 # Initialize local model if needed
 local_model = None
 if TRANSCRIPTION_MODEL == "local":
-    from faster_whisper import WhisperModel
-    
-    # Load model info
     print(f"Loading model: {local_model_name}")
     print("This may take a moment if downloading for the first time...")
     
-    # Get GPU setting and clean it
-    use_gpu_value = clean_env_value(os.getenv("USE_GPU"), "false").lower()
-    use_gpu = use_gpu_value == "true" or use_gpu_value == "yes" or use_gpu_value == "1"
-    
-    # Debug output
-    print(f"DEBUG - GPU configuration:")
-    print(f"USE_GPU cleaned value: '{use_gpu_value}'")
-    print(f"GPU will be used: {use_gpu}")
-    
     try:
-        if use_gpu:
+        if USE_GPU:
             try:
                 print("Attempting to use GPU...")
                 import torch
-                print(f"CUDA available: {torch.cuda.is_available()}")
                 if torch.cuda.is_available():
-                    print(f"CUDA device: {torch.cuda.get_device_name(0)}")
+                    print(f"CUDA available: Using {torch.cuda.get_device_name(0)}")
                     local_model = WhisperModel(local_model_name, device="cuda", compute_type="float16", download_root=LOCAL_MODEL_PATH)
-                    print("Using GPU for inference")
                 else:
-                    print("CUDA not available in PyTorch, falling back to CPU")
+                    print("CUDA not available, falling back to CPU")
                     local_model = WhisperModel(local_model_name, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
-                    print("Using CPU for inference (CUDA not available)")
             except Exception as e:
                 print(f"GPU acceleration failed, falling back to CPU: {e}")
                 local_model = WhisperModel(local_model_name, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
-                print("Using CPU for inference")
         else:
             # Directly use CPU
             local_model = WhisperModel(local_model_name, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
@@ -229,8 +205,6 @@ def transcribe_audio_openai(file_path):
 
 def transcribe_audio_local(file_path):
     """Transcribe audio using local Whisper model"""
-    # Convert WAV to format compatible with faster-whisper if needed
-    # For most WAV files this isn't necessary, but it's safer to check
     print("Transcribing with local model...")
     
     try:
@@ -265,10 +239,20 @@ def paste_text():
     """Paste text at current cursor position"""
     pyautogui.hotkey('ctrl', 'v')
 
-def show_toast(title, message):
-    """Show Windows toast notification"""
+def show_toast(title, message, notification_type=None):
+    """Show Windows toast notification with emojis for visual differentiation"""
     try:
-        toaster.show_toast(title, message, duration=5, threaded=True)
+        # Add appropriate emoji prefix based on notification type
+        if notification_type == "recording":
+            emoji_title = "🔴 " + title  # Red circle for recording
+        elif notification_type == "transcription":
+            emoji_title = "✅ " + title  # Green checkmark for completion
+        elif notification_type == "error":
+            emoji_title = "❌ " + title  # Red X for errors
+        else:
+            emoji_title = title
+            
+        toaster.show_toast(emoji_title, message, duration=5, threaded=True)
     except Exception as e:
         print(f"Notification error: {str(e)}")
 
@@ -297,7 +281,7 @@ def start_recording():
     # Start recording
     is_recording = True
     print("Recording started... Press", HOTKEY, "again to stop.")
-    show_toast("Recording", "Recording started. Press the same key again to stop.")
+    show_toast("Recording", "Recording started. Press the same key again to stop.", notification_type="recording")
 
 def stop_recording():
     """Stop recording audio and save file"""
@@ -339,10 +323,11 @@ def process_recording(file_path):
         paste_text()
         
         show_toast("Transcription Complete", 
-                 "The transcription has been pasted at cursor position.")
+          "The transcription has been pasted at cursor position.", 
+          notification_type="transcription")
     except Exception as e:
         print(f"Error transcribing: {str(e)}\n")
-        show_toast("Transcription Error", "Error transcribing recording")
+        show_toast("Transcription Error", "Error transcribing recording", notification_type="error")
 
 def toggle_recording():
     """Toggle recording state"""
