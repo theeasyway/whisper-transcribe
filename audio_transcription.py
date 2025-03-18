@@ -9,8 +9,10 @@ import pyautogui
 import numpy as np
 import sounddevice as sd
 import wavio
-from win10toast import ToastNotifier
 from dotenv import load_dotenv
+import tkinter as tk
+import platform
+import ctypes
 
 # Load environment variables from .env file
 load_dotenv()
@@ -39,6 +41,372 @@ def parse_int_env(env_name, default):
     except ValueError:
         print(f"Warning: Invalid {env_name} value, using default of {default}")
         return default
+
+# Global variables for recording
+is_recording = False
+recording_data = []
+current_recording_file = None
+indicator_status = None  # Current status of the indicator
+indicator_root = None    # Root tkinter window for the indicator
+   
+# Function to run indicator window as main window
+def run_indicator():
+    global indicator_root
+    
+    # Create the main window if it doesn't exist
+    if indicator_root is None:
+        indicator_root = tk.Tk()
+        indicator_root.withdraw()  # Hide the main window
+        
+    # Start the main loop
+    indicator_root.mainloop()
+
+# Start the indicator thread at the beginning
+indicator_thread = threading.Thread(target=run_indicator, daemon=True)
+indicator_thread.start()
+
+# Helper functions for the indicator
+def get_status_properties(status):
+    """Return properties for the given status"""
+    if status == "recording":
+        return {
+            "bg_color": "#FF4D4D",  # Softer red
+            "hover_color": "#FF6666",  # Lighter red on hover
+            "icon": None,  # No icon for recording - will be replaced by animation
+        }
+    elif status == "transcribing":
+        return {
+            "bg_color": "#FFA64D",  # Softer orange
+            "hover_color": "#FFB366",  # Lighter orange on hover
+            "icon": "✎",  # Pen icon for transcribing
+        }
+    elif status == "complete":
+        return {
+            "bg_color": "#4CAF50",  # Softer green
+            "hover_color": "#5FD164",  # Lighter green on hover
+            "icon": "✓",  # Checkmark for complete
+        }
+    else:
+        return None  # Invalid status
+
+def create_base_window(indicator_root, x_position, y_position, window_width, window_height, bg_color):
+    """Create and configure the base window"""
+    top = tk.Toplevel(indicator_root)
+    top.title("")
+    
+    # Set window properties
+    top.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
+    top.configure(bg=bg_color)
+    top.overrideredirect(True)
+    top.attributes("-topmost", True)
+    
+    # Use transparency for anti-aliasing effect if supported by platform
+    try:
+        top.attributes("-alpha", 0.80)  # slight transparency
+    except:
+        pass
+    
+    return top
+
+def create_frames(top, bg_color):
+    """Create the frames for the indicator"""
+    # Create a basic frame with groove border
+    frame = tk.Frame(top, bg=bg_color, bd=1, relief="groove")
+    frame.pack(expand=True, fill="both", padx=2, pady=2)
+    
+    # Inner frame for content
+    inner_frame = tk.Frame(frame, bg=bg_color)
+    inner_frame.pack(expand=True, fill="both", padx=2, pady=2)
+    
+    return frame, inner_frame
+
+def create_standard_icon(inner_frame, icon, font_size, bg_color):
+    """Create a standard centered icon"""
+    icon_label = tk.Label(
+        inner_frame, 
+        text=icon,
+        font=("Arial", font_size, "bold"),
+        fg="white",
+        bg=bg_color
+    )
+    icon_label.pack(expand=True, fill="both")
+    
+    return icon_label
+
+def setup_standard_hover(inner_frame, icon_label, frame, bg_color, hover_color):
+    """Set up hover effects for standard icons"""
+    def on_enter(e):
+        inner_frame.config(bg=hover_color)
+        icon_label.config(bg=hover_color)
+        frame.config(bg=hover_color)
+    
+    def on_leave(e):
+        inner_frame.config(bg=bg_color)
+        icon_label.config(bg=bg_color)
+        frame.config(bg=bg_color)
+    
+    # Bind hover events
+    inner_frame.bind("<Enter>", on_enter)
+    inner_frame.bind("<Leave>", on_leave)
+    icon_label.bind("<Enter>", on_enter)
+    icon_label.bind("<Leave>", on_leave)
+
+def get_color_for_intensity(intensity, bg_color):
+    """
+    Returns RGB color for given intensity (0.0-1.0)
+    Fades between background color and white
+    """
+    # Parse background color
+    bg_r = int(bg_color[1:3], 16)
+    bg_g = int(bg_color[3:5], 16)
+    bg_b = int(bg_color[5:7], 16)
+    
+    # Calculate color components
+    r = int(bg_r + (255 - bg_r) * intensity)
+    g = int(bg_g + (255 - bg_g) * intensity)
+    b = int(bg_b + (255 - bg_b) * intensity)
+    
+    # Ensure values are in valid range
+    r = max(0, min(255, r))
+    g = max(0, min(255, g))
+    b = max(0, min(255, b))
+    
+    # Return hex color
+    return f"#{r:02x}{g:02x}{b:02x}"
+
+def create_recording_animation(inner_frame, bg_color, hover_color, font_size, top):
+    """Create and set up the recording animation"""
+    # Container for dots (centered)
+    dots_container = tk.Frame(inner_frame, bg=bg_color)
+    dots_container.pack(expand=True, fill="both")
+    
+    # Frame for the dots to allow centering
+    dots_frame = tk.Frame(dots_container, bg=bg_color)
+    dots_frame.pack(expand=False, anchor="center")
+    
+    # Create the dots
+    dot_labels = []
+    dot_size = max(22, int(font_size * 1.5))  # Larger dots
+    
+    for i in range(4):
+        dot = tk.Label(
+            dots_frame,
+            text="●",  # Solid circle for better visibility
+            font=("Arial", dot_size, "bold"),
+            fg=bg_color,  # Start with background color (invisible)
+            bg=bg_color
+        )
+        dot.pack(side="left", padx=4)  # More spacing
+        dot_labels.append(dot)
+    
+    # Create a table of 32 pre-calculated colors for smooth transition
+    color_levels = 32
+    color_table = [get_color_for_intensity(i / (color_levels-1), bg_color) for i in range(color_levels)]
+    
+    # Save color table in top window for later access
+    top.color_table = color_table
+    top.bg_color = bg_color
+    
+    # Define animation function
+    def animate_dots():
+        if not hasattr(top, "active") or not top.active:
+            return
+        
+        # Get current animation frame
+        frames_per_cycle = 120  # Increased from 48 to slow down the overall animation
+        current_frame = getattr(top, "animation_frame", 0)
+        
+        # Use correct color table based on hover state
+        current_color_table = getattr(top, "hover_color_table", top.color_table)
+        current_bg = getattr(top, "hover_bg_color", top.bg_color)
+        
+        # Update each dot with proper intensity
+        for i in range(4):
+            # Calculate position in animation cycle for this dot
+            phase = (current_frame - (i * frames_per_cycle // 4)) % frames_per_cycle
+            
+            # Convert phase to intensity using asymmetric curve with proper easing
+            import math
+            angle = (phase / frames_per_cycle) * 2 * math.pi
+            
+            # Extended brightening phase (1/4 of cycle instead of 1/6)
+            if angle < math.pi/4:  # First quarter of cycle - brightening phase
+                # Normalized time within the brightening phase (0 to 1)
+                t = angle / (math.pi/4)
+                # Ease-in-out curve: slower at beginning and end, faster in middle
+                # This makes it slow down as it approaches full brightness
+                if t < 0.5:
+                    # First half: accelerating (ease-in)
+                    intensity = 2 * t * t
+                else:
+                    # Second half: decelerating (ease-out)
+                    t = t - 1  # Adjust t to -0.5 to 0 range
+                    intensity = 1 - 2 * t * t
+            else:  # Fade for the remainder of the cycle
+                # Start fading quickly, then slow down (ease-out)
+                normalized = (angle - math.pi/4) / (2*math.pi - math.pi/4)
+                intensity = 1.0 - math.pow(normalized, 0.5)  # Square root for pronounced ease-out
+            
+            # Get color for this intensity
+            color_index = int(intensity * (color_levels-1))
+            color = current_color_table[color_index]
+            
+            # Apply color to dot
+            if intensity > 0.01:  # Only update visible dots
+                dot_labels[i].config(fg=color)
+            else:
+                dot_labels[i].config(fg=current_bg)  # Hide completely faded dots
+        
+        # Increment frame
+        top.animation_frame = (current_frame + 1) % frames_per_cycle
+        
+        # Schedule next animation frame (16.67ms = ~60fps for extremely smooth animation)
+        top.after(16, animate_dots)
+    
+    # Set up hover effects
+    def on_enter(e):
+        # Store original color for animation
+        top.hover_bg_color = hover_color
+        
+        # Pre-calculate hover colors
+        top.hover_color_table = [get_color_for_intensity(i / (color_levels-1), hover_color) for i in range(color_levels)]
+        
+        # Update background colors
+        inner_frame.config(bg=hover_color)
+        dots_container.config(bg=hover_color)
+        dots_frame.config(bg=hover_color)
+        
+        # Update background for all dots
+        for dot in dot_labels:
+            dot.config(bg=hover_color)
+    
+    def on_leave(e):
+        # Restore original color
+        top.hover_bg_color = None
+        top.hover_color_table = None
+        
+        # Update background colors
+        inner_frame.config(bg=bg_color)
+        dots_container.config(bg=bg_color)
+        dots_frame.config(bg=bg_color)
+        
+        # Update background for all dots
+        for dot in dot_labels:
+            dot.config(bg=bg_color)
+    
+    # Bind hover events
+    inner_frame.bind("<Enter>", on_enter)
+    inner_frame.bind("<Leave>", on_leave)
+    dots_container.bind("<Enter>", on_enter)
+    dots_container.bind("<Leave>", on_leave)
+    dots_frame.bind("<Enter>", on_enter)
+    dots_frame.bind("<Leave>", on_leave)
+    
+    # Return animation function and elements
+    return animate_dots, dots_container, dots_frame, dot_labels
+
+def set_window_platform_specifics(top):
+    """Set platform-specific window properties"""
+    if platform.system() == "Windows":
+        try:
+            hwnd = top.winfo_id()
+            # Always on top
+            ctypes.windll.user32.SetWindowPos(hwnd, -1, 0, 0, 0, 0, 0x0003)
+        except:
+            pass
+
+def show_indicator(status):
+    """Show indicator with given status using the appropriate type"""
+    global indicator_status, indicator_root
+    
+    # If first time or indicator was closed, create a new toplevel window
+    if indicator_status != status:
+        indicator_status = status
+        
+        # Use the main thread's root to create a new toplevel window
+        def create_toplevel():
+            # Get properties for this status
+            props = get_status_properties(status)
+            if not props:
+                return  # Invalid status
+            
+            bg_color = props["bg_color"]
+            hover_color = props["hover_color"]
+            icon = props["icon"]
+            
+            # Get screen dimensions
+            screen_width = indicator_root.winfo_screenwidth()
+            screen_height = indicator_root.winfo_screenheight()
+            
+            # Set window size
+            window_width = int(screen_width * 0.15)
+            window_height = int(screen_height * 0.05)
+            
+            # Ensure minimum size
+            window_width = max(window_width, 60)
+            window_height = max(window_height, 36)
+            
+            # Set position
+            x_position = (screen_width - window_width) // 2
+            y_position = screen_height - window_height - int(screen_height * 0.05)
+            
+            # Create base window
+            top = create_base_window(indicator_root, x_position, y_position, window_width, window_height, bg_color)
+            
+            # Create frames
+            frame, inner_frame = create_frames(top, bg_color)
+            
+            # Font size based on screen resolution
+            font_size = max(18, int(screen_height * 0.025))
+            
+            animation_active = False
+            
+            # Create content based on status
+            if status == "recording":
+                # Set up animation
+                animate_dots, dots_container, dots_frame, dot_labels = create_recording_animation(
+                    inner_frame, bg_color, hover_color, font_size, top
+                )
+                
+                # Start animation
+                top.active = True
+                top.animation_frame = 0
+                animate_dots()
+                animation_active = True
+            else:
+                # For non-recording states, show standard icon
+                icon_label = create_standard_icon(inner_frame, icon, font_size, bg_color)
+                setup_standard_hover(inner_frame, icon_label, frame, bg_color, hover_color)
+            
+            # Set platform-specific properties
+            set_window_platform_specifics(top)
+            
+            # Close any existing indicator
+            if hasattr(indicator_root, 'current_indicator') and indicator_root.current_indicator:
+                try:
+                    if hasattr(indicator_root.current_indicator, "active"):
+                        indicator_root.current_indicator.active = False  # Stop animation
+                    indicator_root.current_indicator.destroy()
+                except:
+                    pass
+                    
+            indicator_root.current_indicator = top
+            
+            # Auto-close complete indicator after 2.5 seconds
+            if status == "complete":
+                top.after(2000, top.destroy)
+            
+            # Handle window destruction properly for animation
+            def on_destroy():
+                if animation_active:
+                    top.active = False  # Stop animation loop
+                top.destroy()
+            
+            top.protocol("WM_DELETE_WINDOW", on_destroy)
+        
+        # Schedule the UI update in the main thread
+        if indicator_root:
+            indicator_root.after(0, create_toplevel)
 
 # Configuration
 TRANSCRIPTION_MODEL = clean_env_value(os.getenv("TRANSCRIPTION_MODEL"), "local").lower()
@@ -165,15 +533,7 @@ if TRANSCRIPTION_MODEL == "local":
         raise Exception(f"Failed to load model: {e}")
 
 # Specify the directory where your recordings are saved
-recordings_dir = os.path.expanduser("~/Documents/Sound Recordings")
-
-# Global toaster instance to prevent garbage collection issues
-toaster = ToastNotifier()
-
-# Global variables for recording
-is_recording = False
-recording_data = []
-current_recording_file = None
+recordings_dir = os.path.expanduser("~/Documents/Sound Recordings") 
 
 def transcribe_audio_fireworks(file_path):
     """Transcribe audio using Fireworks AI's Whisper Turbo"""
@@ -239,23 +599,6 @@ def paste_text():
     """Paste text at current cursor position"""
     pyautogui.hotkey('ctrl', 'v')
 
-def show_toast(title, message, notification_type=None):
-    """Show Windows toast notification with emojis for visual differentiation"""
-    try:
-        # Add appropriate emoji prefix based on notification type
-        if notification_type == "recording":
-            emoji_title = "🔴 " + title  # Red circle for recording
-        elif notification_type == "transcription":
-            emoji_title = "✅ " + title  # Green checkmark for completion
-        elif notification_type == "error":
-            emoji_title = "❌ " + title  # Red X for errors
-        else:
-            emoji_title = title
-            
-        toaster.show_toast(emoji_title, message, duration=5, threaded=True)
-    except Exception as e:
-        print(f"Notification error: {str(e)}")
-
 def audio_callback(indata, frames, time, status):
     """Callback function for audio recording"""
     if status:
@@ -278,25 +621,30 @@ def start_recording():
     os.makedirs(recordings_dir, exist_ok=True)
     current_recording_file = os.path.join(recordings_dir, f"recording_{timestamp}.wav")
     
+    # Show recording indicator
+    show_indicator("recording")
+    
     # Start recording
     is_recording = True
     print("Recording started... Press", HOTKEY, "again to stop.")
-    show_toast("Recording", "Recording started. Press the same key again to stop.", notification_type="recording")
 
 def stop_recording():
     """Stop recording audio and save file"""
-    global is_recording, recording_data, current_recording_file
+    global is_recording
     
     if not is_recording:
         return
     
     # Stop recording
     is_recording = False
+    
+    # Show transcribing indicator
+    show_indicator("transcribing")
+    
     print("Recording stopped.")
     
     if not recording_data:
         print("No audio data recorded.")
-        show_toast("Recording Error", "No audio data recorded.")
         return
     
     # Convert list of arrays to single array
@@ -322,13 +670,12 @@ def process_recording(file_path):
         copy_to_clipboard(transcription)
         paste_text()
         
-        show_toast("Transcription Complete", 
-          "The transcription has been pasted at cursor position.", 
-          notification_type="transcription")
+        # Show completion indicator (will auto-close after 4 seconds)
+        show_indicator("complete")
+        
     except Exception as e:
         print(f"Error transcribing: {str(e)}\n")
-        show_toast("Transcription Error", "Error transcribing recording", notification_type="error")
-
+       
 def toggle_recording():
     """Toggle recording state"""
     global is_recording
@@ -398,4 +745,4 @@ def main():
             print("Service stopped.")
 
 if __name__ == "__main__":
-    main()
+    main() 
