@@ -1,106 +1,121 @@
-# Audio Transcription Script For Windows Using OpenAI Whisper
+# Voice-to-Text Transcription Tool
 
-Automatic audio transcription script designed to work seamlessly with Windows Sound Recorder, providing a lightweight solution for quick voice-to-text on Windows. The script watches for new recordings and transcribes them using either OpenAI's Whisper or Whisper Turbo model. The transcriptions are automatically copied to your clipboard and a notification is shown when complete.
-
-
-## Quick Start with Windows Sound Recorder
-
-1. Press `Windows + R`, type `windowssoundrecorder`, and press Enter to open Windows Sound Recorder
-2. Start the transcription script: `python whisper-transcribe-combined.py`
-3. Record your audio in Windows Sound Recorder and stop recording (Windows Sound Recorder will automatically save to `\Users\[YourUsername]\Documents\Sound Recordings`)
-4. The transcription will automatically appear in your clipboard!
-
-This provides a very lightweight way to get high-quality transcription Whisper-based working on Windows without needing to install complex apps or services.
+A streamlined audio transcription tool that uses hotkeys to record and automatically transcribe voice to text using local Whisper models.
 
 ## Features
 
-- 🎯 **Auto-Detection**: Automatically detects new `.m4a` audio recordings
-- 📋 **Clipboard Integration**: Transcriptions are automatically copied to clipboard
-- 🔔 **Desktop Notifications**: Shows Windows toast notifications for completion/errors
-- 🔄 **Two Model Options**: 
-  - OpenAI Whisper via OpenAI API (slightly higher accuracy)
-  - OpenAI Whisper Turbo via Fireworks AI API (significantly faster processing, cheaper, at time of writing they give 1$ free credit on signup) << RECOMMENDED & DEFAULT
+- 🎙️ **Hotkey Recording**: Press a customizable hotkey to start/stop recording
+- 🤖 **Local Whisper Models**: Free, offline transcription with no API costs
+- 📋 **Automatic Pasting**: Transcriptions are automatically pasted at cursor position
+- 🔔 **Desktop Notifications**: Visual feedback on recording/transcription status
+- 🌐 **No Internet Required**: Works completely offline
+- 🧹 **Auto-cleanup**: Manages recording files to save disk space
 
-## Prerequisites
+## Quick Start
 
-- Python 3.7+
-- Windows OS (for toast notifications and clipboard functionality)
-- API key for either OpenAI or Fireworks AI (or both)
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-name>
+1. Install requirements:
    ```
-
-2. Install dependencies:
-   ```bash
    pip install -r requirements.txt
    ```
 
-3. Create a `.env` file in the project root and add your API key(s):
-   ```env
-   # Required: At least one of these API keys
-   FIREWORKS_API_KEY="your-fireworks-api-key"
-   OPENAI_API_KEY="your-openai-api-key"
-   
-   # Optional: Choose which model to use (defaults to "fireworks" if not set)
-   # TRANSCRIPTION_MODEL="fireworks"  # Use Fireworks AI's Whisper Turbo (faster, cheaper)
-   # TRANSCRIPTION_MODEL="openai"     # Use OpenAI's Whisper (slightly more accurate)
+2. Create a `.env` file (copy from `.env.example`) or use default settings
+
+3. Run the script:
+   ```
+   python audio_transcription.py
    ```
 
-## Usage
+4. Press F9 (default) to start recording
+5. Press F9 again to stop recording and trigger transcription
+6. The transcription will be pasted at your cursor position
 
-Run the script:
-```bash
-python whisper-transcribe-combined.py
-```
+The first time you run with local mode, it will automatically download a small English model (~500MB).
 
-The script will:
-1. Watch the "Sound Recordings" folder in your Documents
-2. Detect new `.m4a` files
-3. Transcribe the audio using your chosen model (Fireworks Turbo by default)
-4. Copy the transcription to your clipboard
-5. Show a notification when complete
+## Using Local Models
 
-## Directory Structure
+The script uses local Whisper models by default, giving you:
+- Free transcription (no API costs)
+- Complete privacy (your audio never leaves your computer)
+- Excellent accuracy
+- Fast performance even on CPU
 
-```
-.
-├── .env                           # API keys and configuration (not in repo)
-├── .gitignore                     # Git ignore file
-├── README.md                      # This file
-├── requirements.txt               # Python dependencies
-└── whisper-transcribe-combined.py # Main script
-```
+Available model sizes for automatic download:
+- `tiny.en` (~75MB) - Very fast, less accurate
+- `base.en` (~150MB) - Fast, moderate accuracy
+- `small.en` (~500MB) - Good balance (default)
+- `medium.en` (~1.5GB) - Higher accuracy, slower
+- `large-v3` (~3GB) - Best accuracy, slowest
 
-## Configuration
+For English-only tasks, the `.en` models provide better performance.
 
-By default, the script watches `\Users\[YourUsername]\Documents\Sound Recordings` for new `.m4a` files. This is the default save location for Windows Sound Recorder, so everything works seamlessly without any configuration. The directory is created automatically if it doesn't exist.
+## Configuration Options
+
+All configuration is done through environment variables (`.env` file):
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `TRANSCRIPTION_MODEL` | The transcription backend to use | `"local"` |
+| `DEFAULT_MODEL_SIZE` | Which model to download if none found | `"small.en"` |
+| `RECORDING_HOTKEY` | Hotkey to start/stop recording | `"f9"` |
+| `DELETE_RECORDINGS` | Whether to auto-delete old recordings | `"true"` |
+| `MAX_RECORDING_AGE_DAYS` | How old recordings must be to delete | `"7"` |
+| `LOCAL_MODEL_PATH` | Directory for local models | `"models"` |
+| `USE_GPU` | Enable GPU acceleration (requires CUDA) | `"false"` |
+| `FIREWORKS_API_KEY` | API key for Fireworks AI | |
+| `OPENAI_API_KEY` | API key for OpenAI | |
+
+## Using Local Models
+
+When using the local model option:
+
+1. Set `TRANSCRIPTION_MODEL="local"` in your `.env` file
+2. The script will:
+   - Look for model files in the `LOCAL_MODEL_PATH` directory
+   - If found, use the first model file it sees
+   - If not found, automatically download the model specified by `DEFAULT_MODEL_SIZE`
+
+Available model sizes for automatic download:
+- `tiny.en` (~75MB) - Very fast, less accurate
+- `base.en` (~150MB) - Fast, moderate accuracy
+- `small.en` (~500MB) - Good balance (default)
+- `medium.en` (~1.5GB) - Higher accuracy, slower
+- `large-v3` (~3GB) - Best accuracy, slowest
+
+For English-only tasks, the `.en` models provide better performance.
+
+### Automatic File Management
+
+To prevent accumulating large numbers of recording files, the script:
+1. Automatically deletes recordings older than 7 days by default
+2. You can adjust this behavior with:
+   - `DELETE_RECORDINGS="false"` - Keep all recordings
+   - `MAX_RECORDING_AGE_DAYS="30"` - Keep recordings for 30 days
+
+### GPU Acceleration (Optional)
+
+By default, the script uses CPU mode which works well for most users. If you have a CUDA-compatible GPU and want to use it:
+
+1. Ensure you have CUDA and cuDNN properly installed
+2. Set `USE_GPU="true"` in your `.env` file
+
+### Cloud API Options (Alternative)
+
+While local models are recommended, the script still supports cloud APIs as alternatives:
+
+1. Set `TRANSCRIPTION_MODEL="openai"` or `TRANSCRIPTION_MODEL="fireworks"` 
+2. Add the corresponding API key to your `.env` file
+
+This can be useful if you need the highest accuracy or support for many languages.
+
+## Exit the Application
+
+Press ESC to exit the application.
 
 ## Dependencies
 
-- `openai`: OpenAI API client
-- `requests`: HTTP client for Fireworks AI
-- `watchdog`: File system events monitoring
+- `faster-whisper`: Local Whisper model implementation
+- `sounddevice` & `wavio`: Audio recording
+- `keyboard`: Hotkey support
+- `pyautogui`: Auto-pasting functionality
+- `openai` & `requests`: API clients for cloud services
 - `win10toast`: Windows notifications
-- `pywin32`: Windows clipboard operations
-- `python-dotenv`: Environment variable management
-
-## Error Handling
-
-- The script will show notifications for both successful transcriptions and errors
-- File system errors and API errors are caught and reported
-- Transcription errors won't crash the script - it will continue watching for new files
-
-## Security Notes
-
-- Keep your `.env` file secure and never commit it to version control
-- The `.gitignore` file is configured to exclude sensitive files
-- API keys are loaded securely from environment variables
-
-## Contributing
-
-Feel free to open issues or submit pull requests for improvements. 

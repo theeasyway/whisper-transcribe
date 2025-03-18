@@ -38,3 +38,6 @@ ENV/
 Thumbs.db
 ehthumbs.db
 Desktop.ini 
+
+# Models
+models/
