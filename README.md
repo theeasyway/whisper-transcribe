@@ -2,7 +2,7 @@
 
 A streamlined audio transcription tool that uses hotkeys to record and automatically transcribe voice to text using local Whisper models.
 
-note:  less suited to Mac OS due to the need for system permissions for whole keys to work there. A native app version of this would be the ticket there, I think.
+note:  less suited to Mac OS due to the need for system permissions for hotkeys to work there. A native app version of this would be the ticket there, I think.
 
 ## Features
 
