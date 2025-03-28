@@ -447,7 +447,9 @@ elif TRANSCRIPTION_MODEL == "local":
         "tiny.en", "tiny", "base.en", "base", "small.en", "small", 
         "medium.en", "medium", "large-v1", "large-v2", "large-v3", 
         "large", "distil-large-v2", "distil-medium.en", "distil-small.en", 
-        "distil-large-v3", "large-v3-turbo", "turbo"
+        "distil-large-v3", "large-v3-turbo", "turbo",
+        # Add support for full Hugging Face model paths
+        "deepdml/faster-whisper-large-v3-turbo-ct2"
     ]
     
     # Look for existing model files
@@ -459,6 +461,13 @@ elif TRANSCRIPTION_MODEL == "local":
                 # Try to extract model size from path or folder name
                 path_lower = root.lower()
                 
+                # First check for full model paths
+                if DEFAULT_MODEL_SIZE.lower() in path_lower:
+                    if DEFAULT_MODEL_SIZE not in found_models:
+                        found_models.append(DEFAULT_MODEL_SIZE)
+                        break
+                
+                # Then check for standard model sizes
                 for size in VALID_MODEL_SIZES:
                     if size.lower() in path_lower:
                         if size not in found_models:
@@ -478,11 +487,17 @@ elif TRANSCRIPTION_MODEL == "local":
     if found_models:
         print(f"Found existing model(s): {', '.join(found_models)}")
         
+        # Extract base model name for comparison (e.g. "large-v3" from "deepdml/faster-whisper-large-v3-turbo-ct2")
+        requested_base_model = DEFAULT_MODEL_SIZE.split('/')[-1].replace('faster-whisper-', '').replace('-ct2', '')
+        if 'turbo' in requested_base_model:
+            requested_base_model = 'large-v3'  # Map turbo variants to base large-v3
+        
         # Check if our specified model exists in the found models
-        if DEFAULT_MODEL_SIZE in found_models:
+        model_match = next((model for model in found_models if model == requested_base_model), None)
+        if model_match:
             # Use the specified model
-            local_model_name = DEFAULT_MODEL_SIZE
-            print(f"Using specified model: {DEFAULT_MODEL_SIZE}")
+            local_model_name = model_match
+            print(f"Using model: {DEFAULT_MODEL_SIZE} (found as {model_match})")
         else:
             # Use first model found
             local_model_name = found_models[0]
@@ -516,16 +531,17 @@ if TRANSCRIPTION_MODEL == "local":
                 import torch
                 if torch.cuda.is_available():
                     print(f"CUDA available: Using {torch.cuda.get_device_name(0)}")
-                    local_model = WhisperModel(local_model_name, device="cuda", compute_type="float16", download_root=LOCAL_MODEL_PATH)
+                    # Use the DEFAULT_MODEL_SIZE directly without local_model_name
+                    local_model = WhisperModel(DEFAULT_MODEL_SIZE, device="cuda", compute_type="float16", download_root=LOCAL_MODEL_PATH)
                 else:
                     print("CUDA not available, falling back to CPU")
-                    local_model = WhisperModel(local_model_name, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
+                    local_model = WhisperModel(DEFAULT_MODEL_SIZE, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
             except Exception as e:
                 print(f"GPU acceleration failed, falling back to CPU: {e}")
-                local_model = WhisperModel(local_model_name, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
+                local_model = WhisperModel(DEFAULT_MODEL_SIZE, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
         else:
             # Directly use CPU
-            local_model = WhisperModel(local_model_name, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
+            local_model = WhisperModel(DEFAULT_MODEL_SIZE, device="cpu", compute_type="int8", download_root=LOCAL_MODEL_PATH)
             print("Using CPU for inference (GPU disabled in config)")
             
         print("Model loaded successfully")
