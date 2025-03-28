@@ -1,4 +1,4 @@
-# Voice-to-Text Transcription Tool
+# Voice-to-Text Transcription Tool (Windows-friendly!)
 
 A streamlined audio transcription tool that uses hotkeys to record and automatically transcribe voice to text using local Whisper models.
 
