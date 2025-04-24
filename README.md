@@ -66,6 +66,23 @@ All configuration is done through environment variables (`.env` file):
 | `FIREWORKS_API_KEY` | API key for Fireworks AI | |
 | `OPENAI_API_KEY` | API key for OpenAI | |
 
+### Hotkey Configuration
+
+The `RECORDING_HOTKEY` supports various modifier keys and combinations:
+
+- Basic modifiers: `ctrl`, `alt`, `shift`, `win`
+- Specific Alt keys: `lalt` (left Alt), `ralt` (right Alt/AltGr)
+- Multiple modifiers: Use `+` to combine (e.g., `ctrl+shift+f9`)
+
+Examples:
+- `RECORDING_HOTKEY=f9` - Just F9 key
+- `RECORDING_HOTKEY=alt+end` - Left Alt + End
+- `RECORDING_HOTKEY=lalt+end` - Explicitly use Left Alt + End
+- `RECORDING_HOTKEY=ralt+end` - Right Alt (AltGr) + End
+- `RECORDING_HOTKEY=ctrl+shift+r` - Control + Shift + R
+
+Note: When using `alt` in the hotkey, it refers to the left Alt key only. This is intentional to avoid conflicts with international keyboard layouts that use the right Alt (AltGr) for special characters.
+
 ## Using Local Models
 
 When using the local model option:

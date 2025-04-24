@@ -4,7 +4,6 @@ import requests
 import threading
 from datetime import datetime
 import win32clipboard
-import keyboard
 import pyautogui
 import numpy as np
 import sounddevice as sd
@@ -13,9 +12,41 @@ from dotenv import load_dotenv
 import tkinter as tk
 import platform
 import ctypes
+import ctypes.wintypes
 
 # Load environment variables from .env file
 load_dotenv()
+
+# Windows message constants
+WM_HOTKEY = 0x0312
+WM_DESTROY = 0x0002
+
+# Modifier constants for RegisterHotKey
+MOD_ALT = 0x0001      # Left Alt
+MOD_CONTROL = 0x0002
+MOD_SHIFT = 0x0004
+MOD_WIN = 0x0008
+MOD_NOREPEAT = 0x4000  # Avoid auto-repeat messages for held keys
+MOD_RALT = 0x0100     # Right Alt key (AltGr)
+
+# Map common key names to VK codes
+VK_CODE_MAP = {
+    'f1': 0x70, 'f2': 0x71, 'f3': 0x72, 'f4': 0x73, 'f5': 0x74, 'f6': 0x75,
+    'f7': 0x76, 'f8': 0x77, 'f9': 0x78, 'f10': 0x79, 'f11': 0x7A, 'f12': 0x7B,
+    'a': 0x41, 'b': 0x42, 'c': 0x43, 'd': 0x44, 'e': 0x45, 'f': 0x46, 'g': 0x47,
+    'h': 0x48, 'i': 0x49, 'j': 0x4A, 'k': 0x4B, 'l': 0x4C, 'm': 0x4D, 'n': 0x4E,
+    'o': 0x4F, 'p': 0x50, 'q': 0x51, 'r': 0x52, 's': 0x53, 't': 0x54, 'u': 0x55,
+    'v': 0x56, 'w': 0x57, 'x': 0x58, 'y': 0x59, 'z': 0x5A,
+    '0': 0x30, '1': 0x31, '2': 0x32, '3': 0x33, '4': 0x34, '5': 0x35, '6': 0x36,
+    '7': 0x37, '8': 0x38, '9': 0x39,
+    'space': 0x20, 'enter': 0x0D, 'esc': 0x1B, 'tab': 0x09,
+    # Navigation keys
+    'end': 0x23, 'home': 0x24, 'left': 0x25, 'up': 0x26, 'right': 0x27, 'down': 0x28,
+    # Additional keys
+    'insert': 0x2D, 'delete': 0x2E, 'pageup': 0x21, 'pagedown': 0x22,
+    'numlock': 0x90, 'scroll': 0x91, 'pause': 0x13, 'capslock': 0x14,
+    'print': 0x2A, 'printscreen': 0x2C, 'snapshot': 0x2C,
+}
 
 # Function to clean environment variable values
 def clean_env_value(value, default=""):
@@ -48,6 +79,90 @@ recording_data = []
 current_recording_file = None
 indicator_status = None  # Current status of the indicator
 indicator_root = None    # Root tkinter window for the indicator
+hotkey_id = 1  # An arbitrary ID for our hotkey
+
+def parse_hotkey(hotkey_str):
+    """Parses a hotkey string (e.g., 'ctrl+alt+f9') into modifiers and VK code."""
+    parts = hotkey_str.lower().split('+')
+    modifiers = 0
+    vk_code = None
+    key_part = parts[-1].strip()  # The actual key is the last part
+
+    if key_part in VK_CODE_MAP:
+        vk_code = VK_CODE_MAP[key_part]
+    else:
+        # Try to map single characters if not in the explicit map
+        if len(key_part) == 1 and 'a' <= key_part <= 'z':
+             vk_code = VK_CODE_MAP.get(key_part)  # Use get to avoid KeyError
+        elif len(key_part) == 1 and '0' <= key_part <= '9':
+             vk_code = VK_CODE_MAP.get(key_part)  # Use get to avoid KeyError
+        else:
+             raise ValueError(f"Unsupported key: {key_part}")
+
+    if vk_code is None:
+         raise ValueError(f"Could not map key: {key_part}")
+
+    for part in parts[:-1]:
+        mod = part.strip()
+        if mod == 'ctrl' or mod == 'control':
+            modifiers |= MOD_CONTROL
+        elif mod == 'alt':
+            modifiers |= MOD_ALT  # Left Alt only
+        elif mod == 'lalt':
+            modifiers |= MOD_ALT  # Explicit left Alt
+        elif mod == 'ralt':
+            modifiers |= MOD_RALT  # Right Alt only
+        elif mod == 'shift':
+            modifiers |= MOD_SHIFT
+        elif mod == 'win' or mod == 'windows':
+            modifiers |= MOD_WIN
+        else:
+            raise ValueError(f"Unknown modifier: {mod}")
+
+    return modifiers | MOD_NOREPEAT, vk_code  # Add NOREPEAT by default
+
+def hotkey_listener_thread():
+    """Registers the hotkey and runs the message loop."""
+    user32 = ctypes.windll.user32
+    try:
+        modifiers, vk_code = parse_hotkey(HOTKEY)
+        print(f"Attempting to register hotkey: ID={hotkey_id}, Modifiers={modifiers:#04x}, VK={vk_code:#04x} ({HOTKEY})")
+
+        if not user32.RegisterHotKey(None, hotkey_id, modifiers, vk_code):
+            error_code = ctypes.GetLastError()
+            print(f"Error: Failed to register hotkey. Code: {error_code}")
+            # You might want to raise an exception or handle specific errors (e.g., 1409 = Hotkey already registered)
+            if error_code == 1409:
+                print("This hotkey might already be registered by another application.")
+            return  # Exit thread if registration fails
+
+        print(f"Hotkey '{HOTKEY}' registered successfully. Listening for messages...")
+
+        # Message loop
+        msg = ctypes.wintypes.MSG()
+        while user32.GetMessageW(ctypes.byref(msg), None, 0, 0) != 0:
+            if msg.message == WM_HOTKEY:
+                if msg.wParam == hotkey_id:
+                    print(f"Hotkey '{HOTKEY}' pressed!")
+                    # IMPORTANT: Call toggle_recording via Tkinter's main loop
+                    # to avoid thread safety issues with GUI updates
+                    if indicator_root:
+                         # Use after(0, ...) to schedule the call in the main GUI thread
+                         indicator_root.after(0, toggle_recording)
+                    else:
+                         print("Warning: indicator_root not available, cannot toggle recording.")
+                         toggle_recording()  # Fallback if GUI isn't running
+
+            # Required for processing other messages if any windows were created in this thread
+            user32.TranslateMessage(ctypes.byref(msg))
+            user32.DispatchMessageW(ctypes.byref(msg))
+
+    except Exception as e:
+        print(f"Error in hotkey listener thread: {e}")
+    finally:
+        print("Unregistering hotkey...")
+        user32.UnregisterHotKey(None, hotkey_id)
+        print("Hotkey listener thread finished.")
    
 # Function to run indicator window as main window
 def run_indicator():
@@ -741,23 +856,31 @@ def main():
     
     print(f"Starting transcription service using {TRANSCRIPTION_MODEL.upper()} model...")
     print(f"Press {HOTKEY} to start/stop recording.")
+    print("Press Ctrl+C in the console or close the window to exit.")
     
-    # Register hotkey
-    keyboard.add_hotkey(HOTKEY, toggle_recording)
+    # Start the Win32 hotkey listener thread
+    listener = threading.Thread(target=hotkey_listener_thread, daemon=True)
+    listener.start()
     
     # Start the recording stream
     with stream:
         try:
-            # Keep the program running
-            print("Waiting for hotkey press...")
-            keyboard.wait('esc')  # Wait until ESC is pressed to exit
+            # Keep the program running while listener is alive
+            while listener.is_alive():
+                time.sleep(1)
+                
+            # If the listener thread dies unexpectedly, we might end up here
+            print("Hotkey listener thread seems to have stopped.")
+            
         except KeyboardInterrupt:
-            pass
+            print("Ctrl+C detected. Exiting...")
         finally:
             # Clean up
             if is_recording:
-                stop_recording()
-            keyboard.unhook_all()
+                if indicator_root:
+                    indicator_root.after(0, stop_recording)
+                else:
+                    stop_recording()
             print("Service stopped.")
 
 if __name__ == "__main__":
