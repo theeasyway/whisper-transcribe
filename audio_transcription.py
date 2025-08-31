@@ -13,6 +13,20 @@ import tkinter as tk
 import platform
 import ctypes
 import ctypes.wintypes
+import sys
+import traceback
+import logging
+
+# Set up logging for better error tracking
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('transcription_errors.log', encoding='utf-8'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -80,6 +94,7 @@ current_recording_file = None
 indicator_status = None  # Current status of the indicator
 indicator_root = None    # Root tkinter window for the indicator
 hotkey_id = 1  # An arbitrary ID for our hotkey
+reset_hotkey_id = 2  # ID for the reset hotkey
 
 def parse_hotkey(hotkey_str):
     """Parses a hotkey string (e.g., 'ctrl+alt+f9') into modifiers and VK code."""
@@ -122,19 +137,31 @@ def parse_hotkey(hotkey_str):
     return modifiers | MOD_NOREPEAT, vk_code  # Add NOREPEAT by default
 
 def hotkey_listener_thread():
-    """Registers the hotkey and runs the message loop."""
+    """Registers the hotkeys and runs the message loop."""
     user32 = ctypes.windll.user32
     try:
+        # Register main recording hotkey
         modifiers, vk_code = parse_hotkey(HOTKEY)
         print(f"Attempting to register hotkey: ID={hotkey_id}, Modifiers={modifiers:#04x}, VK={vk_code:#04x} ({HOTKEY})")
 
         if not user32.RegisterHotKey(None, hotkey_id, modifiers, vk_code):
             error_code = ctypes.GetLastError()
             print(f"Error: Failed to register hotkey. Code: {error_code}")
-            # You might want to raise an exception or handle specific errors (e.g., 1409 = Hotkey already registered)
             if error_code == 1409:
                 print("This hotkey might already be registered by another application.")
-            return  # Exit thread if registration fails
+            return
+
+        # Register reset hotkey (Ctrl+Shift+R)
+        reset_modifiers = MOD_CONTROL | MOD_SHIFT | MOD_NOREPEAT
+        reset_vk_code = 0x52  # VK_R key
+        print(f"Attempting to register reset hotkey: ID={reset_hotkey_id}, Modifiers={reset_modifiers:#04x}, VK={reset_vk_code:#04x} (Ctrl+Shift+R)")
+
+        if not user32.RegisterHotKey(None, reset_hotkey_id, reset_modifiers, reset_vk_code):
+            error_code = ctypes.GetLastError()
+            print(f"Warning: Failed to register reset hotkey. Code: {error_code}")
+            print("UI reset functionality will not be available.")
+        else:
+            print("Reset hotkey (Ctrl+Shift+R) registered successfully.")
 
         print(f"Hotkey '{HOTKEY}' registered successfully. Listening for messages...")
 
@@ -144,24 +171,34 @@ def hotkey_listener_thread():
             if msg.message == WM_HOTKEY:
                 if msg.wParam == hotkey_id:
                     print(f"Hotkey '{HOTKEY}' pressed!")
-                    # IMPORTANT: Call toggle_recording via Tkinter's main loop
-                    # to avoid thread safety issues with GUI updates
+                    # Call toggle_recording via Tkinter's main loop
                     if indicator_root:
-                         # Use after(0, ...) to schedule the call in the main GUI thread
-                         indicator_root.after(0, toggle_recording)
+                        indicator_root.after(0, toggle_recording)
                     else:
-                         print("Warning: indicator_root not available, cannot toggle recording.")
-                         toggle_recording()  # Fallback if GUI isn't running
+                        print("Warning: indicator_root not available, cannot toggle recording.")
+                        toggle_recording()
+                elif msg.wParam == reset_hotkey_id:
+                    print("Reset hotkey (Ctrl+Shift+R) pressed!")
+                    # Call reset_ui_state via Tkinter's main loop
+                    if indicator_root:
+                        indicator_root.after(0, reset_ui_state)
+                    else:
+                        print("Warning: indicator_root not available, cannot reset UI state.")
+                        reset_ui_state()
 
-            # Required for processing other messages if any windows were created in this thread
+            # Required for processing other messages
             user32.TranslateMessage(ctypes.byref(msg))
             user32.DispatchMessageW(ctypes.byref(msg))
 
     except Exception as e:
         print(f"Error in hotkey listener thread: {e}")
     finally:
-        print("Unregistering hotkey...")
-        user32.UnregisterHotKey(None, hotkey_id)
+        print("Unregistering hotkeys...")
+        try:
+            user32.UnregisterHotKey(None, hotkey_id)
+            user32.UnregisterHotKey(None, reset_hotkey_id)
+        except:
+            pass
         print("Hotkey listener thread finished.")
    
 # Function to run indicator window as main window
@@ -668,46 +705,69 @@ recordings_dir = os.path.expanduser("~/Documents/Sound Recordings")
 
 def transcribe_audio_fireworks(file_path):
     """Transcribe audio using Fireworks AI's Whisper Turbo"""
-    with open(file_path, "rb") as audio_file:
-        response = requests.post(
-            "https://audio-turbo.us-virginia-1.direct.fireworks.ai/v1/audio/transcriptions",
-            headers={"Authorization": f"Bearer {FIREWORKS_API_KEY}"},
-            files={"file": audio_file},
-            data={
-                "model": "whisper-v3-turbo",
-                "temperature": "0",
-                "vad_model": "silero"
-            },
-        )
-        
-        if response.status_code == 200:
-            return response.json()["text"]
-        else:
-            raise Exception(f"Error {response.status_code}: {response.text}")
+    try:
+        with open(file_path, "rb") as audio_file:
+            response = requests.post(
+                "https://audio-turbo.us-virginia-1.direct.fireworks.ai/v1/audio/transcriptions",
+                headers={"Authorization": f"Bearer {FIREWORKS_API_KEY}"},
+                files={"file": audio_file},
+                data={
+                    "model": "whisper-v3-turbo",
+                    "temperature": "0",
+                    "vad_model": "silero"
+                },
+                timeout=60  # Add timeout to prevent hanging
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                if "text" in result:
+                    return safe_text_handling(result["text"], "Fireworks transcription")
+                else:
+                    raise Exception(f"Unexpected response format: {result}")
+            else:
+                raise Exception(f"Error {response.status_code}: {response.text}")
+    except requests.exceptions.Timeout:
+        raise Exception("Fireworks API request timed out after 60 seconds")
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Network error during Fireworks transcription: {str(e)}")
+    except Exception as e:
+        logger.error(f"Fireworks transcription error: {e}")
+        raise Exception(f"Fireworks transcription failed: {str(e)}")
 
 def transcribe_audio_openai(file_path):
     """Transcribe audio using OpenAI's Whisper"""
-    with open(file_path, "rb") as audio_file:
-        transcript = openai_client.audio.transcriptions.create(
-            model="whisper-1",
-            file=audio_file
-        )
-    return transcript.text
+    try:
+        with open(file_path, "rb") as audio_file:
+            transcript = openai_client.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file
+            )
+        return safe_text_handling(transcript.text, "OpenAI transcription")
+    except Exception as e:
+        logger.error(f"OpenAI transcription error: {e}")
+        raise Exception(f"OpenAI transcription failed: {str(e)}")
 
 def transcribe_audio_local(file_path):
     """Transcribe audio using local Whisper model"""
-    print("Transcribing with local model...")
+    logger.info("Transcribing with local model...")
     
     try:
         # Perform transcription
         segments, info = local_model.transcribe(file_path, beam_size=5)
         
-        # Combine all segments
-        transcript = " ".join([segment.text for segment in segments])
+        # Combine all segments with safe text handling
+        transcript_parts = []
+        for segment in segments:
+            safe_segment_text = safe_text_handling(segment.text, "local model segment")
+            transcript_parts.append(safe_segment_text)
         
-        print(f"Detected language: {info.language} (probability: {info.language_probability:.2f})")
+        transcript = " ".join(transcript_parts)
+        
+        logger.info(f"Detected language: {info.language} (probability: {info.language_probability:.2f})")
         return transcript
     except Exception as e:
+        logger.error(f"Local model transcription error: {str(e)}")
         raise Exception(f"Local model transcription error: {str(e)}")
 
 def transcribe_audio(file_path):
@@ -719,16 +779,61 @@ def transcribe_audio(file_path):
     else:
         return transcribe_audio_local(file_path)
 
+def safe_text_handling(text, operation="processing"):
+    """Safely handle text that might contain problematic characters"""
+    if text is None:
+        return ""
+    
+    try:
+        # Try to encode as UTF-8 to check for issues
+        text.encode('utf-8')
+        return text
+    except UnicodeEncodeError as e:
+        logger.warning(f"Unicode encoding issue in {operation}: {e}")
+        # Try to clean the text by removing problematic characters
+        try:
+            # Replace problematic characters with safe alternatives
+            cleaned_text = text.encode('utf-8', errors='replace').decode('utf-8')
+            logger.info(f"Cleaned text for {operation}, removed problematic characters")
+            return cleaned_text
+        except Exception as cleanup_error:
+            logger.error(f"Failed to clean text for {operation}: {cleanup_error}")
+            return f"[Text processing error: {str(e)}]"
+    except Exception as e:
+        logger.error(f"Unexpected error in text handling for {operation}: {e}")
+        return f"[Text error: {str(e)}]"
+
+def safe_clipboard_copy(text):
+    """Safely copy text to clipboard with error handling"""
+    try:
+        safe_text = safe_text_handling(text, "clipboard copy")
+        win32clipboard.OpenClipboard()
+        win32clipboard.EmptyClipboard()
+        win32clipboard.SetClipboardText(safe_text)
+        win32clipboard.CloseClipboard()
+        return True
+    except Exception as e:
+        logger.error(f"Failed to copy to clipboard: {e}")
+        return False
+
+def safe_paste_text():
+    """Safely paste text with error handling"""
+    try:
+        pyautogui.hotkey('ctrl', 'v')
+        return True
+    except Exception as e:
+        logger.error(f"Failed to paste text: {e}")
+        return False
+
 def copy_to_clipboard(text):
-    """Copy text to Windows clipboard"""
-    win32clipboard.OpenClipboard()
-    win32clipboard.EmptyClipboard()
-    win32clipboard.SetClipboardText(text)
-    win32clipboard.CloseClipboard()
+    """Copy text to Windows clipboard (deprecated - use safe_clipboard_copy instead)"""
+    print("Warning: copy_to_clipboard is deprecated. Use safe_clipboard_copy instead.")
+    return safe_clipboard_copy(text)
 
 def paste_text():
-    """Paste text at current cursor position"""
-    pyautogui.hotkey('ctrl', 'v')
+    """Paste text at current cursor position (deprecated - use safe_paste_text instead)"""
+    print("Warning: paste_text is deprecated. Use safe_paste_text instead.")
+    return safe_paste_text()
 
 def audio_callback(indata, frames, time, status):
     """Callback function for audio recording"""
@@ -738,75 +843,269 @@ def audio_callback(indata, frames, time, status):
         recording_data.append(indata.copy())
 
 def start_recording():
-    """Start recording audio"""
+    """Start recording audio with safe file path handling"""
     global is_recording, recording_data, current_recording_file
     
     if is_recording:
         return
     
-    # Clear previous recording data
-    recording_data = []
-    
-    # Create a unique filename
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    os.makedirs(recordings_dir, exist_ok=True)
-    current_recording_file = os.path.join(recordings_dir, f"recording_{timestamp}.wav")
-    
-    # Show recording indicator
-    show_indicator("recording")
-    
-    # Start recording
-    is_recording = True
-    print("Recording started... Press", HOTKEY, "again to stop.")
+    try:
+        # Clear previous recording data
+        recording_data = []
+        
+        # Create a unique filename with safe path handling
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        os.makedirs(recordings_dir, exist_ok=True)
+        
+        # Create filename with safe characters
+        safe_filename = f"recording_{timestamp}.wav"
+        current_recording_file = os.path.join(recordings_dir, safe_filename)
+        
+        # Ensure the file path is safe for Windows
+        current_recording_file = safe_file_path(current_recording_file)
+        
+        logger.info(f"Starting recording to: {current_recording_file}")
+        
+        # Show recording indicator
+        show_indicator("recording")
+        
+        # Start recording
+        is_recording = True
+        print("Recording started... Press", HOTKEY, "again to stop.")
+        
+    except Exception as e:
+        logger.error(f"Failed to start recording: {e}")
+        print(f"Failed to start recording: {e}")
+        # Reset state
+        is_recording = False
+        recording_data = []
+        current_recording_file = None
 
 def stop_recording():
-    """Stop recording audio and save file"""
+    """Stop recording audio and save file with safe operations"""
     global is_recording
     
     if not is_recording:
         return
     
-    # Stop recording
-    is_recording = False
-    
-    # Show transcribing indicator
-    show_indicator("transcribing")
-    
-    print("Recording stopped.")
-    
-    if not recording_data:
-        print("No audio data recorded.")
-        return
-    
-    # Convert list of arrays to single array
-    recording_array = np.concatenate(recording_data, axis=0)
-    
-    # Save as WAV file
-    wavio.write(current_recording_file, recording_array, SAMPLE_RATE, sampwidth=2)
-    print(f"Recording saved to {current_recording_file}")
-    
-    # Start transcription in a separate thread
-    threading.Thread(target=process_recording, args=(current_recording_file,)).start()
-
-def process_recording(file_path):
-    """Process the recording for transcription"""
     try:
-        print(f"Transcribing file: {file_path}")
-        print(f"Using {TRANSCRIPTION_MODEL.upper()} model for transcription...")
+        # Stop recording
+        is_recording = False
         
-        transcription = transcribe_audio(file_path)
-        print(f"Transcription: {transcription}\n")
+        # Show transcribing indicator
+        show_indicator("transcribing")
         
-        # Copy to clipboard and paste
-        copy_to_clipboard(transcription)
-        paste_text()
+        print("Recording stopped.")
         
-        # Show completion indicator (will auto-close after 4 seconds)
-        show_indicator("complete")
+        if not recording_data:
+            print("No audio data recorded.")
+            # Reset state and show complete indicator
+            if indicator_root:
+                indicator_root.after(0, lambda: show_indicator("complete"))
+            return
+        
+        # Convert list of arrays to single array
+        recording_array = np.concatenate(recording_data, axis=0)
+        
+        # Save as WAV file with safe operations
+        def save_wav_file(file_path):
+            wavio.write(file_path, recording_array, SAMPLE_RATE, sampwidth=2)
+        
+        try:
+            safe_file_operations(current_recording_file, save_wav_file)
+            logger.info(f"Recording saved to {current_recording_file}")
+            print(f"Recording saved to {current_recording_file}")
+        except Exception as save_error:
+            logger.error(f"Failed to save recording: {save_error}")
+            print(f"Failed to save recording: {save_error}")
+            # Show error indicator
+            if indicator_root:
+                indicator_root.after(0, lambda: show_error_indicator(f"Save failed: {str(save_error)}"))
+            return
+        
+        # Start transcription in a separate thread
+        threading.Thread(target=process_recording, args=(current_recording_file,), daemon=True).start()
         
     except Exception as e:
-        print(f"Error transcribing: {str(e)}\n")
-       
+        logger.error(f"Error in stop_recording: {e}")
+        print(f"Error stopping recording: {e}")
+        # Ensure we're not stuck in recording state
+        is_recording = False
+        # Show error indicator
+        if indicator_root:
+            indicator_root.after(0, lambda: show_error_indicator(f"Stop recording error: {str(e)}"))
+
+def process_recording(file_path):
+    """Process the recording for transcription with comprehensive error handling"""
+    global indicator_root
+    
+    try:
+        logger.info(f"Starting transcription of file: {file_path}")
+        logger.info(f"Using {TRANSCRIPTION_MODEL.upper()} model for transcription...")
+        
+        # Perform transcription with timeout protection
+        transcription = None
+        transcription_error = None
+        
+        # Use a timeout to prevent hanging
+        def transcription_worker():
+            nonlocal transcription, transcription_error
+            try:
+                transcription = transcribe_audio(file_path)
+            except Exception as e:
+                transcription_error = e
+        
+        # Start transcription in a separate thread with timeout
+        worker_thread = threading.Thread(target=transcription_worker, daemon=True)
+        worker_thread.start()
+        
+        # Wait for transcription with timeout (5 minutes)
+        worker_thread.join(timeout=300)
+        
+        if worker_thread.is_alive():
+            # Transcription is taking too long, force stop
+            logger.warning("Transcription timeout - forcing stop")
+            transcription_error = Exception("Transcription timed out after 5 minutes")
+        
+        if transcription_error:
+            raise transcription_error
+        
+        if not transcription or transcription.strip() == "":
+            raise Exception("Transcription returned empty result")
+        
+        # Log successful transcription
+        logger.info(f"Transcription completed successfully: {transcription[:100]}{'...' if len(transcription) > 100 else ''}")
+        
+        # Safely copy to clipboard
+        if safe_clipboard_copy(transcription):
+            logger.info("Text copied to clipboard successfully")
+            
+            # Safely paste text
+            if safe_paste_text():
+                logger.info("Text pasted successfully")
+            else:
+                logger.warning("Failed to paste text, but transcription was successful")
+        else:
+            logger.warning("Failed to copy to clipboard, but transcription was successful")
+        
+        # Show completion indicator
+        if indicator_root:
+            indicator_root.after(0, lambda: show_indicator("complete"))
+        
+    except Exception as e:
+        # Log the full error with traceback
+        error_msg = f"Error transcribing file {file_path}: {str(e)}"
+        logger.error(error_msg)
+        logger.error(f"Full traceback: {traceback.format_exc()}")
+        
+        # Print user-friendly error message
+        print(f"\n❌ Transcription Error: {str(e)}")
+        print("Check the log file 'transcription_errors.log' for detailed information.")
+        print("The script will continue running - you can try recording again.\n")
+        
+        # Show error indicator briefly
+        if indicator_root:
+            indicator_root.after(0, lambda: show_error_indicator(str(e)))
+    
+    finally:
+        # Always ensure we're not stuck in transcribing state
+        try:
+            # Clean up the recording file if it exists and cleanup is enabled
+            if DELETE_RECORDINGS and os.path.exists(file_path):
+                try:
+                    os.remove(file_path)
+                    logger.info(f"Cleaned up recording file: {file_path}")
+                except Exception as cleanup_error:
+                    logger.warning(f"Failed to clean up recording file {file_path}: {cleanup_error}")
+        except Exception as cleanup_error:
+            logger.warning(f"Error during cleanup: {cleanup_error}")
+        
+        # Reset any stuck state
+        logger.info("Transcription process completed (success or failure)")
+
+def show_error_indicator(error_message):
+    """Show an error indicator briefly"""
+    global indicator_root
+    
+    if not indicator_root:
+        return
+    
+    try:
+        # Create error indicator
+        def create_error_indicator():
+            # Get screen dimensions
+            screen_width = indicator_root.winfo_screenwidth()
+            screen_height = indicator_root.winfo_screenheight()
+            
+            # Set window size
+            window_width = int(screen_width * 0.25)  # Wider for error messages
+            window_height = int(screen_height * 0.08)
+            
+            # Ensure minimum size
+            window_width = max(window_width, 200)
+            window_height = max(window_height, 60)
+            
+            # Set position
+            x_position = (screen_width - window_width) // 2
+            y_position = screen_height - window_height - int(screen_height * 0.05)
+            
+            # Create error window
+            error_top = tk.Toplevel(indicator_root)
+            error_top.title("Transcription Error")
+            error_top.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
+            error_top.configure(bg="#FF6B6B")  # Error red color
+            error_top.overrideredirect(True)
+            error_top.attributes("-topmost", True)
+            
+            # Add error icon and message
+            error_frame = tk.Frame(error_top, bg="#FF6B6B")
+            error_frame.pack(expand=True, fill="both", padx=10, pady=10)
+            
+            # Error icon
+            error_icon = tk.Label(
+                error_frame,
+                text="❌",
+                font=("Arial", 24, "bold"),
+                fg="white",
+                bg="#FF6B6B"
+            )
+            error_icon.pack(side="left", padx=(0, 10))
+            
+            # Error message (truncated if too long)
+            display_error = error_message[:50] + "..." if len(error_message) > 50 else error_message
+            error_label = tk.Label(
+                error_frame,
+                text=f"Error: {display_error}",
+                font=("Arial", 12),
+                fg="white",
+                bg="#FF6B6B",
+                wraplength=window_width - 80
+            )
+            error_label.pack(side="left", expand=True, fill="both")
+            
+            # Auto-close after 4 seconds
+            error_top.after(4000, error_top.destroy)
+            
+            # Close any existing indicator
+            if hasattr(indicator_root, 'current_indicator') and indicator_root.current_indicator:
+                try:
+                    if hasattr(indicator_root.current_indicator, "active"):
+                        indicator_root.current_indicator.active = False
+                    indicator_root.current_indicator.destroy()
+                except:
+                    pass
+            
+            indicator_root.current_indicator = error_top
+        
+        # Schedule the error indicator creation
+        indicator_root.after(0, create_error_indicator)
+        
+    except Exception as e:
+        logger.error(f"Failed to show error indicator: {e}")
+        # Fallback: just show complete indicator to reset state
+        if indicator_root:
+            indicator_root.after(0, lambda: show_indicator("complete"))
+
 def toggle_recording():
     """Toggle recording state"""
     global is_recording
@@ -816,72 +1115,244 @@ def toggle_recording():
     else:
         start_recording()
 
+def reset_ui_state():
+    """Reset the UI state if it gets stuck"""
+    global indicator_root, indicator_status
+    
+    try:
+        if indicator_root and hasattr(indicator_root, 'current_indicator'):
+            current_indicator = indicator_root.current_indicator
+            if current_indicator:
+                try:
+                    # Stop any active animations
+                    if hasattr(current_indicator, "active"):
+                        current_indicator.active = False
+                    # Destroy the indicator
+                    current_indicator.destroy()
+                except Exception as destroy_error:
+                    logger.warning(f"Failed to destroy indicator: {destroy_error}")
+                
+                # Reset the reference
+                indicator_root.current_indicator = None
+        
+        # Reset status
+        indicator_status = None
+        
+        # Show complete indicator to reset state
+        if indicator_root:
+            indicator_root.after(0, lambda: show_indicator("complete"))
+            
+        logger.info("UI state reset successfully")
+        
+    except Exception as e:
+        logger.error(f"Failed to reset UI state: {e}")
+
 def cleanup_old_recordings():
-    """Delete old recording files to save disk space"""
+    """Delete old recording files to save disk space with error handling"""
     if not DELETE_RECORDINGS:
         return
         
     try:
-        print(f"Checking for old recordings (older than {MAX_RECORDING_AGE_DAYS} days)...")
+        logger.info(f"Checking for old recordings (older than {MAX_RECORDING_AGE_DAYS} days)...")
         current_time = time.time()
         count = 0
+        errors = 0
+        
+        if not os.path.exists(recordings_dir):
+            logger.info("Recordings directory doesn't exist, skipping cleanup")
+            return
         
         for file in os.listdir(recordings_dir):
-            if file.endswith('.wav') or file.endswith('.m4a'):
-                file_path = os.path.join(recordings_dir, file)
-                file_age_days = (current_time - os.path.getmtime(file_path)) / (60 * 60 * 24)
-                
-                if file_age_days > MAX_RECORDING_AGE_DAYS:
-                    os.remove(file_path)
-                    count += 1
+            try:
+                if file.endswith('.wav') or file.endswith('.m4a'):
+                    file_path = os.path.join(recordings_dir, file)
                     
+                    # Use safe file operations
+                    def get_file_age(file_path):
+                        return os.path.getmtime(file_path)
+                    
+                    try:
+                        file_age_days = (current_time - safe_file_operations(file_path, get_file_age)) / (60 * 60 * 24)
+                        
+                        if file_age_days > MAX_RECORDING_AGE_DAYS:
+                            # Use safe file operations for deletion
+                            def delete_file(file_path):
+                                os.remove(file_path)
+                            
+                            safe_file_operations(file_path, delete_file)
+                            count += 1
+                            
+                    except Exception as age_error:
+                        logger.warning(f"Could not determine age of {file}: {age_error}")
+                        errors += 1
+                        
+            except Exception as file_error:
+                logger.warning(f"Error processing file {file}: {file_error}")
+                errors += 1
+                
         if count > 0:
+            logger.info(f"Cleaned up {count} old recording{'s' if count > 1 else ''}")
             print(f"Cleaned up {count} old recording{'s' if count > 1 else ''}")
+        
+        if errors > 0:
+            logger.warning(f"Encountered {errors} error{'s' if errors > 1 else ''} during cleanup")
+            
     except Exception as e:
-        print(f"Error during cleanup: {e}")
+        logger.error(f"Error during cleanup: {e}")
+        print(f"Warning: Error during cleanup: {e}")
+
+def global_exception_handler(exc_type, exc_value, exc_traceback):
+    """Global exception handler to catch any unhandled exceptions"""
+    if issubclass(exc_type, KeyboardInterrupt):
+        # Don't log keyboard interrupts
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    
+    # Log the error
+    logger.critical("Unhandled exception occurred:", exc_info=(exc_type, exc_value, exc_traceback))
+    
+    # Print user-friendly message
+    print(f"\n💥 Critical Error: {exc_value}")
+    print("This error has been logged to 'transcription_errors.log'")
+    print("Please check the log file for details and consider restarting the script.\n")
+    
+    # Try to reset the UI state if possible
+    try:
+        global indicator_root
+        if indicator_root:
+            indicator_root.after(0, lambda: show_indicator("complete"))
+    except:
+        pass
+
+# Set the global exception handler
+sys.excepthook = global_exception_handler
+
+def safe_file_path(file_path):
+    """Convert file path to safe format for Windows"""
+    try:
+        # Normalize the path and convert to absolute path
+        abs_path = os.path.abspath(file_path)
+        
+        # Check if the path contains problematic characters
+        try:
+            abs_path.encode('mbcs')
+            return abs_path
+        except UnicodeEncodeError:
+            # Path contains problematic characters, try to clean it
+            logger.warning(f"File path contains problematic characters: {file_path}")
+            
+            # Try to use short path name (8.3 format) on Windows
+            if platform.system() == "Windows":
+                try:
+                    import win32api
+                    short_path = win32api.GetShortPathName(abs_path)
+                    logger.info(f"Converted to short path: {short_path}")
+                    return short_path
+                except Exception as short_path_error:
+                    logger.warning(f"Failed to get short path: {short_path_error}")
+            
+            # Fallback: try to encode with replacement
+            try:
+                safe_path = abs_path.encode('mbcs', errors='replace').decode('mbcs')
+                logger.info(f"Cleaned path using replacement: {safe_path}")
+                return safe_path
+            except Exception as encode_error:
+                logger.error(f"Failed to clean path: {encode_error}")
+                # Last resort: return a safe filename
+                safe_filename = f"recording_{int(time.time())}.wav"
+                safe_dir = os.path.dirname(abs_path)
+                return os.path.join(safe_dir, safe_filename)
+                
+    except Exception as e:
+        logger.error(f"Error processing file path {file_path}: {e}")
+        # Return a completely safe fallback path
+        fallback_dir = os.path.expanduser("~/Documents/Sound Recordings")
+        fallback_filename = f"recording_{int(time.time())}.wav"
+        return os.path.join(fallback_dir, fallback_filename)
+
+def safe_file_operations(file_path, operation_func):
+    """Safely perform file operations with encoding error handling"""
+    try:
+        # Try with original path first
+        return operation_func(file_path)
+    except UnicodeEncodeError as e:
+        logger.warning(f"Unicode encoding error with file path: {e}")
+        
+        # Try with safe path
+        safe_path = safe_file_path(file_path)
+        if safe_path != file_path:
+            logger.info(f"Retrying with safe path: {safe_path}")
+            try:
+                return operation_func(safe_path)
+            except Exception as retry_error:
+                logger.error(f"Failed with safe path: {retry_error}")
+                raise Exception(f"File operation failed even with safe path: {retry_error}")
+        else:
+            raise Exception(f"Could not create safe file path: {e}")
+    except Exception as e:
+        logger.error(f"File operation error: {e}")
+        raise
 
 def main():
-    # Clean up old recordings first
-    cleanup_old_recordings()
-    
-    # Set up recording stream
-    stream = sd.InputStream(
-        callback=audio_callback,
-        channels=1,
-        samplerate=SAMPLE_RATE
-    )
-    
-    # Create recordings directory if it doesn't exist
-    os.makedirs(recordings_dir, exist_ok=True)
-    
-    print(f"Starting transcription service using {TRANSCRIPTION_MODEL.upper()} model...")
-    print(f"Press {HOTKEY} to start/stop recording.")
-    print("Press Ctrl+C in the console or close the window to exit.")
-    
-    # Start the Win32 hotkey listener thread
-    listener = threading.Thread(target=hotkey_listener_thread, daemon=True)
-    listener.start()
-    
-    # Start the recording stream
-    with stream:
-        try:
-            # Keep the program running while listener is alive
-            while listener.is_alive():
-                time.sleep(1)
+    """Main function with comprehensive error handling"""
+    try:
+        # Clean up old recordings first
+        cleanup_old_recordings()
+        
+        # Set up recording stream
+        stream = sd.InputStream(
+            callback=audio_callback,
+            channels=1,
+            samplerate=SAMPLE_RATE
+        )
+        
+        # Create recordings directory if it doesn't exist
+        os.makedirs(recordings_dir, exist_ok=True)
+        
+        print(f"Starting transcription service using {TRANSCRIPTION_MODEL.upper()} model...")
+        print(f"Press {HOTKEY} to start/stop recording.")
+        print("Press Ctrl+Shift+R to reset UI state if it gets stuck.")
+        print("Press Ctrl+C in the console or close the window to exit.")
+        print("Error logs will be saved to 'transcription_errors.log'")
+        
+        # Start the Win32 hotkey listener thread
+        listener = threading.Thread(target=hotkey_listener_thread, daemon=True)
+        listener.start()
+        
+        # Start the recording stream
+        with stream:
+            try:
+                # Keep the program running while listener is alive
+                while listener.is_alive():
+                    time.sleep(1)
+                    
+                # If the listener thread dies unexpectedly, we might end up here
+                logger.warning("Hotkey listener thread seems to have stopped.")
+                print("Hotkey listener thread stopped unexpectedly.")
                 
-            # If the listener thread dies unexpectedly, we might end up here
-            print("Hotkey listener thread seems to have stopped.")
-            
-        except KeyboardInterrupt:
-            print("Ctrl+C detected. Exiting...")
-        finally:
-            # Clean up
-            if is_recording:
-                if indicator_root:
-                    indicator_root.after(0, stop_recording)
-                else:
-                    stop_recording()
-            print("Service stopped.")
+            except KeyboardInterrupt:
+                print("Ctrl+C detected. Exiting...")
+            except Exception as e:
+                logger.error(f"Unexpected error in main loop: {e}")
+                print(f"Unexpected error: {e}")
+                print("Check the log file for details.")
+            finally:
+                # Clean up
+                if is_recording:
+                    try:
+                        if indicator_root:
+                            indicator_root.after(0, stop_recording)
+                        else:
+                            stop_recording()
+                    except Exception as cleanup_error:
+                        logger.error(f"Error during cleanup: {cleanup_error}")
+                print("Service stopped.")
+                
+    except Exception as e:
+        logger.critical(f"Critical error during startup: {e}")
+        print(f"Critical startup error: {e}")
+        print("Check the log file for details.")
+        raise
 
 if __name__ == "__main__":
     main() 
