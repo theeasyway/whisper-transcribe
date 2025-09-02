@@ -2163,3 +2163,1643 @@
 2025-08-29 21:30:14,841 - INFO - Text pasted successfully
 2025-08-29 21:30:14,874 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_212951.wav
 2025-08-29 21:30:14,874 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:01:44,084 - INFO - Checking for old recordings (older than 7 days)...
+2025-08-29 23:01:44,101 - INFO - Cleaned up 12 old recordings
+2025-08-29 23:01:56,247 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230156.wav
+2025-08-29 23:02:16,378 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230156.wav
+2025-08-29 23:02:16,379 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230156.wav
+2025-08-29 23:02:16,379 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:02:16,380 - INFO - Transcribing with local model...
+2025-08-29 23:02:16,445 - INFO - Processing audio with duration 00:20.118
+2025-08-29 23:02:17,239 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:02:17,515 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:02:17,515 - INFO - Transcription completed successfully:  It looks to me like the new system no longer does the current playback mode first when  it's doing ...
+2025-08-29 23:02:17,515 - INFO - Text copied to clipboard successfully
+2025-08-29 23:02:17,624 - INFO - Text pasted successfully
+2025-08-29 23:02:17,624 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230156.wav
+2025-08-29 23:02:17,624 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:02:42,934 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230242.wav
+2025-08-29 23:02:53,962 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230242.wav
+2025-08-29 23:02:53,963 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230242.wav
+2025-08-29 23:02:53,963 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:02:53,964 - INFO - Transcribing with local model...
+2025-08-29 23:02:54,023 - INFO - Processing audio with duration 00:11.025
+2025-08-29 23:02:54,376 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:02:54,647 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:02:54,647 - INFO - Transcription completed successfully:  There may be an argument for doing the same with the current chord set, favouring it all so I can't...
+2025-08-29 23:02:54,647 - INFO - Text copied to clipboard successfully
+2025-08-29 23:02:54,757 - INFO - Text pasted successfully
+2025-08-29 23:02:54,757 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_230242.wav
+2025-08-29 23:02:54,757 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:28:14,608 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_232814.wav
+2025-08-29 23:28:19,664 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_232814.wav
+2025-08-29 23:28:19,665 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_232814.wav
+2025-08-29 23:28:19,665 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:28:19,666 - INFO - Transcribing with local model...
+2025-08-29 23:28:19,727 - INFO - Processing audio with duration 00:05.075
+2025-08-29 23:28:20,059 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:28:20,336 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:28:20,336 - INFO - Transcription completed successfully:  This check is now failing so the UI never gets populated.
+2025-08-29 23:28:20,337 - INFO - Text copied to clipboard successfully
+2025-08-29 23:28:20,447 - INFO - Text pasted successfully
+2025-08-29 23:28:20,448 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_232814.wav
+2025-08-29 23:28:20,448 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:42:41,877 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234241.wav
+2025-08-29 23:43:12,715 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234241.wav
+2025-08-29 23:43:12,716 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234241.wav
+2025-08-29 23:43:12,717 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:43:12,717 - INFO - Transcribing with local model...
+2025-08-29 23:43:12,782 - INFO - Processing audio with duration 00:30.834
+2025-08-29 23:43:13,152 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:43:13,746 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:43:13,746 - INFO - Transcription completed successfully:  So I put in some breakpoints and I've watched what's happening. That doesn't fix it. I can watch it...
+2025-08-29 23:43:13,747 - INFO - Text copied to clipboard successfully
+2025-08-29 23:43:13,860 - INFO - Text pasted successfully
+2025-08-29 23:43:13,860 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234241.wav
+2025-08-29 23:43:13,861 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:45:59,971 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234559.wav
+2025-08-29 23:46:24,634 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234559.wav
+2025-08-29 23:46:24,635 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234559.wav
+2025-08-29 23:46:24,635 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:46:24,636 - INFO - Transcribing with local model...
+2025-08-29 23:46:24,707 - INFO - Processing audio with duration 00:24.652
+2025-08-29 23:46:25,088 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:46:25,499 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:46:25,499 - INFO - Transcription completed successfully:  Isn't that a band-aid fix though? Doesn't that leave the essential problem in place which is that t...
+2025-08-29 23:46:25,499 - INFO - Text copied to clipboard successfully
+2025-08-29 23:46:25,611 - INFO - Text pasted successfully
+2025-08-29 23:46:25,612 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234559.wav
+2025-08-29 23:46:25,612 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:46:29,078 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234629.wav
+2025-08-29 23:46:43,745 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234629.wav
+2025-08-29 23:46:43,746 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234629.wav
+2025-08-29 23:46:43,746 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:46:43,746 - INFO - Transcribing with local model...
+2025-08-29 23:46:43,807 - INFO - Processing audio with duration 00:14.657
+2025-08-29 23:46:44,272 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:46:44,631 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:46:44,631 - INFO - Transcription completed successfully:  If this wasn't the case, it wouldn't matter when the load was done. It would always override becaus...
+2025-08-29 23:46:44,631 - INFO - Text copied to clipboard successfully
+2025-08-29 23:46:44,742 - INFO - Text pasted successfully
+2025-08-29 23:46:44,743 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234629.wav
+2025-08-29 23:46:44,743 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:48:38,547 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234838.wav
+2025-08-29 23:50:15,363 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234838.wav
+2025-08-29 23:50:15,364 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234838.wav
+2025-08-29 23:50:15,365 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:50:15,365 - INFO - Transcribing with local model...
+2025-08-29 23:50:15,446 - INFO - Processing audio with duration 01:36.779
+2025-08-29 23:50:15,816 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:50:17,159 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:50:17,159 - INFO - Transcription completed successfully:  Okay this is one approach but I want to look at another approach rather than dive in and just imple...
+2025-08-29 23:50:17,159 - INFO - Text copied to clipboard successfully
+2025-08-29 23:50:17,270 - INFO - Text pasted successfully
+2025-08-29 23:50:17,271 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_234838.wav
+2025-08-29 23:50:17,271 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:56:21,305 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235621.wav
+2025-08-29 23:58:31,344 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235621.wav
+2025-08-29 23:58:31,345 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235621.wav
+2025-08-29 23:58:31,346 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:58:31,347 - INFO - Transcribing with local model...
+2025-08-29 23:58:31,439 - INFO - Processing audio with duration 02:09.983
+2025-08-29 23:58:31,847 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:58:38,959 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:58:38,959 - INFO - Transcription completed successfully:  Ok, I think we've actually opened a whole area of investigation here. We have two different impleme...
+2025-08-29 23:58:38,959 - INFO - Text copied to clipboard successfully
+2025-08-29 23:58:39,073 - INFO - Text pasted successfully
+2025-08-29 23:58:39,073 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235621.wav
+2025-08-29 23:58:39,073 - INFO - Transcription process completed (success or failure)
+2025-08-29 23:59:08,299 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235908.wav
+2025-08-29 23:59:27,069 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235908.wav
+2025-08-29 23:59:27,070 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235908.wav
+2025-08-29 23:59:27,070 - INFO - Using LOCAL model for transcription...
+2025-08-29 23:59:27,071 - INFO - Transcribing with local model...
+2025-08-29 23:59:27,140 - INFO - Processing audio with duration 00:18.753
+2025-08-29 23:59:27,610 - INFO - Detected language 'en' with probability 1.00
+2025-08-29 23:59:27,894 - INFO - Detected language: en (probability: 1.00)
+2025-08-29 23:59:27,894 - INFO - Transcription completed successfully:  Again, I'm trying to encourage investigation here and not just fixate on this one specific idea.
+2025-08-29 23:59:27,894 - INFO - Text copied to clipboard successfully
+2025-08-29 23:59:28,006 - INFO - Text pasted successfully
+2025-08-29 23:59:28,006 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250829_235908.wav
+2025-08-29 23:59:28,006 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:04:34,547 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_000434.wav
+2025-08-30 00:09:12,739 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_000434.wav
+2025-08-30 00:09:12,740 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_000434.wav
+2025-08-30 00:09:12,740 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:09:12,742 - INFO - Transcribing with local model...
+2025-08-30 00:09:12,862 - INFO - Processing audio with duration 04:38.075
+2025-08-30 00:09:13,416 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:09:18,598 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:09:18,599 - INFO - Transcription completed successfully:  Ok, so I think there are three things I want to mention. One is the first play of latency.  Another...
+2025-08-30 00:09:18,599 - INFO - Text copied to clipboard successfully
+2025-08-30 00:09:18,719 - INFO - Text pasted successfully
+2025-08-30 00:09:18,721 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_000434.wav
+2025-08-30 00:09:18,721 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:10:35,175 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001035.wav
+2025-08-30 00:10:44,295 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001035.wav
+2025-08-30 00:10:44,296 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001035.wav
+2025-08-30 00:10:44,296 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:10:44,296 - INFO - Transcribing with local model...
+2025-08-30 00:10:44,360 - INFO - Processing audio with duration 00:09.119
+2025-08-30 00:10:44,785 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:10:45,013 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:10:45,013 - INFO - Transcription completed successfully:  Yeah, there.  So it's an array.
+2025-08-30 00:10:45,014 - INFO - Text copied to clipboard successfully
+2025-08-30 00:10:45,126 - INFO - Text pasted successfully
+2025-08-30 00:10:45,126 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001035.wav
+2025-08-30 00:10:45,126 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:17:15,273 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001715.wav
+2025-08-30 00:18:20,447 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001715.wav
+2025-08-30 00:18:20,448 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001715.wav
+2025-08-30 00:18:20,448 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:18:20,448 - INFO - Transcribing with local model...
+2025-08-30 00:18:20,525 - INFO - Processing audio with duration 01:05.146
+2025-08-30 00:18:21,031 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:18:21,960 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:18:21,960 - INFO - Transcription completed successfully:  Okay, in another thread we've discussed the idea of an emergency access to the background cache fro...
+2025-08-30 00:18:21,960 - INFO - Text copied to clipboard successfully
+2025-08-30 00:18:22,071 - INFO - Text pasted successfully
+2025-08-30 00:18:22,072 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001715.wav
+2025-08-30 00:18:22,073 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:18:37,922 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001837.wav
+2025-08-30 00:20:20,172 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001837.wav
+2025-08-30 00:20:20,173 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001837.wav
+2025-08-30 00:20:20,173 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:20:20,174 - INFO - Transcribing with local model...
+2025-08-30 00:20:20,259 - INFO - Processing audio with duration 01:42.188
+2025-08-30 00:20:20,782 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:20:22,361 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:20:22,361 - INFO - Transcription completed successfully:  I'm just bringing this up now because it seems like if it can work then it could be a vital part of...
+2025-08-30 00:20:22,361 - INFO - Text copied to clipboard successfully
+2025-08-30 00:20:22,472 - INFO - Text pasted successfully
+2025-08-30 00:20:22,473 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_001837.wav
+2025-08-30 00:20:22,473 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:25:02,102 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002502.wav
+2025-08-30 00:25:29,879 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002502.wav
+2025-08-30 00:25:29,880 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002502.wav
+2025-08-30 00:25:29,880 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:25:29,881 - INFO - Transcribing with local model...
+2025-08-30 00:25:29,949 - INFO - Processing audio with duration 00:27.769
+2025-08-30 00:25:30,297 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:25:30,641 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:25:30,641 - INFO - Transcription completed successfully:  The Audio Threads Cache is going to be faster to look up than the Emergency Cache Snapshot.  But ho...
+2025-08-30 00:25:30,641 - INFO - Text copied to clipboard successfully
+2025-08-30 00:25:30,714 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002530.wav
+2025-08-30 00:25:30,752 - INFO - Text pasted successfully
+2025-08-30 00:25:30,752 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002502.wav
+2025-08-30 00:25:30,752 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:25:31,292 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002530.wav
+2025-08-30 00:25:31,293 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002530.wav
+2025-08-30 00:25:31,293 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:25:31,293 - INFO - Transcribing with local model...
+2025-08-30 00:25:31,344 - INFO - Processing audio with duration 00:00.567
+2025-08-30 00:25:31,498 - INFO - Detected language 'en' with probability 0.20
+2025-08-30 00:25:31,684 - INFO - Detected language: en (probability: 0.20)
+2025-08-30 00:25:31,684 - INFO - Transcription completed successfully:  Here we go.
+2025-08-30 00:25:31,685 - INFO - Text copied to clipboard successfully
+2025-08-30 00:25:31,798 - INFO - Text pasted successfully
+2025-08-30 00:25:31,798 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002530.wav
+2025-08-30 00:25:31,798 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:25:38,716 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002538.wav
+2025-08-30 00:26:25,815 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002538.wav
+2025-08-30 00:26:25,816 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002538.wav
+2025-08-30 00:26:25,816 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:26:25,816 - INFO - Transcribing with local model...
+2025-08-30 00:26:25,886 - INFO - Processing audio with duration 00:47.063
+2025-08-30 00:26:26,275 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:26:26,943 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:26:26,943 - INFO - Transcription completed successfully:  So the audio threads cache is going to be faster to check than the emergency snapshot.  Both becaus...
+2025-08-30 00:26:26,943 - INFO - Text copied to clipboard successfully
+2025-08-30 00:26:27,058 - INFO - Text pasted successfully
+2025-08-30 00:26:27,059 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002538.wav
+2025-08-30 00:26:27,059 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:29:08,052 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002908.wav
+2025-08-30 00:33:04,413 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002908.wav
+2025-08-30 00:33:04,414 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002908.wav
+2025-08-30 00:33:04,415 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:33:04,416 - INFO - Transcribing with local model...
+2025-08-30 00:33:04,553 - INFO - Processing audio with duration 03:56.242
+2025-08-30 00:33:05,124 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:33:13,000 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:33:13,000 - INFO - Transcription completed successfully:  This is a slightly different topic but I want to touch on it here before I forget, especially as we...
+2025-08-30 00:33:13,000 - ERROR - Failed to copy to clipboard: 'mbcs' codec can't encode characters in position 0--1: invalid character
+2025-08-30 00:33:13,000 - WARNING - Failed to copy to clipboard, but transcription was successful
+2025-08-30 00:33:13,003 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_002908.wav
+2025-08-30 00:33:13,003 - INFO - Transcription process completed (success or failure)
+2025-08-30 00:33:47,411 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_003347.wav
+2025-08-30 00:35:41,810 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_003347.wav
+2025-08-30 00:35:41,810 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_003347.wav
+2025-08-30 00:35:41,812 - INFO - Using LOCAL model for transcription...
+2025-08-30 00:35:41,812 - INFO - Transcribing with local model...
+2025-08-30 00:35:41,901 - INFO - Processing audio with duration 01:54.347
+2025-08-30 00:35:42,283 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 00:35:50,086 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 00:35:50,087 - INFO - Transcription completed successfully:  This is a slightly different topic, but what if we also pre-computed some of our sequences and or s...
+2025-08-30 00:35:50,087 - INFO - Text copied to clipboard successfully
+2025-08-30 00:35:50,201 - INFO - Text pasted successfully
+2025-08-30 00:35:50,202 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_003347.wav
+2025-08-30 00:35:50,203 - INFO - Transcription process completed (success or failure)
+2025-08-30 02:13:29,073 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021329.wav
+2025-08-30 02:14:08,407 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021329.wav
+2025-08-30 02:14:08,407 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021329.wav
+2025-08-30 02:14:08,408 - INFO - Using LOCAL model for transcription...
+2025-08-30 02:14:08,408 - INFO - Transcribing with local model...
+2025-08-30 02:14:08,488 - INFO - Processing audio with duration 00:39.309
+2025-08-30 02:14:08,868 - INFO - Detected language 'en' with probability 0.51
+2025-08-30 02:14:09,247 - INFO - Detected language: en (probability: 0.51)
+2025-08-30 02:14:09,247 - INFO - Transcription completed successfully:  Thank you.  Thank you.
+2025-08-30 02:14:09,247 - INFO - Text copied to clipboard successfully
+2025-08-30 02:14:09,360 - INFO - Text pasted successfully
+2025-08-30 02:14:09,361 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021329.wav
+2025-08-30 02:14:09,361 - INFO - Transcription process completed (success or failure)
+2025-08-30 02:16:13,881 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021613.wav
+2025-08-30 02:16:45,606 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021613.wav
+2025-08-30 02:16:45,607 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021613.wav
+2025-08-30 02:16:45,607 - INFO - Using LOCAL model for transcription...
+2025-08-30 02:16:45,608 - INFO - Transcribing with local model...
+2025-08-30 02:16:45,671 - INFO - Processing audio with duration 00:31.710
+2025-08-30 02:16:46,019 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 02:16:49,312 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 02:16:49,313 - INFO - Transcription completed successfully:  So the idea of doing the ML based approach and using the Cordformer paper as a template for a state...
+2025-08-30 02:16:49,313 - ERROR - Failed to copy to clipboard: 'mbcs' codec can't encode characters in position 0--1: invalid character
+2025-08-30 02:16:49,313 - WARNING - Failed to copy to clipboard, but transcription was successful
+2025-08-30 02:16:49,314 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021613.wav
+2025-08-30 02:16:49,314 - INFO - Transcription process completed (success or failure)
+2025-08-30 02:19:29,501 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021929.wav
+2025-08-30 02:20:10,889 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021929.wav
+2025-08-30 02:20:10,890 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021929.wav
+2025-08-30 02:20:10,890 - INFO - Using LOCAL model for transcription...
+2025-08-30 02:20:10,890 - INFO - Transcribing with local model...
+2025-08-30 02:20:10,962 - INFO - Processing audio with duration 00:41.370
+2025-08-30 02:20:11,344 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 02:20:11,819 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 02:20:11,819 - INFO - Transcription completed successfully:  These kinds of details would be helpful but what I'm most interested in is just how realistic is it...
+2025-08-30 02:20:11,819 - INFO - Text copied to clipboard successfully
+2025-08-30 02:20:11,933 - INFO - Text pasted successfully
+2025-08-30 02:20:11,934 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_021929.wav
+2025-08-30 02:20:11,934 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:03:39,788 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110339.wav
+2025-08-30 11:05:10,361 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110339.wav
+2025-08-30 11:05:10,362 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110339.wav
+2025-08-30 11:05:10,363 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:05:10,363 - INFO - Transcribing with local model...
+2025-08-30 11:05:10,451 - INFO - Processing audio with duration 01:30.519
+2025-08-30 11:05:10,813 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:05:12,467 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:05:12,467 - INFO - Transcription completed successfully:  OK, two points. In your table there we are talking about playback, the playback role,  the new deco...
+2025-08-30 11:05:12,467 - INFO - Text copied to clipboard successfully
+2025-08-30 11:05:12,579 - INFO - Text pasted successfully
+2025-08-30 11:05:12,580 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110339.wav
+2025-08-30 11:05:12,580 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:05:24,831 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110524.wav
+2025-08-30 11:05:36,640 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110524.wav
+2025-08-30 11:05:36,641 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110524.wav
+2025-08-30 11:05:36,641 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:05:36,641 - INFO - Transcribing with local model...
+2025-08-30 11:05:36,704 - INFO - Processing audio with duration 00:11.798
+2025-08-30 11:05:37,191 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:05:37,445 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:05:37,445 - INFO - Transcription completed successfully:  This is a pretty theoretical question though because it's just an edge case.  I just want to deepen...
+2025-08-30 11:05:37,445 - INFO - Text copied to clipboard successfully
+2025-08-30 11:05:37,557 - INFO - Text pasted successfully
+2025-08-30 11:05:37,558 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110524.wav
+2025-08-30 11:05:37,558 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:05:43,819 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110543.wav
+2025-08-30 11:08:24,370 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110543.wav
+2025-08-30 11:08:24,371 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110543.wav
+2025-08-30 11:08:24,371 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:08:24,372 - INFO - Transcribing with local model...
+2025-08-30 11:08:24,477 - INFO - Processing audio with duration 02:40.483
+2025-08-30 11:08:24,940 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:08:32,247 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:08:32,248 - INFO - Transcription completed successfully:  The other point I would make is an issue I have with the system at the moment which is that the key...
+2025-08-30 11:08:32,248 - INFO - Text copied to clipboard successfully
+2025-08-30 11:08:32,364 - INFO - Text pasted successfully
+2025-08-30 11:08:32,365 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_110543.wav
+2025-08-30 11:08:32,365 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:11:07,117 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111107.wav
+2025-08-30 11:11:10,567 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111107.wav
+2025-08-30 11:11:10,568 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111107.wav
+2025-08-30 11:11:10,568 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:11:10,569 - INFO - Transcribing with local model...
+2025-08-30 11:11:10,631 - INFO - Processing audio with duration 00:03.452
+2025-08-30 11:11:11,082 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:11:11,299 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:11:11,299 - INFO - Transcription completed successfully:  That level of latency is completely unacceptable.
+2025-08-30 11:11:11,300 - INFO - Text copied to clipboard successfully
+2025-08-30 11:11:11,426 - INFO - Text pasted successfully
+2025-08-30 11:11:11,426 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111107.wav
+2025-08-30 11:11:11,426 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:11:49,820 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111149.wav
+2025-08-30 11:11:51,321 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111149.wav
+2025-08-30 11:11:51,322 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111149.wav
+2025-08-30 11:11:51,322 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:11:51,322 - INFO - Transcribing with local model...
+2025-08-30 11:11:51,374 - INFO - Processing audio with duration 00:01.494
+2025-08-30 11:11:51,749 - INFO - Detected language 'en' with probability 0.96
+2025-08-30 11:11:51,930 - INFO - Detected language: en (probability: 0.96)
+2025-08-30 11:11:51,930 - INFO - Transcription completed successfully:  PMR
+2025-08-30 11:11:51,931 - INFO - Text copied to clipboard successfully
+2025-08-30 11:11:52,066 - INFO - Text pasted successfully
+2025-08-30 11:11:52,067 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111149.wav
+2025-08-30 11:11:52,067 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:15:47,551 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111547.wav
+2025-08-30 11:15:59,571 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111547.wav
+2025-08-30 11:15:59,572 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111547.wav
+2025-08-30 11:15:59,572 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:15:59,573 - INFO - Transcribing with local model...
+2025-08-30 11:15:59,641 - INFO - Processing audio with duration 00:12.004
+2025-08-30 11:15:59,992 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:16:00,309 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:16:00,309 - INFO - Transcription completed successfully:  key switches can also just come in in the MIDI buffer so even the UI is not involved.
+2025-08-30 11:16:00,310 - INFO - Text copied to clipboard successfully
+2025-08-30 11:16:00,421 - INFO - Text pasted successfully
+2025-08-30 11:16:00,422 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111547.wav
+2025-08-30 11:16:00,422 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:16:06,931 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111606.wav
+2025-08-30 11:16:22,185 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111606.wav
+2025-08-30 11:16:22,186 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111606.wav
+2025-08-30 11:16:22,186 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:16:22,187 - INFO - Transcribing with local model...
+2025-08-30 11:16:22,253 - INFO - Processing audio with duration 00:15.250
+2025-08-30 11:16:22,587 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:16:23,120 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:16:23,121 - INFO - Transcription completed successfully:  I think this means that we absolutely have to allow for the audio thread being directly  promptable...
+2025-08-30 11:16:23,121 - INFO - Text copied to clipboard successfully
+2025-08-30 11:16:23,235 - INFO - Text pasted successfully
+2025-08-30 11:16:23,235 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111606.wav
+2025-08-30 11:16:23,235 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:17:05,415 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111705.wav
+2025-08-30 11:17:14,974 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111705.wav
+2025-08-30 11:17:14,974 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111705.wav
+2025-08-30 11:17:14,975 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:17:14,975 - INFO - Transcribing with local model...
+2025-08-30 11:17:15,035 - INFO - Processing audio with duration 00:09.557
+2025-08-30 11:17:15,370 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:17:15,678 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:17:15,678 - INFO - Transcription completed successfully:  and for intent from the UI. We were already doing this as a leftover from the old architecture.
+2025-08-30 11:17:15,679 - INFO - Text copied to clipboard successfully
+2025-08-30 11:17:15,791 - INFO - Text pasted successfully
+2025-08-30 11:17:15,792 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111705.wav
+2025-08-30 11:17:15,792 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:19:14,989 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111914.wav
+2025-08-30 11:19:42,061 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111914.wav
+2025-08-30 11:19:42,062 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111914.wav
+2025-08-30 11:19:42,062 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:19:42,063 - INFO - Transcribing with local model...
+2025-08-30 11:19:42,129 - INFO - Processing audio with duration 00:27.048
+2025-08-30 11:19:42,519 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:19:42,826 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:19:42,827 - INFO - Transcription completed successfully:  So, for this model, what I would think to do would be to send Intent...
+2025-08-30 11:19:42,827 - INFO - Text copied to clipboard successfully
+2025-08-30 11:19:42,949 - INFO - Text pasted successfully
+2025-08-30 11:19:42,949 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111914.wav
+2025-08-30 11:19:42,949 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:19:58,219 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111958.wav
+2025-08-30 11:21:30,990 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111958.wav
+2025-08-30 11:21:30,991 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111958.wav
+2025-08-30 11:21:30,991 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:21:30,992 - INFO - Transcribing with local model...
+2025-08-30 11:21:31,078 - INFO - Processing audio with duration 01:32.735
+2025-08-30 11:21:31,479 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:21:32,710 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:21:32,711 - INFO - Transcription completed successfully:  So in this model I think the question is what do you do in the edge case, which may be extremely ra...
+2025-08-30 11:21:32,711 - INFO - Text copied to clipboard successfully
+2025-08-30 11:21:32,823 - INFO - Text pasted successfully
+2025-08-30 11:21:32,823 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_111958.wav
+2025-08-30 11:21:32,823 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:21:39,048 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112139.wav
+2025-08-30 11:23:45,274 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112139.wav
+2025-08-30 11:23:45,275 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112139.wav
+2025-08-30 11:23:45,276 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:23:45,276 - INFO - Transcribing with local model...
+2025-08-30 11:23:45,364 - INFO - Processing audio with duration 02:06.171
+2025-08-30 11:23:45,824 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:23:52,009 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:23:52,009 - INFO - Transcription completed successfully:  on the subject of PMR. PMR would change the architecture, surely, because PMR would mean  that the ...
+2025-08-30 11:23:52,010 - INFO - Text copied to clipboard successfully
+2025-08-30 11:23:52,124 - INFO - Text pasted successfully
+2025-08-30 11:23:52,125 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112139.wav
+2025-08-30 11:23:52,125 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:26:16,108 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112616.wav
+2025-08-30 11:26:29,733 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112616.wav
+2025-08-30 11:26:29,734 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112616.wav
+2025-08-30 11:26:29,734 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:26:29,735 - INFO - Transcribing with local model...
+2025-08-30 11:26:29,795 - INFO - Processing audio with duration 00:13.601
+2025-08-30 11:26:30,174 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:26:30,507 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:26:30,507 - INFO - Transcription completed successfully:  please search to check your answer  unless you've actually explicitly been given it don't just try ...
+2025-08-30 11:26:30,508 - INFO - Text copied to clipboard successfully
+2025-08-30 11:26:30,620 - INFO - Text pasted successfully
+2025-08-30 11:26:30,620 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_112616.wav
+2025-08-30 11:26:30,620 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:34:24,056 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_113424.wav
+2025-08-30 11:34:28,319 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_113424.wav
+2025-08-30 11:34:28,319 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_113424.wav
+2025-08-30 11:34:28,319 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:34:28,320 - INFO - Transcribing with local model...
+2025-08-30 11:34:28,379 - INFO - Processing audio with duration 00:04.276
+2025-08-30 11:34:28,809 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 11:34:29,021 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 11:34:29,022 - INFO - Transcription completed successfully:  A.I. Studio. Download entire chat.
+2025-08-30 11:34:29,022 - INFO - Text copied to clipboard successfully
+2025-08-30 11:34:29,133 - INFO - Text pasted successfully
+2025-08-30 11:34:29,133 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_113424.wav
+2025-08-30 11:34:29,133 - INFO - Transcription process completed (success or failure)
+2025-08-30 11:56:22,497 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_115622.wav
+2025-08-30 11:56:23,192 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_115622.wav
+2025-08-30 11:56:23,193 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_115622.wav
+2025-08-30 11:56:23,193 - INFO - Using LOCAL model for transcription...
+2025-08-30 11:56:23,193 - INFO - Transcribing with local model...
+2025-08-30 11:56:23,251 - INFO - Processing audio with duration 00:00.696
+2025-08-30 11:56:23,589 - INFO - Detected language 'fr' with probability 0.33
+2025-08-30 11:56:23,779 - INFO - Detected language: fr (probability: 0.33)
+2025-08-30 11:56:23,780 - INFO - Transcription completed successfully:  C'est parti.
+2025-08-30 11:56:23,780 - INFO - Text copied to clipboard successfully
+2025-08-30 11:56:23,892 - INFO - Text pasted successfully
+2025-08-30 11:56:23,892 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_115622.wav
+2025-08-30 11:56:23,892 - INFO - Transcription process completed (success or failure)
+2025-08-30 12:05:33,419 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_120533.wav
+2025-08-30 12:07:13,126 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_120533.wav
+2025-08-30 12:07:13,126 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_120533.wav
+2025-08-30 12:07:13,127 - INFO - Using LOCAL model for transcription...
+2025-08-30 12:07:13,127 - INFO - Transcribing with local model...
+2025-08-30 12:07:13,214 - INFO - Processing audio with duration 01:39.664
+2025-08-30 12:07:13,735 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 12:07:16,667 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 12:07:16,667 - INFO - Transcription completed successfully:  Okay, thanks. That's all clear apart from this point, which I think is still a little  unresolved. ...
+2025-08-30 12:07:16,667 - INFO - Text copied to clipboard successfully
+2025-08-30 12:07:16,780 - INFO - Text pasted successfully
+2025-08-30 12:07:16,781 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_120533.wav
+2025-08-30 12:07:16,781 - INFO - Transcription process completed (success or failure)
+2025-08-30 13:34:37,732 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133437.wav
+2025-08-30 13:35:03,393 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133437.wav
+2025-08-30 13:35:03,394 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133437.wav
+2025-08-30 13:35:03,395 - INFO - Using LOCAL model for transcription...
+2025-08-30 13:35:03,395 - INFO - Transcribing with local model...
+2025-08-30 13:35:03,461 - INFO - Processing audio with duration 00:25.631
+2025-08-30 13:35:03,850 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 13:35:04,136 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 13:35:04,136 - INFO - Transcription completed successfully:  I also had a conversation with the AI on the subject of other machine learning trainings that I cou...
+2025-08-30 13:35:04,136 - INFO - Text copied to clipboard successfully
+2025-08-30 13:35:04,241 - INFO - Text pasted successfully
+2025-08-30 13:35:04,241 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133437.wav
+2025-08-30 13:35:04,242 - INFO - Transcription process completed (success or failure)
+2025-08-30 13:35:44,052 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133544.wav
+2025-08-30 13:36:11,868 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133544.wav
+2025-08-30 13:36:11,868 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133544.wav
+2025-08-30 13:36:11,869 - INFO - Using LOCAL model for transcription...
+2025-08-30 13:36:11,869 - INFO - Transcribing with local model...
+2025-08-30 13:36:11,930 - INFO - Processing audio with duration 00:27.820
+2025-08-30 13:36:12,333 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 13:36:12,586 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 13:36:12,586 - INFO - Transcription completed successfully:  The two that I mentioned were chord suggestion and a kind of analysis or compositional helper  trai...
+2025-08-30 13:36:12,587 - INFO - Text copied to clipboard successfully
+2025-08-30 13:36:12,702 - INFO - Text pasted successfully
+2025-08-30 13:36:12,703 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133544.wav
+2025-08-30 13:36:12,703 - INFO - Transcription process completed (success or failure)
+2025-08-30 13:36:22,677 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133622.wav
+2025-08-30 13:36:45,697 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133622.wav
+2025-08-30 13:36:45,697 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133622.wav
+2025-08-30 13:36:45,698 - INFO - Using LOCAL model for transcription...
+2025-08-30 13:36:45,698 - INFO - Transcribing with local model...
+2025-08-30 13:36:45,760 - INFO - Processing audio with duration 00:23.003
+2025-08-30 13:36:46,124 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 13:36:46,363 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 13:36:46,363 - INFO - Transcription completed successfully:  as opposed to the usual mini-generating models that seem to not attempt to model knowledge the way ...
+2025-08-30 13:36:46,363 - INFO - Text copied to clipboard successfully
+2025-08-30 13:36:46,475 - INFO - Text pasted successfully
+2025-08-30 13:36:46,475 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_133622.wav
+2025-08-30 13:36:46,475 - INFO - Transcription process completed (success or failure)
+2025-08-30 13:42:11,075 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_134211.wav
+2025-08-30 13:42:22,113 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_134211.wav
+2025-08-30 13:42:22,114 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_134211.wav
+2025-08-30 13:42:22,114 - INFO - Using LOCAL model for transcription...
+2025-08-30 13:42:22,115 - INFO - Transcribing with local model...
+2025-08-30 13:42:22,180 - INFO - Processing audio with duration 00:11.051
+2025-08-30 13:42:22,603 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 13:42:22,879 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 13:42:22,879 - INFO - Transcription completed successfully:  Take a look at this document and you'll see the conversation I had with the AI.  You'll see some sp...
+2025-08-30 13:42:22,879 - INFO - Text copied to clipboard successfully
+2025-08-30 13:42:22,996 - INFO - Text pasted successfully
+2025-08-30 13:42:22,996 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_134211.wav
+2025-08-30 13:42:22,996 - INFO - Transcription process completed (success or failure)
+2025-08-30 21:02:20,482 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210220.wav
+2025-08-30 21:02:26,063 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210220.wav
+2025-08-30 21:02:26,064 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210220.wav
+2025-08-30 21:02:26,064 - INFO - Using LOCAL model for transcription...
+2025-08-30 21:02:26,065 - INFO - Transcribing with local model...
+2025-08-30 21:02:26,124 - INFO - Processing audio with duration 00:05.590
+2025-08-30 21:02:26,596 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 21:02:26,869 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 21:02:26,870 - INFO - Transcription completed successfully:  This was planned in another thread, but I'm gonna guess that you immediately get the idea
+2025-08-30 21:02:26,870 - INFO - Text copied to clipboard successfully
+2025-08-30 21:02:26,982 - INFO - Text pasted successfully
+2025-08-30 21:02:26,984 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210220.wav
+2025-08-30 21:02:26,984 - INFO - Transcription process completed (success or failure)
+2025-08-30 21:06:54,227 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210654.wav
+2025-08-30 21:07:18,148 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210654.wav
+2025-08-30 21:07:18,149 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210654.wav
+2025-08-30 21:07:18,149 - INFO - Using LOCAL model for transcription...
+2025-08-30 21:07:18,149 - INFO - Transcribing with local model...
+2025-08-30 21:07:18,218 - INFO - Processing audio with duration 00:23.905
+2025-08-30 21:07:18,703 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 21:07:19,172 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 21:07:19,172 - INFO - Transcription completed successfully:  OK, I think we've settled on an architecture that covers everything.  Let me know if there's anythi...
+2025-08-30 21:07:19,173 - INFO - Text copied to clipboard successfully
+2025-08-30 21:07:19,288 - INFO - Text pasted successfully
+2025-08-30 21:07:19,288 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210654.wav
+2025-08-30 21:07:19,288 - INFO - Transcription process completed (success or failure)
+2025-08-30 21:07:50,655 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210750.wav
+2025-08-30 21:08:15,461 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210750.wav
+2025-08-30 21:08:15,462 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210750.wav
+2025-08-30 21:08:15,462 - INFO - Using LOCAL model for transcription...
+2025-08-30 21:08:15,463 - INFO - Transcribing with local model...
+2025-08-30 21:08:15,527 - INFO - Processing audio with duration 00:24.807
+2025-08-30 21:08:15,887 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 21:08:16,251 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 21:08:16,252 - INFO - Transcription completed successfully:  Let's make ourselves a high level checklist so that we have got a step by step plan for getting to ...
+2025-08-30 21:08:16,252 - INFO - Text copied to clipboard successfully
+2025-08-30 21:08:16,364 - INFO - Text pasted successfully
+2025-08-30 21:08:16,365 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_210750.wav
+2025-08-30 21:08:16,365 - INFO - Transcription process completed (success or failure)
+2025-08-30 21:28:10,681 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212810.wav
+2025-08-30 21:28:26,919 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212810.wav
+2025-08-30 21:28:26,920 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212810.wav
+2025-08-30 21:28:26,920 - INFO - Using LOCAL model for transcription...
+2025-08-30 21:28:26,920 - INFO - Transcribing with local model...
+2025-08-30 21:28:26,984 - INFO - Processing audio with duration 00:16.229
+2025-08-30 21:28:27,469 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 21:28:27,865 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 21:28:27,865 - INFO - Transcription completed successfully:  Yes, create the detailed plan for phase one.  Self-contained so I can hand it over to the AI agent....
+2025-08-30 21:28:27,866 - INFO - Text copied to clipboard successfully
+2025-08-30 21:28:27,978 - INFO - Text pasted successfully
+2025-08-30 21:28:27,978 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212810.wav
+2025-08-30 21:28:27,978 - INFO - Transcription process completed (success or failure)
+2025-08-30 21:28:59,197 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212859.wav
+2025-08-30 21:29:20,589 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212859.wav
+2025-08-30 21:29:20,590 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212859.wav
+2025-08-30 21:29:20,590 - INFO - Using LOCAL model for transcription...
+2025-08-30 21:29:20,590 - INFO - Transcribing with local model...
+2025-08-30 21:29:20,659 - INFO - Processing audio with duration 00:21.380
+2025-08-30 21:29:21,060 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 21:29:21,517 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 21:29:21,517 - INFO - Transcription completed successfully:  the chunked chord performance sequence update system breaks the UI.  We're now going to start pulli...
+2025-08-30 21:29:21,517 - INFO - Text copied to clipboard successfully
+2025-08-30 21:29:21,619 - INFO - Text pasted successfully
+2025-08-30 21:29:21,619 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_212859.wav
+2025-08-30 21:29:21,619 - INFO - Transcription process completed (success or failure)
+2025-08-30 21:31:13,303 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_213113.wav
+2025-08-30 21:31:36,074 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_213113.wav
+2025-08-30 21:31:36,075 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_213113.wav
+2025-08-30 21:31:36,075 - INFO - Using LOCAL model for transcription...
+2025-08-30 21:31:36,076 - INFO - Transcribing with local model...
+2025-08-30 21:31:36,141 - INFO - Processing audio with duration 00:22.772
+2025-08-30 21:31:36,606 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 21:31:37,100 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 21:31:37,100 - INFO - Transcription completed successfully:  Okay, the agent, the AI took your notes on board and has now produced the plan for the  first phase...
+2025-08-30 21:31:37,100 - INFO - Text copied to clipboard successfully
+2025-08-30 21:31:37,212 - INFO - Text pasted successfully
+2025-08-30 21:31:37,212 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_213113.wav
+2025-08-30 21:31:37,213 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:30:02,637 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223002.wav
+2025-08-30 22:31:02,468 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223002.wav
+2025-08-30 22:31:02,469 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223002.wav
+2025-08-30 22:31:02,469 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:31:02,469 - INFO - Transcribing with local model...
+2025-08-30 22:31:02,549 - INFO - Processing audio with duration 00:59.814
+2025-08-30 22:31:03,000 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:31:04,449 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:31:04,449 - INFO - Transcription completed successfully:  This phase has too much work in it, it will overwhelm the agent and cause it to make mistakes.  Sec...
+2025-08-30 22:31:04,450 - INFO - Text copied to clipboard successfully
+2025-08-30 22:31:04,573 - INFO - Text pasted successfully
+2025-08-30 22:31:04,574 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223002.wav
+2025-08-30 22:31:04,574 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:31:29,358 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223129.wav
+2025-08-30 22:31:38,407 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223129.wav
+2025-08-30 22:31:38,408 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223129.wav
+2025-08-30 22:31:38,408 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:31:38,409 - INFO - Transcribing with local model...
+2025-08-30 22:31:38,468 - INFO - Processing audio with duration 00:09.042
+2025-08-30 22:31:38,795 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:31:39,022 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:31:39,022 - INFO - Transcription completed successfully:  not the recent chunking addition,  but the long standing sequence generation methods.
+2025-08-30 22:31:39,023 - INFO - Text copied to clipboard successfully
+2025-08-30 22:31:39,133 - INFO - Text pasted successfully
+2025-08-30 22:31:39,133 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223129.wav
+2025-08-30 22:31:39,133 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:33:39,421 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223339.wav
+2025-08-30 22:33:46,692 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223339.wav
+2025-08-30 22:33:46,692 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223339.wav
+2025-08-30 22:33:46,693 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:33:46,693 - INFO - Transcribing with local model...
+2025-08-30 22:33:46,750 - INFO - Processing audio with duration 00:07.264
+2025-08-30 22:33:47,143 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:33:47,411 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:33:47,411 - INFO - Transcription completed successfully:  Can you explain to me why we're changing to using raw pointers throughout instead of shared pointer...
+2025-08-30 22:33:47,411 - INFO - Text copied to clipboard successfully
+2025-08-30 22:33:47,524 - INFO - Text pasted successfully
+2025-08-30 22:33:47,524 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223339.wav
+2025-08-30 22:33:47,524 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:38:32,155 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223832.wav
+2025-08-30 22:38:57,006 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223832.wav
+2025-08-30 22:38:57,007 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223832.wav
+2025-08-30 22:38:57,007 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:38:57,008 - INFO - Transcribing with local model...
+2025-08-30 22:38:57,072 - INFO - Processing audio with duration 00:24.832
+2025-08-30 22:38:57,439 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:38:57,865 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:38:57,865 - INFO - Transcription completed successfully:  Okay, Epoch Reclamation will work for the Snapshot Cache  If the audio thread agrees not to save th...
+2025-08-30 22:38:57,865 - INFO - Text copied to clipboard successfully
+2025-08-30 22:38:57,981 - INFO - Text pasted successfully
+2025-08-30 22:38:57,981 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_223832.wav
+2025-08-30 22:38:57,981 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:41:01,410 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224101.wav
+2025-08-30 22:41:32,924 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224101.wav
+2025-08-30 22:41:32,924 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224101.wav
+2025-08-30 22:41:32,925 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:41:32,925 - INFO - Transcribing with local model...
+2025-08-30 22:41:32,994 - INFO - Processing audio with duration 00:31.504
+2025-08-30 22:41:33,389 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:41:34,138 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:41:34,138 - INFO - Transcription completed successfully:  Also the audio thread will have sequences saved in its own cache that it has gotten both from the s...
+2025-08-30 22:41:34,138 - INFO - Text copied to clipboard successfully
+2025-08-30 22:41:34,249 - INFO - Text pasted successfully
+2025-08-30 22:41:34,249 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224101.wav
+2025-08-30 22:41:34,249 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:44:50,096 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224450.wav
+2025-08-30 22:45:28,054 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224450.wav
+2025-08-30 22:45:28,055 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224450.wav
+2025-08-30 22:45:28,055 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:45:28,056 - INFO - Transcribing with local model...
+2025-08-30 22:45:28,127 - INFO - Processing audio with duration 00:37.944
+2025-08-30 22:45:28,506 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:45:29,062 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:45:29,062 - INFO - Transcription completed successfully:  Yeah, so this sounds exactly like the existing system. I don't see a difference really.  And the in...
+2025-08-30 22:45:29,062 - INFO - Text copied to clipboard successfully
+2025-08-30 22:45:29,172 - INFO - Text pasted successfully
+2025-08-30 22:45:29,173 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224450.wav
+2025-08-30 22:45:29,173 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:46:32,432 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224632.wav
+2025-08-30 22:47:26,838 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224632.wav
+2025-08-30 22:47:26,838 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224632.wav
+2025-08-30 22:47:26,839 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:47:26,839 - INFO - Transcribing with local model...
+2025-08-30 22:47:26,911 - INFO - Processing audio with duration 00:54.379
+2025-08-30 22:47:27,269 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:47:28,181 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:47:28,181 - INFO - Transcription completed successfully:  Note that the pointers to the sequences were never causing us any trouble.  The source of trouble h...
+2025-08-30 22:47:28,181 - INFO - Text copied to clipboard successfully
+2025-08-30 22:47:28,292 - INFO - Text pasted successfully
+2025-08-30 22:47:28,293 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_224632.wav
+2025-08-30 22:47:28,293 - INFO - Transcription process completed (success or failure)
+2025-08-30 22:53:59,251 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_225359.wav
+2025-08-30 22:54:21,355 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_225359.wav
+2025-08-30 22:54:21,356 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_225359.wav
+2025-08-30 22:54:21,356 - INFO - Using LOCAL model for transcription...
+2025-08-30 22:54:21,357 - INFO - Transcribing with local model...
+2025-08-30 22:54:21,423 - INFO - Processing audio with duration 00:22.102
+2025-08-30 22:54:21,919 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 22:54:22,217 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 22:54:22,217 - INFO - Transcription completed successfully:  OK, we had some plans made up but it all got a bit over complicated and had lost its focus on the m...
+2025-08-30 22:54:22,217 - INFO - Text copied to clipboard successfully
+2025-08-30 22:54:23,147 - INFO - Text pasted successfully
+2025-08-30 22:54:23,148 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_225359.wav
+2025-08-30 22:54:23,148 - INFO - Transcription process completed (success or failure)
+2025-08-30 23:35:23,257 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_233523.wav
+2025-08-30 23:35:24,607 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250830_233523.wav
+2025-08-30 23:35:24,608 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_233523.wav
+2025-08-30 23:35:24,608 - INFO - Using LOCAL model for transcription...
+2025-08-30 23:35:24,609 - INFO - Transcribing with local model...
+2025-08-30 23:35:24,663 - INFO - Processing audio with duration 00:01.365
+2025-08-30 23:35:25,089 - INFO - Detected language 'en' with probability 1.00
+2025-08-30 23:35:25,313 - INFO - Detected language: en (probability: 1.00)
+2025-08-30 23:35:25,314 - INFO - Transcription completed successfully:  Now it looks like this.
+2025-08-30 23:35:25,314 - INFO - Text copied to clipboard successfully
+2025-08-30 23:35:25,424 - INFO - Text pasted successfully
+2025-08-30 23:35:25,425 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250830_233523.wav
+2025-08-30 23:35:25,425 - INFO - Transcription process completed (success or failure)
+2025-08-31 00:44:27,336 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_004427.wav
+2025-08-31 00:44:38,705 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_004427.wav
+2025-08-31 00:44:38,706 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_004427.wav
+2025-08-31 00:44:38,706 - INFO - Using LOCAL model for transcription...
+2025-08-31 00:44:38,707 - INFO - Transcribing with local model...
+2025-08-31 00:44:38,795 - INFO - Processing audio with duration 00:11.360
+2025-08-31 00:44:39,274 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 00:44:39,536 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 00:44:39,536 - INFO - Transcription completed successfully:  okay output that as a single plan because you did a initial one that a correction  and then i can h...
+2025-08-31 00:44:39,537 - INFO - Text copied to clipboard successfully
+2025-08-31 00:44:39,668 - INFO - Text pasted successfully
+2025-08-31 00:44:39,668 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_004427.wav
+2025-08-31 00:44:39,668 - INFO - Transcription process completed (success or failure)
+2025-08-31 00:52:01,737 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_005201.wav
+2025-08-31 00:52:14,846 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_005201.wav
+2025-08-31 00:52:14,847 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_005201.wav
+2025-08-31 00:52:14,847 - INFO - Using LOCAL model for transcription...
+2025-08-31 00:52:14,848 - INFO - Transcribing with local model...
+2025-08-31 00:52:14,913 - INFO - Processing audio with duration 00:13.086
+2025-08-31 00:52:15,325 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 00:52:15,592 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 00:52:15,592 - INFO - Transcription completed successfully:  The plug-in is still ignoring playback mode, in fact it's ignoring all playback parameters, the oct...
+2025-08-31 00:52:15,593 - INFO - Text copied to clipboard successfully
+2025-08-31 00:52:15,704 - INFO - Text pasted successfully
+2025-08-31 00:52:15,704 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_005201.wav
+2025-08-31 00:52:15,704 - INFO - Transcription process completed (success or failure)
+2025-08-31 12:10:55,504 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121055.wav
+2025-08-31 12:12:16,841 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121055.wav
+2025-08-31 12:12:16,842 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121055.wav
+2025-08-31 12:12:16,843 - INFO - Using LOCAL model for transcription...
+2025-08-31 12:12:16,843 - INFO - Transcribing with local model...
+2025-08-31 12:12:16,925 - INFO - Processing audio with duration 01:21.297
+2025-08-31 12:12:17,367 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 12:12:20,127 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 12:12:20,128 - INFO - Transcription completed successfully:  So it looks like what's happened is the functions in sequence builder for building particular seque...
+2025-08-31 12:12:20,128 - INFO - Text copied to clipboard successfully
+2025-08-31 12:12:20,245 - INFO - Text pasted successfully
+2025-08-31 12:12:20,245 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121055.wav
+2025-08-31 12:12:20,245 - INFO - Transcription process completed (success or failure)
+2025-08-31 12:19:14,485 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121914.wav
+2025-08-31 12:19:19,461 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121914.wav
+2025-08-31 12:19:19,462 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121914.wav
+2025-08-31 12:19:19,462 - INFO - Using LOCAL model for transcription...
+2025-08-31 12:19:19,462 - INFO - Transcribing with local model...
+2025-08-31 12:19:19,521 - INFO - Processing audio with duration 00:04.972
+2025-08-31 12:19:19,834 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 12:19:20,051 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 12:19:20,051 - INFO - Transcription completed successfully:  If this is all correct, we're free to move on to phase three.
+2025-08-31 12:19:20,051 - INFO - Text copied to clipboard successfully
+2025-08-31 12:19:20,177 - INFO - Text pasted successfully
+2025-08-31 12:19:20,178 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_121914.wav
+2025-08-31 12:19:20,178 - INFO - Transcription process completed (success or failure)
+2025-08-31 12:24:25,017 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_122425.wav
+2025-08-31 12:24:37,316 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_122425.wav
+2025-08-31 12:24:37,317 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_122425.wav
+2025-08-31 12:24:37,317 - INFO - Using LOCAL model for transcription...
+2025-08-31 12:24:37,317 - INFO - Transcribing with local model...
+2025-08-31 12:24:37,385 - INFO - Processing audio with duration 00:12.287
+2025-08-31 12:24:37,557 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 12:24:37,820 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 12:24:37,820 - INFO - Transcription completed successfully:  you weren't supposed to change the whole data structure of the background cache  i've rolled back s...
+2025-08-31 12:24:37,820 - INFO - Text copied to clipboard successfully
+2025-08-31 12:24:37,935 - INFO - Text pasted successfully
+2025-08-31 12:24:37,935 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_122425.wav
+2025-08-31 12:24:37,935 - INFO - Transcription process completed (success or failure)
+2025-08-31 12:38:12,873 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_123812.wav
+2025-08-31 12:38:23,102 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_123812.wav
+2025-08-31 12:38:23,102 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_123812.wav
+2025-08-31 12:38:23,103 - INFO - Using LOCAL model for transcription...
+2025-08-31 12:38:23,103 - INFO - Transcribing with local model...
+2025-08-31 12:38:23,174 - INFO - Processing audio with duration 00:10.227
+2025-08-31 12:38:23,632 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 12:38:23,900 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 12:38:23,900 - INFO - Transcription completed successfully:  The background cache was multi-indexed. It's supposed to be multi-indexed. It's always been multi-i...
+2025-08-31 12:38:23,901 - INFO - Text copied to clipboard successfully
+2025-08-31 12:38:24,014 - INFO - Text pasted successfully
+2025-08-31 12:38:24,014 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_123812.wav
+2025-08-31 12:38:24,014 - INFO - Transcription process completed (success or failure)
+2025-08-31 12:50:19,521 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125019.wav
+2025-08-31 12:50:56,557 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125019.wav
+2025-08-31 12:50:56,558 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125019.wav
+2025-08-31 12:50:56,558 - INFO - Using LOCAL model for transcription...
+2025-08-31 12:50:56,559 - INFO - Transcribing with local model...
+2025-08-31 12:50:56,637 - INFO - Processing audio with duration 00:37.017
+2025-08-31 12:50:56,990 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 12:50:57,563 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 12:50:57,563 - INFO - Transcription completed successfully:  I had some trouble with the agent. It kept wanting to replace the sequence. Builders  background th...
+2025-08-31 12:50:57,564 - INFO - Text copied to clipboard successfully
+2025-08-31 12:50:57,686 - INFO - Text pasted successfully
+2025-08-31 12:50:57,687 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125019.wav
+2025-08-31 12:50:57,687 - INFO - Transcription process completed (success or failure)
+2025-08-31 12:59:40,406 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125940.wav
+2025-08-31 13:00:18,543 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125940.wav
+2025-08-31 13:00:18,545 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125940.wav
+2025-08-31 13:00:18,545 - INFO - Using LOCAL model for transcription...
+2025-08-31 13:00:18,545 - INFO - Transcribing with local model...
+2025-08-31 13:00:18,615 - INFO - Processing audio with duration 00:38.124
+2025-08-31 13:00:18,992 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 13:00:19,514 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 13:00:19,515 - INFO - Transcription completed successfully:  In testing on one button I found a long delay. I wonder if this is because we have effectively  dem...
+2025-08-31 13:00:19,515 - INFO - Text copied to clipboard successfully
+2025-08-31 13:00:19,635 - INFO - Text pasted successfully
+2025-08-31 13:00:19,636 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_125940.wav
+2025-08-31 13:00:19,636 - INFO - Transcription process completed (success or failure)
+2025-08-31 13:00:28,134 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_130028.wav
+2025-08-31 13:00:46,975 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_130028.wav
+2025-08-31 13:00:46,975 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_130028.wav
+2025-08-31 13:00:46,976 - INFO - Using LOCAL model for transcription...
+2025-08-31 13:00:46,976 - INFO - Transcribing with local model...
+2025-08-31 13:00:47,043 - INFO - Processing audio with duration 00:18.830
+2025-08-31 13:00:47,388 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 13:00:47,789 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 13:00:47,789 - INFO - Transcription completed successfully:  The snapshotting should be taking care of sequences that already exist in the background cast  but ...
+2025-08-31 13:00:47,789 - INFO - Text copied to clipboard successfully
+2025-08-31 13:00:47,905 - INFO - Text pasted successfully
+2025-08-31 13:00:47,905 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_130028.wav
+2025-08-31 13:00:47,905 - INFO - Transcription process completed (success or failure)
+2025-08-31 16:28:37,400 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_162837.wav
+2025-08-31 16:28:40,657 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_162837.wav
+2025-08-31 16:28:40,658 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_162837.wav
+2025-08-31 16:28:40,658 - INFO - Using LOCAL model for transcription...
+2025-08-31 16:28:40,658 - INFO - Transcribing with local model...
+2025-08-31 16:28:40,718 - INFO - Processing audio with duration 00:03.272
+2025-08-31 16:28:41,144 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 16:28:41,464 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 16:28:41,464 - INFO - Transcription completed successfully:  don't exist in the codebase at all.  I haven't seen them before.
+2025-08-31 16:28:41,465 - INFO - Text copied to clipboard successfully
+2025-08-31 16:28:41,577 - INFO - Text pasted successfully
+2025-08-31 16:28:41,577 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_162837.wav
+2025-08-31 16:28:41,577 - INFO - Transcription process completed (success or failure)
+2025-08-31 16:33:13,245 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_163313.wav
+2025-08-31 16:33:18,557 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_163313.wav
+2025-08-31 16:33:18,557 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_163313.wav
+2025-08-31 16:33:18,557 - INFO - Using LOCAL model for transcription...
+2025-08-31 16:33:18,558 - INFO - Transcribing with local model...
+2025-08-31 16:33:18,621 - INFO - Processing audio with duration 00:05.306
+2025-08-31 16:33:19,051 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 16:33:19,325 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 16:33:19,325 - INFO - Transcription completed successfully:  This method bears no resemblance to the one you're referring to.
+2025-08-31 16:33:19,326 - INFO - Text copied to clipboard successfully
+2025-08-31 16:33:19,439 - INFO - Text pasted successfully
+2025-08-31 16:33:19,439 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_163313.wav
+2025-08-31 16:33:19,439 - INFO - Transcription process completed (success or failure)
+2025-08-31 16:51:41,912 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_165141.wav
+2025-08-31 16:52:02,433 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_165141.wav
+2025-08-31 16:52:02,434 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_165141.wav
+2025-08-31 16:52:02,434 - INFO - Using LOCAL model for transcription...
+2025-08-31 16:52:02,435 - INFO - Transcribing with local model...
+2025-08-31 16:52:02,503 - INFO - Processing audio with duration 00:20.505
+2025-08-31 16:52:02,871 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 16:52:03,186 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 16:52:03,186 - INFO - Transcription completed successfully:  The various update, playback mode methods are still publishing the snapshot as are some parts in th...
+2025-08-31 16:52:03,187 - INFO - Text copied to clipboard successfully
+2025-08-31 16:52:03,314 - INFO - Text pasted successfully
+2025-08-31 16:52:03,314 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_165141.wav
+2025-08-31 16:52:03,314 - INFO - Transcription process completed (success or failure)
+2025-08-31 17:10:07,272 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_171007.wav
+2025-08-31 17:11:09,999 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_171007.wav
+2025-08-31 17:11:10,000 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_171007.wav
+2025-08-31 17:11:10,000 - INFO - Using LOCAL model for transcription...
+2025-08-31 17:11:10,001 - INFO - Transcribing with local model...
+2025-08-31 17:11:10,076 - INFO - Processing audio with duration 01:02.699
+2025-08-31 17:11:10,483 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 17:11:11,517 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 17:11:11,518 - INFO - Transcription completed successfully:  Here we see the cache look ahead for when the timeline is playing and it checks the snapshot  but w...
+2025-08-31 17:11:11,518 - INFO - Text copied to clipboard successfully
+2025-08-31 17:11:11,632 - INFO - Text pasted successfully
+2025-08-31 17:11:11,632 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_171007.wav
+2025-08-31 17:11:11,632 - INFO - Transcription process completed (success or failure)
+2025-08-31 17:21:31,094 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172131.wav
+2025-08-31 17:21:57,942 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172131.wav
+2025-08-31 17:21:57,943 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172131.wav
+2025-08-31 17:21:57,943 - INFO - Using LOCAL model for transcription...
+2025-08-31 17:21:57,944 - INFO - Transcribing with local model...
+2025-08-31 17:21:58,013 - INFO - Processing audio with duration 00:26.842
+2025-08-31 17:21:58,461 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 17:21:58,986 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 17:21:58,986 - INFO - Transcription completed successfully:  I think we can skip publishing the snapshot in this  section of the sequence builder run method bec...
+2025-08-31 17:21:58,986 - INFO - Text copied to clipboard successfully
+2025-08-31 17:21:59,098 - INFO - Text pasted successfully
+2025-08-31 17:21:59,098 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172131.wav
+2025-08-31 17:21:59,099 - INFO - Transcription process completed (success or failure)
+2025-08-31 17:27:52,395 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172752.wav
+2025-08-31 17:29:06,032 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172752.wav
+2025-08-31 17:29:06,033 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172752.wav
+2025-08-31 17:29:06,034 - INFO - Using LOCAL model for transcription...
+2025-08-31 17:29:06,034 - INFO - Transcribing with local model...
+2025-08-31 17:29:06,111 - INFO - Processing audio with duration 01:13.595
+2025-08-31 17:29:06,519 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 17:29:07,930 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 17:29:07,930 - INFO - Transcription completed successfully:  There is at least an argument for publishing a new snapshot in this one because we're not providing...
+2025-08-31 17:29:07,930 - INFO - Text copied to clipboard successfully
+2025-08-31 17:29:08,051 - INFO - Text pasted successfully
+2025-08-31 17:29:08,051 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172752.wav
+2025-08-31 17:29:08,051 - INFO - Transcription process completed (success or failure)
+2025-08-31 17:29:22,303 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172922.wav
+2025-08-31 17:29:59,339 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172922.wav
+2025-08-31 17:29:59,341 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172922.wav
+2025-08-31 17:29:59,341 - INFO - Using LOCAL model for transcription...
+2025-08-31 17:29:59,342 - INFO - Transcribing with local model...
+2025-08-31 17:29:59,413 - INFO - Processing audio with duration 00:37.017
+2025-08-31 17:29:59,893 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 17:30:00,494 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 17:30:00,495 - INFO - Transcription completed successfully:  So as I say, either we publish the snapshot or we use a FIFO to return the sequence.  The differenc...
+2025-08-31 17:30:00,495 - INFO - Text copied to clipboard successfully
+2025-08-31 17:30:00,608 - INFO - Text pasted successfully
+2025-08-31 17:30:00,612 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_172922.wav
+2025-08-31 17:30:00,612 - INFO - Transcription process completed (success or failure)
+2025-08-31 17:31:42,325 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_173142.wav
+2025-08-31 17:32:05,983 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_173142.wav
+2025-08-31 17:32:05,984 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_173142.wav
+2025-08-31 17:32:05,984 - INFO - Using LOCAL model for transcription...
+2025-08-31 17:32:05,984 - INFO - Transcribing with local model...
+2025-08-31 17:32:06,052 - INFO - Processing audio with duration 00:23.647
+2025-08-31 17:32:06,457 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 17:32:06,814 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 17:32:06,814 - INFO - Transcription completed successfully:  If we do decide to return it through a FIFO, we have to decide whether it's a new FIFO or we use th...
+2025-08-31 17:32:06,814 - INFO - Text copied to clipboard successfully
+2025-08-31 17:32:06,930 - INFO - Text pasted successfully
+2025-08-31 17:32:06,931 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_173142.wav
+2025-08-31 17:32:06,931 - INFO - Transcription process completed (success or failure)
+2025-08-31 18:29:18,277 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_182918.wav
+2025-08-31 18:29:39,121 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_182918.wav
+2025-08-31 18:29:39,121 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_182918.wav
+2025-08-31 18:29:39,122 - INFO - Using LOCAL model for transcription...
+2025-08-31 18:29:39,122 - INFO - Transcribing with local model...
+2025-08-31 18:29:39,186 - INFO - Processing audio with duration 00:20.814
+2025-08-31 18:29:39,676 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 18:29:40,010 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 18:29:40,010 - INFO - Transcription completed successfully:  Let's improve the debug here so we can distinguish between priority sequences that are being  retur...
+2025-08-31 18:29:40,011 - INFO - Text copied to clipboard successfully
+2025-08-31 18:29:40,124 - INFO - Text pasted successfully
+2025-08-31 18:29:40,125 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_182918.wav
+2025-08-31 18:29:40,125 - INFO - Transcription process completed (success or failure)
+2025-08-31 18:33:16,847 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_183316.wav
+2025-08-31 18:33:43,064 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_183316.wav
+2025-08-31 18:33:43,065 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_183316.wav
+2025-08-31 18:33:43,066 - INFO - Using LOCAL model for transcription...
+2025-08-31 18:33:43,066 - INFO - Transcribing with local model...
+2025-08-31 18:33:43,138 - INFO - Processing audio with duration 00:26.198
+2025-08-31 18:33:43,595 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 18:33:43,931 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 18:33:43,931 - INFO - Transcription completed successfully:  Does MIDI handler have a way of distinguishing priority from sequences that are to be played immedi...
+2025-08-31 18:33:43,932 - INFO - Text copied to clipboard successfully
+2025-08-31 18:33:44,047 - INFO - Text pasted successfully
+2025-08-31 18:33:44,047 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_183316.wav
+2025-08-31 18:33:44,048 - INFO - Transcription process completed (success or failure)
+2025-08-31 18:48:01,966 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184801.wav
+2025-08-31 18:48:35,183 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184801.wav
+2025-08-31 18:48:35,184 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184801.wav
+2025-08-31 18:48:35,184 - INFO - Using LOCAL model for transcription...
+2025-08-31 18:48:35,184 - INFO - Transcribing with local model...
+2025-08-31 18:48:35,249 - INFO - Processing audio with duration 00:33.204
+2025-08-31 18:48:35,694 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 18:48:36,196 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 18:48:36,196 - INFO - Transcription completed successfully:  Is it just me or is the Quantize method making a proactive request every time without first checkin...
+2025-08-31 18:48:36,196 - INFO - Text copied to clipboard successfully
+2025-08-31 18:48:36,310 - INFO - Text pasted successfully
+2025-08-31 18:48:36,311 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184801.wav
+2025-08-31 18:48:36,311 - INFO - Transcription process completed (success or failure)
+2025-08-31 18:49:40,176 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184940.wav
+2025-08-31 18:50:04,323 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184940.wav
+2025-08-31 18:50:04,324 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184940.wav
+2025-08-31 18:50:04,324 - INFO - Using LOCAL model for transcription...
+2025-08-31 18:50:04,324 - INFO - Transcribing with local model...
+2025-08-31 18:50:04,386 - INFO - Processing audio with duration 00:24.137
+2025-08-31 18:50:04,861 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 18:50:05,308 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 18:50:05,309 - INFO - Transcription completed successfully:  It can also be checking the snapshot. This code starts to overlap a lot with the resolve sequence c...
+2025-08-31 18:50:05,309 - INFO - Text copied to clipboard successfully
+2025-08-31 18:50:05,425 - INFO - Text pasted successfully
+2025-08-31 18:50:05,425 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_184940.wav
+2025-08-31 18:50:05,425 - INFO - Transcription process completed (success or failure)
+2025-08-31 20:56:42,713 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205642.wav
+2025-08-31 20:57:25,212 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205642.wav
+2025-08-31 20:57:25,213 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205642.wav
+2025-08-31 20:57:25,214 - INFO - Using LOCAL model for transcription...
+2025-08-31 20:57:25,214 - INFO - Transcribing with local model...
+2025-08-31 20:57:25,283 - INFO - Processing audio with duration 00:42.478
+2025-08-31 20:57:25,670 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 20:57:26,325 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 20:57:26,325 - INFO - Transcription completed successfully:  So for phase 3 I think the Remy reclamation logic has been rendered irrelevant.  I don't think we n...
+2025-08-31 20:57:26,326 - INFO - Text copied to clipboard successfully
+2025-08-31 20:57:26,441 - INFO - Text pasted successfully
+2025-08-31 20:57:26,441 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205642.wav
+2025-08-31 20:57:26,441 - INFO - Transcription process completed (success or failure)
+2025-08-31 20:57:34,665 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205734.wav
+2025-08-31 20:57:58,292 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205734.wav
+2025-08-31 20:57:58,293 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205734.wav
+2025-08-31 20:57:58,293 - INFO - Using LOCAL model for transcription...
+2025-08-31 20:57:58,294 - INFO - Transcribing with local model...
+2025-08-31 20:57:58,355 - INFO - Processing audio with duration 00:23.622
+2025-08-31 20:57:58,854 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 20:57:59,384 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 20:57:59,384 - INFO - Transcription completed successfully:  Ok let's take a look at the old plan for phase 3  I think the memory reclamation stuff might be rel...
+2025-08-31 20:57:59,384 - INFO - Text copied to clipboard successfully
+2025-08-31 20:57:59,497 - INFO - Text pasted successfully
+2025-08-31 20:57:59,498 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_205734.wav
+2025-08-31 20:57:59,498 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:02:19,150 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210219.wav
+2025-08-31 21:02:47,481 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210219.wav
+2025-08-31 21:02:47,482 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210219.wav
+2025-08-31 21:02:47,482 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:02:47,482 - INFO - Transcribing with local model...
+2025-08-31 21:02:47,547 - INFO - Processing audio with duration 00:28.310
+2025-08-31 21:02:47,958 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:02:48,339 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:02:48,340 - INFO - Transcription completed successfully:  I'm not sure I'll like that approach because if the parameters or chords get edited a lot  there co...
+2025-08-31 21:02:48,340 - INFO - Text copied to clipboard successfully
+2025-08-31 21:02:48,455 - INFO - Text pasted successfully
+2025-08-31 21:02:48,459 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210219.wav
+2025-08-31 21:02:48,459 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:05:05,864 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210505.wav
+2025-08-31 21:05:23,572 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210505.wav
+2025-08-31 21:05:23,573 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210505.wav
+2025-08-31 21:05:23,573 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:05:23,573 - INFO - Transcribing with local model...
+2025-08-31 21:05:23,635 - INFO - Processing audio with duration 00:17.697
+2025-08-31 21:05:24,100 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:05:24,324 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:05:24,325 - INFO - Transcription completed successfully:  I'm just discussing with another AI how to go about memory reclamation in this system.
+2025-08-31 21:05:24,325 - INFO - Text copied to clipboard successfully
+2025-08-31 21:05:24,439 - INFO - Text pasted successfully
+2025-08-31 21:05:24,440 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210505.wav
+2025-08-31 21:05:24,440 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:08:23,718 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210823.wav
+2025-08-31 21:09:15,251 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210823.wav
+2025-08-31 21:09:15,252 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210823.wav
+2025-08-31 21:09:15,252 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:09:15,253 - INFO - Transcribing with local model...
+2025-08-31 21:09:15,323 - INFO - Processing audio with duration 00:51.519
+2025-08-31 21:09:15,823 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:09:16,597 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:09:16,597 - INFO - Transcription completed successfully:  So at the moment the audio thread only looks at snapshots when it needs to find a sequence  that it...
+2025-08-31 21:09:16,597 - INFO - Text copied to clipboard successfully
+2025-08-31 21:09:16,716 - INFO - Text pasted successfully
+2025-08-31 21:09:16,717 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_210823.wav
+2025-08-31 21:09:16,717 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:12:14,429 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211214.wav
+2025-08-31 21:12:39,730 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211214.wav
+2025-08-31 21:12:39,731 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211214.wav
+2025-08-31 21:12:39,731 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:12:39,731 - INFO - Transcribing with local model...
+2025-08-31 21:12:39,796 - INFO - Processing audio with duration 00:25.296
+2025-08-31 21:12:40,160 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:12:40,461 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:12:40,461 - INFO - Transcription completed successfully:  the audio thread looks at the snapshot via an atomic load whenever it needs to  so can't we just as...
+2025-08-31 21:12:40,462 - INFO - Text copied to clipboard successfully
+2025-08-31 21:12:40,577 - INFO - Text pasted successfully
+2025-08-31 21:12:40,577 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211214.wav
+2025-08-31 21:12:40,577 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:12:52,386 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211252.wav
+2025-08-31 21:13:12,352 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211252.wav
+2025-08-31 21:13:12,353 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211252.wav
+2025-08-31 21:13:12,353 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:13:12,354 - INFO - Transcribing with local model...
+2025-08-31 21:13:12,418 - INFO - Processing audio with duration 00:19.938
+2025-08-31 21:13:12,753 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:13:13,005 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:13:13,005 - INFO - Transcription completed successfully:  Or if that isn't completely robust then we could keep the current one and the previous one and disp...
+2025-08-31 21:13:13,006 - INFO - Text copied to clipboard successfully
+2025-08-31 21:13:13,118 - INFO - Text pasted successfully
+2025-08-31 21:13:13,119 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_211252.wav
+2025-08-31 21:13:13,119 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:39:25,701 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_213925.wav
+2025-08-31 21:40:36,817 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_213925.wav
+2025-08-31 21:40:36,818 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_213925.wav
+2025-08-31 21:40:36,818 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:40:36,819 - INFO - Transcribing with local model...
+2025-08-31 21:40:36,894 - INFO - Processing audio with duration 01:11.097
+2025-08-31 21:40:37,379 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:40:38,343 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:40:38,343 - INFO - Transcription completed successfully:  I want you to do an investigation in the code base without making any changes  There are two or thr...
+2025-08-31 21:40:38,343 - INFO - Text copied to clipboard successfully
+2025-08-31 21:40:38,456 - INFO - Text pasted successfully
+2025-08-31 21:40:38,457 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_213925.wav
+2025-08-31 21:40:38,457 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:45:03,323 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_214503.wav
+2025-08-31 21:45:05,004 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_214503.wav
+2025-08-31 21:45:05,005 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_214503.wav
+2025-08-31 21:45:05,005 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:45:05,006 - INFO - Transcribing with local model...
+2025-08-31 21:45:05,068 - INFO - Processing audio with duration 00:01.674
+2025-08-31 21:45:05,496 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:45:05,691 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:45:05,691 - INFO - Transcription completed successfully:  Option A.
+2025-08-31 21:45:05,691 - INFO - Text copied to clipboard successfully
+2025-08-31 21:45:05,805 - INFO - Text pasted successfully
+2025-08-31 21:45:05,805 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_214503.wav
+2025-08-31 21:45:05,805 - INFO - Transcription process completed (success or failure)
+2025-08-31 21:58:09,405 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_215809.wav
+2025-08-31 21:58:21,216 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_215809.wav
+2025-08-31 21:58:21,217 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_215809.wav
+2025-08-31 21:58:21,217 - INFO - Using LOCAL model for transcription...
+2025-08-31 21:58:21,217 - INFO - Transcribing with local model...
+2025-08-31 21:58:21,283 - INFO - Processing audio with duration 00:11.798
+2025-08-31 21:58:21,632 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 21:58:21,872 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 21:58:21,873 - INFO - Transcription completed successfully:  I've tested it and it actually sounds absolutely killer  Can you create a brief commit message and ...
+2025-08-31 21:58:21,873 - INFO - Text copied to clipboard successfully
+2025-08-31 21:58:21,988 - INFO - Text pasted successfully
+2025-08-31 21:58:21,988 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_215809.wav
+2025-08-31 21:58:21,989 - INFO - Transcription process completed (success or failure)
+2025-08-31 22:26:59,171 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_222659.wav
+2025-08-31 22:27:16,610 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_222659.wav
+2025-08-31 22:27:16,611 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_222659.wav
+2025-08-31 22:27:16,611 - INFO - Using LOCAL model for transcription...
+2025-08-31 22:27:16,611 - INFO - Transcribing with local model...
+2025-08-31 22:27:16,671 - INFO - Processing audio with duration 00:17.439
+2025-08-31 22:27:17,039 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 22:27:17,323 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 22:27:17,323 - INFO - Transcription completed successfully:  Let's take a look at the plan the other AI gave us way back a couple of days ago because it was ver...
+2025-08-31 22:27:17,323 - INFO - Text copied to clipboard successfully
+2025-08-31 22:27:17,438 - INFO - Text pasted successfully
+2025-08-31 22:27:17,438 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_222659.wav
+2025-08-31 22:27:17,439 - INFO - Transcription process completed (success or failure)
+2025-08-31 22:31:51,786 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223151.wav
+2025-08-31 22:32:08,856 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223151.wav
+2025-08-31 22:32:08,856 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223151.wav
+2025-08-31 22:32:08,857 - INFO - Using LOCAL model for transcription...
+2025-08-31 22:32:08,857 - INFO - Transcribing with local model...
+2025-08-31 22:32:08,918 - INFO - Processing audio with duration 00:17.079
+2025-08-31 22:32:09,341 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 22:32:09,616 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 22:32:09,616 - INFO - Transcription completed successfully:  I have a system instruction that's a few paragraphs that I usually use when I'm talking to AI in we...
+2025-08-31 22:32:09,617 - INFO - Text copied to clipboard successfully
+2025-08-31 22:32:09,731 - INFO - Text pasted successfully
+2025-08-31 22:32:09,732 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223151.wav
+2025-08-31 22:32:09,732 - INFO - Transcription process completed (success or failure)
+2025-08-31 22:33:11,374 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223311.wav
+2025-08-31 22:33:55,922 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223311.wav
+2025-08-31 22:33:55,923 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223311.wav
+2025-08-31 22:33:55,923 - INFO - Using LOCAL model for transcription...
+2025-08-31 22:33:55,924 - INFO - Transcribing with local model...
+2025-08-31 22:33:55,995 - INFO - Processing audio with duration 00:44.538
+2025-08-31 22:33:56,498 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 22:33:57,464 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 22:33:57,464 - INFO - Transcription completed successfully:  that's it so you can tell me where you think it belongs and it can be edited down a bit  because it...
+2025-08-31 22:33:57,464 - INFO - Text copied to clipboard successfully
+2025-08-31 22:33:57,581 - INFO - Text pasted successfully
+2025-08-31 22:33:57,581 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223311.wav
+2025-08-31 22:33:57,581 - INFO - Transcription process completed (success or failure)
+2025-08-31 22:38:40,198 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223840.wav
+2025-08-31 22:39:12,500 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223840.wav
+2025-08-31 22:39:12,501 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223840.wav
+2025-08-31 22:39:12,501 - INFO - Using LOCAL model for transcription...
+2025-08-31 22:39:12,502 - INFO - Transcribing with local model...
+2025-08-31 22:39:12,566 - INFO - Processing audio with duration 00:32.303
+2025-08-31 22:39:12,994 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 22:39:13,781 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 22:39:13,781 - INFO - Transcription completed successfully:  When I run CMake it's usually from inside the CMake folder  and this is the command I generally use...
+2025-08-31 22:39:13,781 - INFO - Text copied to clipboard successfully
+2025-08-31 22:39:13,896 - INFO - Text pasted successfully
+2025-08-31 22:39:13,896 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_223840.wav
+2025-08-31 22:39:13,897 - INFO - Transcription process completed (success or failure)
+2025-08-31 23:02:04,398 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230204.wav
+2025-08-31 23:02:05,983 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230204.wav
+2025-08-31 23:02:05,984 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230204.wav
+2025-08-31 23:02:05,984 - INFO - Using LOCAL model for transcription...
+2025-08-31 23:02:05,984 - INFO - Transcribing with local model...
+2025-08-31 23:02:06,050 - INFO - Processing audio with duration 00:01.597
+2025-08-31 23:02:06,338 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 23:02:06,537 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 23:02:06,537 - INFO - Transcription completed successfully:  That's all the references to.
+2025-08-31 23:02:06,538 - INFO - Text copied to clipboard successfully
+2025-08-31 23:02:06,650 - INFO - Text pasted successfully
+2025-08-31 23:02:06,650 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230204.wav
+2025-08-31 23:02:06,650 - INFO - Transcription process completed (success or failure)
+2025-08-31 23:03:04,276 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230304.wav
+2025-08-31 23:03:19,553 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230304.wav
+2025-08-31 23:03:19,553 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230304.wav
+2025-08-31 23:03:19,554 - INFO - Using LOCAL model for transcription...
+2025-08-31 23:03:19,554 - INFO - Transcribing with local model...
+2025-08-31 23:03:19,618 - INFO - Processing audio with duration 00:15.250
+2025-08-31 23:03:19,919 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 23:03:20,280 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 23:03:20,280 - INFO - Transcription completed successfully:  so I think it's update button in state that's causing it to spam because that  gets called whenever...
+2025-08-31 23:03:20,281 - INFO - Text copied to clipboard successfully
+2025-08-31 23:03:20,399 - INFO - Text pasted successfully
+2025-08-31 23:03:20,399 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230304.wav
+2025-08-31 23:03:20,400 - INFO - Transcription process completed (success or failure)
+2025-08-31 23:05:23,804 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230523.wav
+2025-08-31 23:05:38,075 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230523.wav
+2025-08-31 23:05:38,076 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230523.wav
+2025-08-31 23:05:38,076 - INFO - Using LOCAL model for transcription...
+2025-08-31 23:05:38,076 - INFO - Transcribing with local model...
+2025-08-31 23:05:38,142 - INFO - Processing audio with duration 00:14.245
+2025-08-31 23:05:38,468 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 23:05:38,830 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 23:05:38,830 - INFO - Transcription completed successfully:  So it's effectively, it's only been called by two methods in that log because loads from state core...
+2025-08-31 23:05:38,830 - INFO - Text copied to clipboard successfully
+2025-08-31 23:05:38,943 - INFO - Text pasted successfully
+2025-08-31 23:05:38,943 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230523.wav
+2025-08-31 23:05:38,943 - INFO - Transcription process completed (success or failure)
+2025-08-31 23:06:51,057 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230651.wav
+2025-08-31 23:07:13,514 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230651.wav
+2025-08-31 23:07:13,514 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230651.wav
+2025-08-31 23:07:13,515 - INFO - Using LOCAL model for transcription...
+2025-08-31 23:07:13,515 - INFO - Transcribing with local model...
+2025-08-31 23:07:13,579 - INFO - Processing audio with duration 00:22.437
+2025-08-31 23:07:14,024 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 23:07:14,483 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 23:07:14,483 - INFO - Transcription completed successfully:  Actually I was spamming changes to the parameters in order to try and get a cache miss, so I was do...
+2025-08-31 23:07:14,483 - INFO - Text copied to clipboard successfully
+2025-08-31 23:07:14,601 - INFO - Text pasted successfully
+2025-08-31 23:07:14,601 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_230651.wav
+2025-08-31 23:07:14,602 - INFO - Transcription process completed (success or failure)
+2025-08-31 23:40:53,666 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_234053.wav
+2025-08-31 23:41:00,082 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_234053.wav
+2025-08-31 23:41:00,083 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_234053.wav
+2025-08-31 23:41:00,083 - INFO - Using LOCAL model for transcription...
+2025-08-31 23:41:00,083 - INFO - Transcribing with local model...
+2025-08-31 23:41:00,143 - INFO - Processing audio with duration 00:06.414
+2025-08-31 23:41:00,538 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 23:41:00,819 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 23:41:00,819 - INFO - Transcription completed successfully:  Okay, I'll remove the old FIFO and POOL.
+2025-08-31 23:41:00,819 - INFO - Text copied to clipboard successfully
+2025-08-31 23:41:00,962 - INFO - Text pasted successfully
+2025-08-31 23:41:00,963 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_234053.wav
+2025-08-31 23:41:00,963 - INFO - Transcription process completed (success or failure)
+2025-08-31 23:54:45,341 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_235445.wav
+2025-08-31 23:55:40,114 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250831_235445.wav
+2025-08-31 23:55:40,115 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_235445.wav
+2025-08-31 23:55:40,115 - INFO - Using LOCAL model for transcription...
+2025-08-31 23:55:40,117 - INFO - Transcribing with local model...
+2025-08-31 23:55:40,189 - INFO - Processing audio with duration 00:54.765
+2025-08-31 23:55:40,662 - INFO - Detected language 'en' with probability 1.00
+2025-08-31 23:55:41,593 - INFO - Detected language: en (probability: 1.00)
+2025-08-31 23:55:41,593 - INFO - Transcription completed successfully:  Playback manager has architecture to be multi timbral but at the moment we're restricting it to pla...
+2025-08-31 23:55:41,593 - INFO - Text copied to clipboard successfully
+2025-08-31 23:55:41,717 - INFO - Text pasted successfully
+2025-08-31 23:55:41,718 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250831_235445.wav
+2025-08-31 23:55:41,718 - INFO - Transcription process completed (success or failure)
+2025-09-01 00:07:33,679 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_000733.wav
+2025-09-01 00:08:21,955 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_000733.wav
+2025-09-01 00:08:21,956 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_000733.wav
+2025-09-01 00:08:21,957 - INFO - Using LOCAL model for transcription...
+2025-09-01 00:08:21,957 - INFO - Transcribing with local model...
+2025-09-01 00:08:22,031 - INFO - Processing audio with duration 00:48.274
+2025-09-01 00:08:22,388 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 00:08:23,053 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 00:08:23,053 - INFO - Transcription completed successfully:  Can you read the conversation at this link?  I'm wondering if we could apply this kind of thinking ...
+2025-09-01 00:08:23,054 - INFO - Text copied to clipboard successfully
+2025-09-01 00:08:23,233 - INFO - Text pasted successfully
+2025-09-01 00:08:23,234 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_000733.wav
+2025-09-01 00:08:23,234 - INFO - Transcription process completed (success or failure)
+2025-09-01 12:37:39,523 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123739.wav
+2025-09-01 12:38:43,397 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123739.wav
+2025-09-01 12:38:43,398 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123739.wav
+2025-09-01 12:38:43,399 - INFO - Using LOCAL model for transcription...
+2025-09-01 12:38:43,399 - INFO - Transcribing with local model...
+2025-09-01 12:38:43,539 - INFO - Processing audio with duration 01:03.858
+2025-09-01 12:38:44,059 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 12:38:48,864 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 12:38:48,864 - INFO - Transcription completed successfully:  Okay, let's stop and take a look at how the voicing works because it has to allow for custom voicin...
+2025-09-01 12:38:48,865 - INFO - Text copied to clipboard successfully
+2025-09-01 12:38:48,980 - INFO - Text pasted successfully
+2025-09-01 12:38:48,981 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123739.wav
+2025-09-01 12:38:48,981 - INFO - Transcription process completed (success or failure)
+2025-09-01 12:38:56,946 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123856.wav
+2025-09-01 12:40:20,713 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123856.wav
+2025-09-01 12:40:20,714 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123856.wav
+2025-09-01 12:40:20,714 - INFO - Using LOCAL model for transcription...
+2025-09-01 12:40:20,715 - INFO - Transcribing with local model...
+2025-09-01 12:40:20,792 - INFO - Processing audio with duration 01:23.745
+2025-09-01 12:40:21,237 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 12:40:26,263 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 12:40:26,263 - INFO - Transcription completed successfully:  I am open to a complete refactor of how voicings are handled.  At the moment they do work but there...
+2025-09-01 12:40:26,264 - INFO - Text copied to clipboard successfully
+2025-09-01 12:40:26,379 - INFO - Text pasted successfully
+2025-09-01 12:40:26,380 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_123856.wav
+2025-09-01 12:40:26,380 - INFO - Transcription process completed (success or failure)
+2025-09-01 12:44:27,923 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_124427.wav
+2025-09-01 12:45:12,435 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_124427.wav
+2025-09-01 12:45:12,436 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_124427.wav
+2025-09-01 12:45:12,436 - INFO - Using LOCAL model for transcription...
+2025-09-01 12:45:12,438 - INFO - Transcribing with local model...
+2025-09-01 12:45:12,519 - INFO - Processing audio with duration 00:44.487
+2025-09-01 12:45:12,940 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 12:45:13,485 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 12:45:13,485 - INFO - Transcription completed successfully:  Take a look at the below conversation between myself and an AI on the subject of potentially refact...
+2025-09-01 12:45:13,486 - INFO - Text copied to clipboard successfully
+2025-09-01 12:45:13,598 - INFO - Text pasted successfully
+2025-09-01 12:45:13,599 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_124427.wav
+2025-09-01 12:45:13,599 - INFO - Transcription process completed (success or failure)
+2025-09-01 13:00:04,906 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130004.wav
+2025-09-01 13:00:55,242 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130004.wav
+2025-09-01 13:00:55,242 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130004.wav
+2025-09-01 13:00:55,243 - INFO - Using LOCAL model for transcription...
+2025-09-01 13:00:55,243 - INFO - Transcribing with local model...
+2025-09-01 13:00:55,312 - INFO - Processing audio with duration 00:50.309
+2025-09-01 13:00:55,804 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 13:00:56,439 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 13:00:56,440 - INFO - Transcription completed successfully:  So the problem originates in mouse down on key because there were three notes in the existing voici...
+2025-09-01 13:00:56,440 - INFO - Text copied to clipboard successfully
+2025-09-01 13:00:56,551 - INFO - Text pasted successfully
+2025-09-01 13:00:56,552 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130004.wav
+2025-09-01 13:00:56,552 - INFO - Transcription process completed (success or failure)
+2025-09-01 13:03:24,947 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130324.wav
+2025-09-01 13:03:45,993 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130324.wav
+2025-09-01 13:03:45,994 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130324.wav
+2025-09-01 13:03:45,995 - INFO - Using LOCAL model for transcription...
+2025-09-01 13:03:45,995 - INFO - Transcribing with local model...
+2025-09-01 13:03:46,055 - INFO - Processing audio with duration 00:21.020
+2025-09-01 13:03:46,367 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 13:03:46,647 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 13:03:46,647 - INFO - Transcription completed successfully:  Okay, I want to track down the origination of this bug first and once it's fixed we can look back r...
+2025-09-01 13:03:46,648 - INFO - Text copied to clipboard successfully
+2025-09-01 13:03:46,768 - INFO - Text pasted successfully
+2025-09-01 13:03:46,768 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_130324.wav
+2025-09-01 13:03:46,768 - INFO - Transcription process completed (success or failure)
+2025-09-01 22:36:30,699 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223630.wav
+2025-09-01 22:36:38,130 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223630.wav
+2025-09-01 22:36:38,132 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223630.wav
+2025-09-01 22:36:38,132 - INFO - Using LOCAL model for transcription...
+2025-09-01 22:36:38,133 - INFO - Transcribing with local model...
+2025-09-01 22:36:38,246 - INFO - Processing audio with duration 00:07.419
+2025-09-01 22:36:38,647 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 22:36:38,890 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 22:36:38,890 - INFO - Transcription completed successfully:  Could it be that we're sending the wrong task type because it's got immediate play through.
+2025-09-01 22:36:38,890 - INFO - Text copied to clipboard successfully
+2025-09-01 22:36:39,001 - INFO - Text pasted successfully
+2025-09-01 22:36:39,002 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223630.wav
+2025-09-01 22:36:39,002 - INFO - Transcription process completed (success or failure)
+2025-09-01 22:39:23,945 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223923.wav
+2025-09-01 22:39:33,362 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223923.wav
+2025-09-01 22:39:33,363 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223923.wav
+2025-09-01 22:39:33,363 - INFO - Using LOCAL model for transcription...
+2025-09-01 22:39:33,364 - INFO - Transcribing with local model...
+2025-09-01 22:39:33,435 - INFO - Processing audio with duration 00:09.428
+2025-09-01 22:39:33,786 - INFO - Detected language 'en' with probability 0.98
+2025-09-01 22:39:33,968 - INFO - Detected language: en (probability: 0.98)
+2025-09-01 22:39:33,968 - INFO - Transcription completed successfully:  Okay.
+2025-09-01 22:39:33,968 - INFO - Text copied to clipboard successfully
+2025-09-01 22:39:34,070 - INFO - Text pasted successfully
+2025-09-01 22:39:34,070 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_223923.wav
+2025-09-01 22:39:34,070 - INFO - Transcription process completed (success or failure)
+2025-09-01 22:42:48,729 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224248.wav
+2025-09-01 22:43:27,938 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224248.wav
+2025-09-01 22:43:27,939 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224248.wav
+2025-09-01 22:43:27,939 - INFO - Using LOCAL model for transcription...
+2025-09-01 22:43:27,940 - INFO - Transcribing with local model...
+2025-09-01 22:43:28,014 - INFO - Processing audio with duration 00:39.206
+2025-09-01 22:43:28,492 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 22:43:29,400 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 22:43:29,400 - INFO - Transcription completed successfully:  it can line up a quantised one  based on an edit  but then the background side gets the edit and ch...
+2025-09-01 22:43:29,400 - INFO - Text copied to clipboard successfully
+2025-09-01 22:43:29,520 - INFO - Text pasted successfully
+2025-09-01 22:43:29,520 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224248.wav
+2025-09-01 22:43:29,521 - INFO - Transcription process completed (success or failure)
+2025-09-01 22:46:09,913 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224609.wav
+2025-09-01 22:46:32,109 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224609.wav
+2025-09-01 22:46:32,110 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224609.wav
+2025-09-01 22:46:32,111 - INFO - Using LOCAL model for transcription...
+2025-09-01 22:46:32,111 - INFO - Transcribing with local model...
+2025-09-01 22:46:32,176 - INFO - Processing audio with duration 00:22.205
+2025-09-01 22:46:32,635 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 22:46:33,016 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 22:46:33,016 - INFO - Transcription completed successfully:  Or you send it back through. You check it and see that it's an immediate button when you're updatin...
+2025-09-01 22:46:33,017 - INFO - Text copied to clipboard successfully
+2025-09-01 22:46:33,148 - INFO - Text pasted successfully
+2025-09-01 22:46:33,152 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224609.wav
+2025-09-01 22:46:33,152 - INFO - Transcription process completed (success or failure)
+2025-09-01 22:47:09,679 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224709.wav
+2025-09-01 22:47:23,425 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224709.wav
+2025-09-01 22:47:23,426 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224709.wav
+2025-09-01 22:47:23,426 - INFO - Using LOCAL model for transcription...
+2025-09-01 22:47:23,427 - INFO - Transcribing with local model...
+2025-09-01 22:47:23,486 - INFO - Processing audio with duration 00:13.730
+2025-09-01 22:47:23,828 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 22:47:24,093 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 22:47:24,093 - INFO - Transcription completed successfully:  doesn't catch that there's an immediate one in there because it hasn't got the  flag to look for an...
+2025-09-01 22:47:24,094 - INFO - Text copied to clipboard successfully
+2025-09-01 22:47:24,206 - INFO - Text pasted successfully
+2025-09-01 22:47:24,206 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_224709.wav
+2025-09-01 22:47:24,206 - INFO - Transcription process completed (success or failure)
+2025-09-01 22:59:00,553 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_225900.wav
+2025-09-01 22:59:52,336 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_225900.wav
+2025-09-01 22:59:52,337 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_225900.wav
+2025-09-01 22:59:52,337 - INFO - Using LOCAL model for transcription...
+2025-09-01 22:59:52,338 - INFO - Transcribing with local model...
+2025-09-01 22:59:52,416 - INFO - Processing audio with duration 00:51.751
+2025-09-01 22:59:52,775 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 22:59:53,715 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 22:59:53,715 - INFO - Transcription completed successfully:  Okay I'm getting a bug where I have an E5 chord. I edit it to add a note on the on screen keyboard ...
+2025-09-01 22:59:53,716 - INFO - Text copied to clipboard successfully
+2025-09-01 22:59:53,828 - INFO - Text pasted successfully
+2025-09-01 22:59:53,829 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_225900.wav
+2025-09-01 22:59:53,829 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:02:14,485 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230214.wav
+2025-09-01 23:02:45,609 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230214.wav
+2025-09-01 23:02:45,609 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230214.wav
+2025-09-01 23:02:45,610 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:02:45,610 - INFO - Transcribing with local model...
+2025-09-01 23:02:45,676 - INFO - Processing audio with duration 00:31.118
+2025-09-01 23:02:46,105 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:02:46,649 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:02:46,649 - INFO - Transcription completed successfully:  No, I'm in chord mode, not perform mode. There should be a gap for perform mode because perform mod...
+2025-09-01 23:02:46,650 - INFO - Text copied to clipboard successfully
+2025-09-01 23:02:46,751 - INFO - Text pasted successfully
+2025-09-01 23:02:46,751 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230214.wav
+2025-09-01 23:02:46,751 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:06:59,067 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230659.wav
+2025-09-01 23:08:36,176 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230659.wav
+2025-09-01 23:08:36,177 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230659.wav
+2025-09-01 23:08:36,178 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:08:36,178 - INFO - Transcribing with local model...
+2025-09-01 23:08:36,267 - INFO - Processing audio with duration 01:37.088
+2025-09-01 23:08:36,780 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:08:38,267 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:08:38,268 - INFO - Transcription completed successfully:  great work that fixes it that was well investigated  i'd ask you to do a commit but i don't think w...
+2025-09-01 23:08:38,268 - INFO - Text copied to clipboard successfully
+2025-09-01 23:08:38,370 - INFO - Text pasted successfully
+2025-09-01 23:08:38,371 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_230659.wav
+2025-09-01 23:08:38,371 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:14:12,095 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231412.wav
+2025-09-01 23:15:26,416 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231412.wav
+2025-09-01 23:15:26,417 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231412.wav
+2025-09-01 23:15:26,418 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:15:26,418 - INFO - Transcribing with local model...
+2025-09-01 23:15:26,497 - INFO - Processing audio with duration 01:14.291
+2025-09-01 23:15:26,855 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:15:29,141 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:15:29,141 - INFO - Transcription completed successfully:  Okay, I found the origin of that bug. It was in the UI code where an event handler for the edit mod...
+2025-09-01 23:15:29,141 - INFO - Text copied to clipboard successfully
+2025-09-01 23:15:29,266 - INFO - Text pasted successfully
+2025-09-01 23:15:29,267 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231412.wav
+2025-09-01 23:15:29,267 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:17:40,659 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231740.wav
+2025-09-01 23:17:54,374 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231740.wav
+2025-09-01 23:17:54,375 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231740.wav
+2025-09-01 23:17:54,375 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:17:54,376 - INFO - Transcribing with local model...
+2025-09-01 23:17:54,450 - INFO - Processing audio with duration 00:13.704
+2025-09-01 23:17:54,804 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:17:55,069 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:17:55,069 - INFO - Transcription completed successfully:  Also, here's the voicing files for context. These voicings get used. They're pretty central to the ...
+2025-09-01 23:17:55,069 - INFO - Text copied to clipboard successfully
+2025-09-01 23:17:55,181 - INFO - Text pasted successfully
+2025-09-01 23:17:55,182 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_231740.wav
+2025-09-01 23:17:55,182 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:20:37,212 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232037.wav
+2025-09-01 23:20:49,405 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232037.wav
+2025-09-01 23:20:49,406 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232037.wav
+2025-09-01 23:20:49,406 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:20:49,407 - INFO - Transcribing with local model...
+2025-09-01 23:20:49,466 - INFO - Processing audio with duration 00:12.184
+2025-09-01 23:20:49,935 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:20:50,204 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:20:50,204 - INFO - Transcription completed successfully:  what's the command to that i can put into the windows command line to get it to show  me my usernam...
+2025-09-01 23:20:50,204 - INFO - Text copied to clipboard successfully
+2025-09-01 23:20:50,306 - INFO - Text pasted successfully
+2025-09-01 23:20:50,306 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232037.wav
+2025-09-01 23:20:50,306 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:28:43,024 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232843.wav
+2025-09-01 23:29:05,142 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232843.wav
+2025-09-01 23:29:05,143 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232843.wav
+2025-09-01 23:29:05,144 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:29:05,144 - INFO - Transcribing with local model...
+2025-09-01 23:29:05,208 - INFO - Processing audio with duration 00:22.102
+2025-09-01 23:29:05,573 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:29:05,934 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:29:05,934 - INFO - Transcription completed successfully:  OK, check this interaction I had with the other AI. I fixed the bug and then it gave  a plan that o...
+2025-09-01 23:29:05,934 - INFO - Text copied to clipboard successfully
+2025-09-01 23:29:06,044 - INFO - Text pasted successfully
+2025-09-01 23:29:06,045 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_232843.wav
+2025-09-01 23:29:06,045 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:31:15,136 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_233115.wav
+2025-09-01 23:31:36,640 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_233115.wav
+2025-09-01 23:31:36,641 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_233115.wav
+2025-09-01 23:31:36,642 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:31:36,642 - INFO - Transcribing with local model...
+2025-09-01 23:31:36,720 - INFO - Processing audio with duration 00:21.484
+2025-09-01 23:31:37,125 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:31:37,413 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:31:37,413 - INFO - Transcription completed successfully:  okay check uh gemini's reply here  it wants to go for a deeper refactor because it doesn't like the...
+2025-09-01 23:31:37,413 - INFO - Text copied to clipboard successfully
+2025-09-01 23:31:37,526 - INFO - Text pasted successfully
+2025-09-01 23:31:37,526 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_233115.wav
+2025-09-01 23:31:37,527 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:56:48,924 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235648.wav
+2025-09-01 23:57:35,204 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235648.wav
+2025-09-01 23:57:35,205 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235648.wav
+2025-09-01 23:57:35,206 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:57:35,206 - INFO - Transcribing with local model...
+2025-09-01 23:57:35,278 - INFO - Processing audio with duration 00:46.264
+2025-09-01 23:57:35,786 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:57:36,364 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:57:36,365 - INFO - Transcription completed successfully:  Okay, those changes have introduced a bug where if I change the type of a chord, so I'll bring it i...
+2025-09-01 23:57:36,365 - INFO - Text copied to clipboard successfully
+2025-09-01 23:57:36,467 - INFO - Text pasted successfully
+2025-09-01 23:57:36,467 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235648.wav
+2025-09-01 23:57:36,467 - INFO - Transcription process completed (success or failure)
+2025-09-01 23:57:40,614 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235740.wav
+2025-09-01 23:57:43,105 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235740.wav
+2025-09-01 23:57:43,106 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235740.wav
+2025-09-01 23:57:43,106 - INFO - Using LOCAL model for transcription...
+2025-09-01 23:57:43,106 - INFO - Transcribing with local model...
+2025-09-01 23:57:43,161 - INFO - Processing audio with duration 00:02.499
+2025-09-01 23:57:43,590 - INFO - Detected language 'en' with probability 1.00
+2025-09-01 23:57:43,788 - INFO - Detected language: en (probability: 1.00)
+2025-09-01 23:57:43,789 - INFO - Transcription completed successfully:  This wasn't happening before these changes.
+2025-09-01 23:57:43,789 - INFO - Text copied to clipboard successfully
+2025-09-01 23:57:43,890 - INFO - Text pasted successfully
+2025-09-01 23:57:43,890 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250901_235740.wav
+2025-09-01 23:57:43,890 - INFO - Transcription process completed (success or failure)
+2025-09-02 00:09:50,103 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_000950.wav
+2025-09-02 00:09:55,025 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_000950.wav
+2025-09-02 00:09:55,026 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_000950.wav
+2025-09-02 00:09:55,026 - INFO - Using LOCAL model for transcription...
+2025-09-02 00:09:55,027 - INFO - Transcribing with local model...
+2025-09-02 00:09:55,085 - INFO - Processing audio with duration 00:04.894
+2025-09-02 00:09:55,535 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 00:09:55,757 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 00:09:55,757 - INFO - Transcription completed successfully:  Please reapply those edits, they got lost in a file mix up.
+2025-09-02 00:09:55,758 - INFO - Text copied to clipboard successfully
+2025-09-02 00:09:55,859 - INFO - Text pasted successfully
+2025-09-02 00:09:55,860 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_000950.wav
+2025-09-02 00:09:55,860 - INFO - Transcription process completed (success or failure)
+2025-09-02 00:13:31,866 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001331.wav
+2025-09-02 00:14:27,825 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001331.wav
+2025-09-02 00:14:27,826 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001331.wav
+2025-09-02 00:14:27,827 - INFO - Using LOCAL model for transcription...
+2025-09-02 00:14:27,827 - INFO - Transcribing with local model...
+2025-09-02 00:14:27,903 - INFO - Processing audio with duration 00:55.924
+2025-09-02 00:14:28,263 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 00:14:29,085 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 00:14:29,085 - INFO - Transcription completed successfully:  So I think the way forward is to see if we could make the voicings independent of chord type so tha...
+2025-09-02 00:14:29,085 - INFO - Text copied to clipboard successfully
+2025-09-02 00:14:29,187 - INFO - Text pasted successfully
+2025-09-02 00:14:29,188 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001331.wav
+2025-09-02 00:14:29,188 - INFO - Transcription process completed (success or failure)
+2025-09-02 00:17:47,394 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001747.wav
+2025-09-02 00:18:44,728 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001747.wav
+2025-09-02 00:18:44,729 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001747.wav
+2025-09-02 00:18:44,730 - INFO - Using LOCAL model for transcription...
+2025-09-02 00:18:44,730 - INFO - Transcribing with local model...
+2025-09-02 00:18:44,812 - INFO - Processing audio with duration 00:57.315
+2025-09-02 00:18:45,169 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 00:18:45,982 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 00:18:45,982 - INFO - Transcription completed successfully:  This problem of how to map a generic pattern to any possible chord in any possible tonality was add...
+2025-09-02 00:18:45,983 - INFO - Text copied to clipboard successfully
+2025-09-02 00:18:46,102 - INFO - Text pasted successfully
+2025-09-02 00:18:46,102 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_001747.wav
+2025-09-02 00:18:46,103 - INFO - Transcription process completed (success or failure)
+2025-09-02 00:31:32,836 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_003132.wav
+2025-09-02 00:31:42,104 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_003132.wav
+2025-09-02 00:31:42,105 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_003132.wav
+2025-09-02 00:31:42,105 - INFO - Using LOCAL model for transcription...
+2025-09-02 00:31:42,105 - INFO - Transcribing with local model...
+2025-09-02 00:31:42,164 - INFO - Processing audio with duration 00:09.274
+2025-09-02 00:31:42,506 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 00:31:42,735 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 00:31:42,735 - INFO - Transcription completed successfully:  Can you explain this in plain English for me? The entire context is pasted in below.
+2025-09-02 00:31:42,736 - INFO - Text copied to clipboard successfully
+2025-09-02 00:31:42,847 - INFO - Text pasted successfully
+2025-09-02 00:31:42,847 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_003132.wav
+2025-09-02 00:31:42,847 - INFO - Transcription process completed (success or failure)
+2025-09-02 01:03:29,643 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_010329.wav
+2025-09-02 01:03:37,740 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_010329.wav
+2025-09-02 01:03:37,741 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_010329.wav
+2025-09-02 01:03:37,741 - INFO - Using LOCAL model for transcription...
+2025-09-02 01:03:37,742 - INFO - Transcribing with local model...
+2025-09-02 01:03:37,804 - INFO - Processing audio with duration 00:08.089
+2025-09-02 01:03:38,222 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 01:03:38,450 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 01:03:38,450 - INFO - Transcription completed successfully:  Okay, prepare a commit for this minor refactor to the chord class.
+2025-09-02 01:03:38,451 - INFO - Text copied to clipboard successfully
+2025-09-02 01:03:38,553 - INFO - Text pasted successfully
+2025-09-02 01:03:38,553 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_010329.wav
+2025-09-02 01:03:38,553 - INFO - Transcription process completed (success or failure)
+2025-09-02 02:04:25,686 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_020425.wav
+2025-09-02 02:04:33,572 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_020425.wav
+2025-09-02 02:04:33,573 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_020425.wav
+2025-09-02 02:04:33,573 - INFO - Using LOCAL model for transcription...
+2025-09-02 02:04:33,574 - INFO - Transcribing with local model...
+2025-09-02 02:04:33,665 - INFO - Processing audio with duration 00:07.857
+2025-09-02 02:04:34,013 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 02:04:34,259 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 02:04:34,259 - INFO - Transcription completed successfully:  great i had another conversation that went down a different track  uh see if you can read the conve...
+2025-09-02 02:04:34,259 - INFO - Text copied to clipboard successfully
+2025-09-02 02:04:34,371 - INFO - Text pasted successfully
+2025-09-02 02:04:34,371 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_020425.wav
+2025-09-02 02:04:34,371 - INFO - Transcription process completed (success or failure)
+2025-09-02 11:47:15,065 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114715.wav
+2025-09-02 11:48:26,845 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114715.wav
+2025-09-02 11:48:26,846 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114715.wav
+2025-09-02 11:48:26,846 - INFO - Using LOCAL model for transcription...
+2025-09-02 11:48:26,848 - INFO - Transcribing with local model...
+2025-09-02 11:48:26,926 - INFO - Processing audio with duration 01:11.741
+2025-09-02 11:48:27,310 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 11:48:28,416 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 11:48:28,416 - INFO - Transcription completed successfully:  Royal Road file not loading properly. The UI doesn't seem to know what the chords from  the first t...
+2025-09-02 11:48:28,416 - INFO - Text copied to clipboard successfully
+2025-09-02 11:48:28,529 - INFO - Text pasted successfully
+2025-09-02 11:48:28,529 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114715.wav
+2025-09-02 11:48:28,529 - INFO - Transcription process completed (success or failure)
+2025-09-02 11:48:47,037 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114847.wav
+2025-09-02 11:48:57,534 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114847.wav
+2025-09-02 11:48:57,535 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114847.wav
+2025-09-02 11:48:57,535 - INFO - Using LOCAL model for transcription...
+2025-09-02 11:48:57,535 - INFO - Transcribing with local model...
+2025-09-02 11:48:57,595 - INFO - Processing audio with duration 00:10.510
+2025-09-02 11:48:57,900 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 11:48:58,274 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 11:48:58,275 - INFO - Transcription completed successfully:  It could be that it's missing things it needs to do or it could be that there's a flag that's  prev...
+2025-09-02 11:48:58,275 - INFO - Text copied to clipboard successfully
+2025-09-02 11:48:58,386 - INFO - Text pasted successfully
+2025-09-02 11:48:58,387 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_114847.wav
+2025-09-02 11:48:58,387 - INFO - Transcription process completed (success or failure)
+2025-09-02 11:52:16,020 - INFO - Starting recording to: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_115216.wav
+2025-09-02 11:53:08,034 - INFO - Recording saved to C:\Users\akraf\Documents\Sound Recordings\recording_20250902_115216.wav
+2025-09-02 11:53:08,034 - INFO - Starting transcription of file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_115216.wav
+2025-09-02 11:53:08,035 - INFO - Using LOCAL model for transcription...
+2025-09-02 11:53:08,035 - INFO - Transcribing with local model...
+2025-09-02 11:53:08,115 - INFO - Processing audio with duration 00:51.983
+2025-09-02 11:53:08,606 - INFO - Detected language 'en' with probability 1.00
+2025-09-02 11:53:09,671 - INFO - Detected language: en (probability: 1.00)
+2025-09-02 11:53:09,672 - INFO - Transcription completed successfully:  but when sequence builder doesn't have a sequence at all and it has to go and build it, it seems  l...
+2025-09-02 11:53:09,672 - INFO - Text copied to clipboard successfully
+2025-09-02 11:53:09,788 - INFO - Text pasted successfully
+2025-09-02 11:53:09,789 - INFO - Cleaned up recording file: C:\Users\akraf\Documents\Sound Recordings\recording_20250902_115216.wav
+2025-09-02 11:53:09,789 - INFO - Transcription process completed (success or failure)
