@@ -96,6 +96,26 @@ indicator_root = None    # Root tkinter window for the indicator
 hotkey_id = 1  # An arbitrary ID for our hotkey
 reset_hotkey_id = 2  # ID for the reset hotkey
 
+def safe_clipboard_copy(text):
+    """Safely copy text to clipboard with error handling (Unicode)"""
+    try:
+        safe_text = safe_text_handling(text, "clipboard copy")
+        if not isinstance(safe_text, str):
+            safe_text = str(safe_text)
+
+        win32clipboard.OpenClipboard()
+        try:
+            win32clipboard.EmptyClipboard()
+            # Force Unicode clipboard format to avoid 'mbcs' encoding
+            win32clipboard.SetClipboardText(safe_text, win32clipboard.CF_UNICODETEXT)
+        finally:
+            win32clipboard.CloseClipboard()
+        return True
+    except Exception as e:
+        logger.error(f"Failed to copy to clipboard: {e}")
+        return False
+
+
 def parse_hotkey(hotkey_str):
     """Parses a hotkey string (e.g., 'ctrl+alt+f9') into modifiers and VK code."""
     parts = hotkey_str.lower().split('+')
@@ -976,17 +996,17 @@ def process_recording(file_path):
         # Log successful transcription
         logger.info(f"Transcription completed successfully: {transcription[:100]}{'...' if len(transcription) > 100 else ''}")
         
-        # Safely copy to clipboard
-        if safe_clipboard_copy(transcription):
-            logger.info("Text copied to clipboard successfully")
-            
-            # Safely paste text
-            if safe_paste_text():
-                logger.info("Text pasted successfully")
-            else:
-                logger.warning("Failed to paste text, but transcription was successful")
-        else:
-            logger.warning("Failed to copy to clipboard, but transcription was successful")
+        copied = safe_clipboard_copy(transcription)
+        if not copied:
+            logger.warning("Clipboard failed; echoing transcript to terminal")
+            print("\n----- TRANSCRIPT BEGIN -----\n")
+            try:
+                print(transcription)
+            except Exception as e:
+                # Ultimate fallback with replacement to avoid crash
+                sys.stdout.write(transcription.encode('utf-8', 'replace').decode('utf-8'))
+                sys.stdout.write("\n")
+            print("------ TRANSCRIPT END ------\n")
         
         # Show completion indicator
         if indicator_root:
