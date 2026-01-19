@@ -2,6 +2,7 @@ import os
 import time
 import requests
 import threading
+import queue
 from datetime import datetime
 import win32clipboard
 import pyautogui
@@ -95,6 +96,14 @@ indicator_status = None  # Current status of the indicator
 indicator_root = None    # Root tkinter window for the indicator
 hotkey_id = 1  # An arbitrary ID for our hotkey
 reset_hotkey_id = 2  # ID for the reset hotkey
+
+# Optional: chunked transcription state (for faster perceived UX)
+chunk_queue = None
+chunk_stop_event = None
+chunk_thread = None
+chunk_transcript = ""
+chunk_transcript_lock = threading.Lock()
+chunk_transcript_error = None
 
 def safe_clipboard_copy(text):
     """Safely copy text to clipboard with error handling (Unicode)"""
@@ -590,6 +599,14 @@ SAMPLE_RATE = 44100  # Sample rate in Hz
 DELETE_RECORDINGS = parse_bool_env("DELETE_RECORDINGS", "true")
 MAX_RECORDING_AGE_DAYS = parse_int_env("MAX_RECORDING_AGE_DAYS", 7)
 USE_GPU = parse_bool_env("USE_GPU", "false")
+CHUNK_TRANSCRIBE = parse_bool_env("CHUNK_TRANSCRIBE", "false")
+CHUNK_SECONDS = parse_int_env("CHUNK_SECONDS", 12)
+CHUNK_OVERLAP_SECONDS = parse_int_env("CHUNK_OVERLAP_SECONDS", 1)
+CHUNK_BEAM_SIZE = parse_int_env("CHUNK_BEAM_SIZE", 1)
+CHUNK_LANGUAGE = clean_env_value(os.getenv("CHUNK_LANGUAGE"), "en")
+CHUNK_VAD_FILTER = parse_bool_env("CHUNK_VAD_FILTER", "true")
+CHUNK_QUEUE_MAXSIZE = parse_int_env("CHUNK_QUEUE_MAXSIZE", 256)
+CHUNK_FINALIZE_TIMEOUT_SECONDS = parse_int_env("CHUNK_FINALIZE_TIMEOUT_SECONDS", 30)
 
 # Validate configuration
 if TRANSCRIPTION_MODEL not in ["fireworks", "openai", "local"]:
@@ -861,10 +878,187 @@ def audio_callback(indata, frames, time, status):
         print(f"Status: {status}")
     if is_recording:
         recording_data.append(indata.copy())
+        # If chunked transcription is enabled, also feed the chunk queue
+        if chunk_queue is not None:
+            try:
+                chunk_queue.put_nowait(indata.copy())
+            except Exception:
+                # Drop audio if the queue is full or unavailable; recording still proceeds.
+                pass
+
+def _merge_transcripts(prev_text, new_text, max_words=30):
+    """Best-effort de-duplication when chunking with overlap."""
+    prev_text = (prev_text or "").strip()
+    new_text = (new_text or "").strip()
+    if not prev_text:
+        return new_text
+    if not new_text:
+        return prev_text
+
+    prev_words = prev_text.split()
+    new_words = new_text.split()
+    suffix = prev_words[-max_words:]
+    prefix = new_words[:max_words]
+
+    max_k = min(len(suffix), len(prefix))
+    for k in range(max_k, 1, -1):
+        if suffix[-k:] == prefix[:k]:
+            remainder = " ".join(new_words[k:]).strip()
+            if not remainder:
+                return prev_text
+            return f"{prev_text} {remainder}"
+
+    return f"{prev_text} {new_text}"
+
+def _chunk_transcription_worker(base_file_path):
+    """Transcribe audio while recording by chunking audio into smaller windows."""
+    global chunk_transcript, chunk_transcript_error
+
+    try:
+        chunk_frames = max(1, int(CHUNK_SECONDS * SAMPLE_RATE))
+        overlap_frames = max(0, int(CHUNK_OVERLAP_SECONDS * SAMPLE_RATE))
+        pending = []
+        pending_frames = 0
+        tail = None
+        chunk_index = 0
+
+        while True:
+            # Exit when we've been asked to stop and we've drained everything.
+            if chunk_stop_event is not None and chunk_stop_event.is_set():
+                if (chunk_queue is None or chunk_queue.empty()) and pending_frames == 0:
+                    break
+
+            try:
+                block = chunk_queue.get(timeout=0.2)
+                pending.append(block)
+                pending_frames += len(block)
+            except Exception:
+                # No new audio; loop to check stop conditions.
+                pass
+
+            while pending_frames >= chunk_frames:
+                # Pull exactly chunk_frames from pending buffers.
+                take = []
+                remaining = chunk_frames
+                while remaining > 0 and pending:
+                    buf = pending[0]
+                    if len(buf) <= remaining:
+                        take.append(buf)
+                        pending.pop(0)
+                        pending_frames -= len(buf)
+                        remaining -= len(buf)
+                    else:
+                        take.append(buf[:remaining])
+                        pending[0] = buf[remaining:]
+                        pending_frames -= remaining
+                        remaining = 0
+
+                if not take:
+                    break
+
+                chunk_audio = np.concatenate(take, axis=0)
+                if tail is not None and len(tail) > 0:
+                    chunk_audio = np.concatenate([tail, chunk_audio], axis=0)
+
+                # Update tail for next chunk
+                if overlap_frames > 0 and len(chunk_audio) > overlap_frames:
+                    tail = chunk_audio[-overlap_frames:].copy()
+                else:
+                    tail = chunk_audio.copy() if overlap_frames > 0 else None
+
+                chunk_index += 1
+                chunk_path = base_file_path.replace(".wav", f"_chunk{chunk_index:04d}.wav")
+
+                # Write chunk to disk (reuses existing WAV writing dependency)
+                def save_chunk(file_path):
+                    wavio.write(file_path, chunk_audio, SAMPLE_RATE, sampwidth=2)
+
+                safe_file_operations(chunk_path, save_chunk)
+
+                # Transcribe chunk (favor speed settings by default)
+                try:
+                    try:
+                        segments, info = local_model.transcribe(
+                            chunk_path,
+                            beam_size=CHUNK_BEAM_SIZE,
+                            language=CHUNK_LANGUAGE if CHUNK_LANGUAGE else None,
+                            vad_filter=CHUNK_VAD_FILTER
+                        )
+                    except TypeError:
+                        # Older faster-whisper versions may not support some kwargs
+                        segments, info = local_model.transcribe(
+                            chunk_path,
+                            beam_size=CHUNK_BEAM_SIZE
+                        )
+
+                    chunk_text_parts = []
+                    for segment in segments:
+                        chunk_text_parts.append(safe_text_handling(segment.text, "chunk segment"))
+                    chunk_text = " ".join(chunk_text_parts).strip()
+
+                    if chunk_text:
+                        with chunk_transcript_lock:
+                            chunk_transcript = _merge_transcripts(chunk_transcript, chunk_text)
+                finally:
+                    # Always delete chunk file; it's intermediate.
+                    try:
+                        os.remove(chunk_path)
+                    except Exception:
+                        pass
+
+        # Flush any remaining audio as a final, smaller chunk
+        if pending_frames > 0:
+            try:
+                final_audio = np.concatenate(pending, axis=0)
+                if tail is not None and len(tail) > 0:
+                    final_audio = np.concatenate([tail, final_audio], axis=0)
+
+                chunk_index += 1
+                chunk_path = base_file_path.replace(".wav", f"_chunk{chunk_index:04d}.wav")
+
+                def save_chunk(file_path):
+                    wavio.write(file_path, final_audio, SAMPLE_RATE, sampwidth=2)
+
+                safe_file_operations(chunk_path, save_chunk)
+
+                try:
+                    try:
+                        segments, info = local_model.transcribe(
+                            chunk_path,
+                            beam_size=CHUNK_BEAM_SIZE,
+                            language=CHUNK_LANGUAGE if CHUNK_LANGUAGE else None,
+                            vad_filter=CHUNK_VAD_FILTER
+                        )
+                    except TypeError:
+                        segments, info = local_model.transcribe(
+                            chunk_path,
+                            beam_size=CHUNK_BEAM_SIZE
+                        )
+
+                    chunk_text_parts = []
+                    for segment in segments:
+                        chunk_text_parts.append(safe_text_handling(segment.text, "final chunk segment"))
+                    chunk_text = " ".join(chunk_text_parts).strip()
+
+                    if chunk_text:
+                        with chunk_transcript_lock:
+                            chunk_transcript = _merge_transcripts(chunk_transcript, chunk_text)
+                finally:
+                    try:
+                        os.remove(chunk_path)
+                    except Exception:
+                        pass
+            except Exception as e:
+                # Don't hard-fail the app; we'll fall back to full-file transcription.
+                chunk_transcript_error = e
+
+    except Exception as e:
+        chunk_transcript_error = e
 
 def start_recording():
     """Start recording audio with safe file path handling"""
     global is_recording, recording_data, current_recording_file
+    global chunk_queue, chunk_stop_event, chunk_thread, chunk_transcript, chunk_transcript_error
     
     if is_recording:
         return
@@ -885,6 +1079,25 @@ def start_recording():
         current_recording_file = safe_file_path(current_recording_file)
         
         logger.info(f"Starting recording to: {current_recording_file}")
+
+        # Optionally start chunked transcription (only meaningful for local mode)
+        chunk_queue = None
+        chunk_stop_event = None
+        chunk_thread = None
+        chunk_transcript_error = None
+        with chunk_transcript_lock:
+            chunk_transcript = ""
+
+        if CHUNK_TRANSCRIBE and TRANSCRIPTION_MODEL == "local":
+            # Bounded queue to avoid unbounded memory growth if transcription falls behind.
+            chunk_queue = queue.Queue(maxsize=CHUNK_QUEUE_MAXSIZE)
+            chunk_stop_event = threading.Event()
+            chunk_thread = threading.Thread(
+                target=_chunk_transcription_worker,
+                args=(current_recording_file,),
+                daemon=True
+            )
+            chunk_thread.start()
         
         # Show recording indicator
         show_indicator("recording")
@@ -903,7 +1116,7 @@ def start_recording():
 
 def stop_recording():
     """Stop recording audio and save file with safe operations"""
-    global is_recording
+    global is_recording, chunk_stop_event
     
     if not is_recording:
         return
@@ -911,6 +1124,11 @@ def stop_recording():
     try:
         # Stop recording
         is_recording = False
+        if chunk_stop_event is not None:
+            try:
+                chunk_stop_event.set()
+            except Exception:
+                pass
         
         # Show transcribing indicator
         show_indicator("transcribing")
@@ -957,11 +1175,42 @@ def stop_recording():
 
 def process_recording(file_path):
     """Process the recording for transcription with comprehensive error handling"""
-    global indicator_root
+    global indicator_root, chunk_thread, chunk_transcript, chunk_transcript_error
     
     try:
         logger.info(f"Starting transcription of file: {file_path}")
         logger.info(f"Using {TRANSCRIPTION_MODEL.upper()} model for transcription...")
+
+        # If chunked transcription ran during recording, try to use it first for faster UX.
+        if CHUNK_TRANSCRIBE and TRANSCRIPTION_MODEL == "local" and chunk_thread is not None:
+            try:
+                chunk_thread.join(timeout=CHUNK_FINALIZE_TIMEOUT_SECONDS)
+            except Exception:
+                pass
+
+            if chunk_transcript_error:
+                logger.warning(f"Chunked transcription failed; falling back to full-file transcription: {chunk_transcript_error}")
+            else:
+                with chunk_transcript_lock:
+                    pre = (chunk_transcript or "").strip()
+                if pre:
+                    logger.info("Using chunked transcript (recording was transcribed during capture).")
+                    transcription = pre
+                    # Deliver transcript immediately and skip full-file transcription.
+                    copied = safe_clipboard_copy(transcription)
+                    if not copied:
+                        logger.warning("Clipboard failed; echoing transcript to terminal")
+                        print("\n----- TRANSCRIPT BEGIN -----\n")
+                        try:
+                            print(transcription)
+                        except Exception:
+                            sys.stdout.write(transcription.encode('utf-8', 'replace').decode('utf-8'))
+                            sys.stdout.write("\n")
+                        print("------ TRANSCRIPT END ------\n")
+
+                    if indicator_root:
+                        indicator_root.after(0, lambda: show_indicator("complete"))
+                    return
         
         # Perform transcription with timeout protection
         transcription = None
