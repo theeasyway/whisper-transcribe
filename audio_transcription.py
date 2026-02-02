@@ -4,7 +4,6 @@ import requests
 import threading
 import queue
 import re
-import wave
 from datetime import datetime
 import win32clipboard
 import pyautogui
@@ -121,9 +120,15 @@ last_recording_frames = 0
 def safe_clipboard_copy(text):
     """Safely copy text to clipboard with error handling (Unicode)"""
     try:
-        safe_text = safe_text_handling(text, "clipboard copy")
-        if not isinstance(safe_text, str):
-            safe_text = str(safe_text)
+        if not isinstance(text, str):
+            text = str(text)
+        
+        # Clean text for clipboard
+        try:
+            text.encode('utf-8')
+            safe_text = text
+        except UnicodeEncodeError:
+            safe_text = text.encode('utf-8', errors='replace').decode('utf-8')
 
         win32clipboard.OpenClipboard()
         try:
@@ -132,6 +137,7 @@ def safe_clipboard_copy(text):
             win32clipboard.SetClipboardText(safe_text, win32clipboard.CF_UNICODETEXT)
         finally:
             win32clipboard.CloseClipboard()
+        logger.info("Text copied to clipboard successfully")
         return True
     except Exception as e:
         logger.error(f"Failed to copy to clipboard: {e}")
@@ -625,15 +631,6 @@ CHUNK_FINALIZE_TIMEOUT_SECONDS = parse_int_env("CHUNK_FINALIZE_TIMEOUT_SECONDS",
 LOG_FULL_TRANSCRIPT = parse_bool_env("LOG_FULL_TRANSCRIPT", "true")
 LOG_CHUNK_DEBUG = parse_bool_env("LOG_CHUNK_DEBUG", "false")
 INITIAL_PROMPT = clean_env_value(os.getenv("INITIAL_PROMPT"), "")
-END_SILENCE_GATE = parse_bool_env("END_SILENCE_GATE", "false")
-SILENCE_RMS_THRESHOLD = float(clean_env_value(os.getenv("SILENCE_RMS_THRESHOLD"), "0.01"))
-SILENCE_TAIL_SECONDS = float(clean_env_value(os.getenv("SILENCE_TAIL_SECONDS"), "0.5"))
-TAIL_REDECODE_ENABLED = parse_bool_env("TAIL_REDECODE_ENABLED", "true")
-TAIL_REDECODE_SECONDS = parse_float_env("TAIL_REDECODE_SECONDS", 6.0)
-CHUNK_PROMPT_TAIL_CHARS = parse_int_env("CHUNK_PROMPT_TAIL_CHARS", 200)
-POST_PROCESS_TRANSCRIPT = parse_bool_env("POST_PROCESS_TRANSCRIPT", "true")
-POST_PROCESS_MIN_TOKENS = parse_int_env("POST_PROCESS_MIN_TOKENS", 5)
-POST_PROCESS_SIMILARITY = parse_float_env("POST_PROCESS_SIMILARITY", 0.8)
 
 # Validate configuration
 if TRANSCRIPTION_MODEL not in ["fireworks", "openai", "local"]:
@@ -874,19 +871,6 @@ def safe_text_handling(text, operation="processing"):
         logger.error(f"Unexpected error in text handling for {operation}: {e}")
         return f"[Text error: {str(e)}]"
 
-def safe_clipboard_copy(text):
-    """Safely copy text to clipboard with error handling"""
-    try:
-        safe_text = safe_text_handling(text, "clipboard copy")
-        win32clipboard.OpenClipboard()
-        win32clipboard.EmptyClipboard()
-        win32clipboard.SetClipboardText(safe_text)
-        win32clipboard.CloseClipboard()
-        return True
-    except Exception as e:
-        logger.error(f"Failed to copy to clipboard: {e}")
-        return False
-
 def safe_paste_text():
     """Safely paste text with error handling"""
     try:
@@ -963,71 +947,6 @@ def _merge_transcripts(prev_text, new_text, max_words=30):
 
     return f"{prev_text} {new_text}"
 
-def _is_trailing_silence(audio, sample_rate):
-    if audio is None or len(audio) == 0:
-        return True
-    tail_len = max(1, int(sample_rate * SILENCE_TAIL_SECONDS))
-    tail = audio[-tail_len:]
-    if len(tail) == 0:
-        return True
-    frame_len = max(1, int(sample_rate * 0.05))
-    frames = int(np.ceil(len(tail) / frame_len))
-    silent = 0
-    for i in range(frames):
-        start = i * frame_len
-        end = min(len(tail), start + frame_len)
-        chunk = tail[start:end]
-        if len(chunk) == 0:
-            continue
-        rms = float(np.sqrt(np.mean(np.square(chunk))))
-        if rms < SILENCE_RMS_THRESHOLD:
-            silent += 1
-    silence_ratio = silent / max(1, frames)
-    return silence_ratio >= 0.8
-
-def _build_chunk_prompt(base_prompt):
-    if not CHUNK_PROMPT_TAIL_CHARS or CHUNK_PROMPT_TAIL_CHARS <= 0:
-        return (base_prompt or "").strip()
-    with chunk_transcript_lock:
-        tail = (chunk_transcript or "")[-CHUNK_PROMPT_TAIL_CHARS:]
-    tail = tail.strip()
-    if base_prompt and tail:
-        return f"{base_prompt.strip()} {tail}"
-    return (base_prompt or tail).strip()
-
-def _normalize_sentence(text):
-    return " ".join(_tokenize_words(text))
-
-def _sentence_similarity(a, b):
-    a_tokens = _normalize_sentence(a).split()
-    b_tokens = _normalize_sentence(b).split()
-    if not a_tokens or not b_tokens:
-        return 0.0
-    set_a = set(a_tokens)
-    set_b = set(b_tokens)
-    overlap = len(set_a & set_b)
-    denom = max(len(set_a), len(set_b))
-    return overlap / denom if denom else 0.0
-
-def _post_process_transcript(text):
-    if not POST_PROCESS_TRANSCRIPT:
-        return text
-    raw = (text or "").strip()
-    if not raw:
-        return raw
-    parts = re.split(r"(?<=[.!?])\s+", raw)
-    parts = [p.strip() for p in parts if p.strip()]
-    if len(parts) < 2:
-        return raw
-    last = parts[-1]
-    prev = parts[-2]
-    if len(_normalize_sentence(last).split()) < POST_PROCESS_MIN_TOKENS:
-        return raw
-    if _sentence_similarity(prev, last) >= POST_PROCESS_SIMILARITY:
-        parts.pop()
-        return " ".join(parts).strip()
-    return raw
-
 def _resample_to_16k(audio, sample_rate):
     if audio is None or len(audio) == 0:
         return audio
@@ -1041,35 +960,6 @@ def _resample_to_16k(audio, sample_rate):
     x_old = np.linspace(0.0, 1.0, num=len(audio), endpoint=False)
     x_new = np.linspace(0.0, 1.0, num=new_len, endpoint=False)
     return np.interp(x_new, x_old, audio).astype(np.float32, copy=False)
-
-def _read_wav_tail(file_path, seconds):
-    try:
-        with wave.open(file_path, "rb") as wf:
-            channels = wf.getnchannels()
-            sample_rate = wf.getframerate()
-            sampwidth = wf.getsampwidth()
-            total_frames = wf.getnframes()
-            tail_frames = max(1, int(sample_rate * seconds))
-            start = max(0, total_frames - tail_frames)
-            wf.setpos(start)
-            frames = wf.readframes(total_frames - start)
-    except Exception as e:
-        logger.warning(f"Failed to read WAV tail: {e}")
-        return None, None
-
-    if sampwidth == 2:
-        audio = np.frombuffer(frames, dtype=np.int16)
-        audio = audio.astype(np.float32) / 32768.0
-    elif sampwidth == 4:
-        audio = np.frombuffer(frames, dtype=np.int32)
-        audio = audio.astype(np.float32) / 2147483648.0
-    else:
-        logger.warning(f"Unsupported WAV sample width: {sampwidth}")
-        return None, None
-
-    if channels > 1:
-        audio = audio.reshape(-1, channels).mean(axis=1)
-    return audio, sample_rate
 
 def _chunk_transcription_worker(base_file_path):
     """Transcribe audio while recording by chunking audio into smaller windows."""
@@ -1174,13 +1064,12 @@ def _chunk_transcription_worker(base_file_path):
                     chunk_audio_mono = prepare_chunk_audio(chunk_audio)
                     start_ts = time.time()
                     try:
-                        chunk_prompt = _build_chunk_prompt(INITIAL_PROMPT)
                         segments, info = local_model.transcribe(
                             chunk_audio_mono,
                             beam_size=CHUNK_BEAM_SIZE,
                             language=CHUNK_LANGUAGE if CHUNK_LANGUAGE else None,
                             vad_filter=CHUNK_VAD_FILTER,
-                            initial_prompt=chunk_prompt or None
+                            initial_prompt=INITIAL_PROMPT or None
                         )
                     except TypeError:
                         # Older faster-whisper versions may not support some kwargs
@@ -1213,19 +1102,14 @@ def _chunk_transcription_worker(base_file_path):
                     final_audio = np.concatenate([tail, final_audio], axis=0)
 
                 final_audio_mono = prepare_chunk_audio(final_audio)
-                if END_SILENCE_GATE and _is_trailing_silence(final_audio_mono, 16000):
-                    if LOG_CHUNK_DEBUG:
-                        logger.info("Skipping final chunk due to trailing silence gate.")
-                    return
                 start_ts = time.time()
                 try:
-                    chunk_prompt = _build_chunk_prompt(INITIAL_PROMPT)
                     segments, info = local_model.transcribe(
                         final_audio_mono,
                         beam_size=CHUNK_BEAM_SIZE,
                         language=CHUNK_LANGUAGE if CHUNK_LANGUAGE else None,
                         vad_filter=CHUNK_VAD_FILTER,
-                        initial_prompt=chunk_prompt or None
+                        initial_prompt=INITIAL_PROMPT or None
                     )
                 except TypeError:
                     segments, info = local_model.transcribe(
@@ -1450,29 +1334,6 @@ def process_recording(file_path):
                 if pre:
                     logger.info("Using chunked transcript (recording was transcribed during capture).")
                     transcription = pre
-                    if TAIL_REDECODE_ENABLED and TAIL_REDECODE_SECONDS > 0:
-                        tail_audio, tail_rate = _read_wav_tail(file_path, TAIL_REDECODE_SECONDS)
-                        if tail_audio is not None and tail_rate:
-                            tail_audio = _resample_to_16k(tail_audio, tail_rate)
-                            if len(tail_audio) > 0:
-                                try:
-                                    segments, info = local_model.transcribe(
-                                        tail_audio,
-                                        beam_size=CHUNK_BEAM_SIZE,
-                                        language=CHUNK_LANGUAGE if CHUNK_LANGUAGE else None,
-                                        initial_prompt=INITIAL_PROMPT or None
-                                    )
-                                    tail_parts = []
-                                    for segment in segments:
-                                        tail_parts.append(safe_text_handling(segment.text, "tail segment"))
-                                    tail_text = " ".join(tail_parts).strip()
-                                    if tail_text:
-                                        transcription = _merge_transcripts(transcription, tail_text)
-                                        if LOG_CHUNK_DEBUG:
-                                            logger.info("Tail re-decode merged into chunked transcript.")
-                                except Exception as e:
-                                    logger.warning(f"Tail re-decode failed: {e}")
-                    transcription = _post_process_transcript(transcription)
                     logger.info(f"Transcription completed successfully: {transcription[:100]}{'...' if len(transcription) > 100 else ''}")
                     if LOG_FULL_TRANSCRIPT:
                         logger.info(f"Full transcript (chunked):\n{transcription}")
@@ -1521,8 +1382,7 @@ def process_recording(file_path):
         
         if not transcription or transcription.strip() == "":
             raise Exception("Transcription returned empty result")
-        
-        transcription = _post_process_transcript(transcription)
+
         # Log successful transcription
         logger.info(f"Transcription completed successfully: {transcription[:100]}{'...' if len(transcription) > 100 else ''}")
         if LOG_FULL_TRANSCRIPT:
